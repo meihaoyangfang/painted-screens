@@ -62,34 +62,45 @@ dsh plugin --profile desktop add /path/to/painted-screens
 
 | 樱花树下 | 鲸歌 |
 |---|---|
-| ![](docs/preview/sakura.jpg) | ![](docs/preview/whale-song.jpg) |
+| ![](docs/shots/sakura.jpg) | ![](docs/shots/whale-song.jpg) |
 
 | 霓虹残响 | EVA-02 |
 |---|---|
-| ![](docs/preview/cyberpunk.jpg) | ![](docs/preview/eva02-asuka.jpg) |
+| ![](docs/shots/cyberpunk.jpg) | ![](docs/shots/eva02-asuka.jpg) |
 
 | 墨竹 | 玫瑰奶油 |
 |---|---|
-| ![](docs/preview/ink-bamboo.jpg) | ![](docs/preview/rose-cream.jpg) |
+| ![](docs/shots/ink-bamboo.jpg) | ![](docs/shots/rose-cream.jpg) |
 
 <details>
 <summary>展开更多</summary>
 
 | 曜界 | 青冥 · 剑冢 | 黑金回廊 |
 |---|---|---|
-| ![](docs/preview/aurelis.jpg) | ![](docs/preview/qingming.jpg) | ![](docs/preview/noir-arcade.jpg) |
+| ![](docs/shots/aurelis.jpg) | ![](docs/shots/qingming.jpg) | ![](docs/shots/noir-arcade.jpg) |
 
 | 绯夜尤物 | 大肥鱼 | 零点以后 |
 |---|---|---|
-| ![](docs/preview/velvet-sin.jpg) | ![](docs/preview/big-fat-fish.jpg) | ![](docs/preview/after-zero.jpg) |
+| ![](docs/shots/velvet-sin.jpg) | ![](docs/shots/big-fat-fish.jpg) | ![](docs/shots/after-zero.jpg) |
 
 | 午后三时 | 春野 | 一比特 |
 |---|---|---|
-| ![](docs/preview/tea-time.jpg) | ![](docs/preview/spring-meadow.jpg) | ![](docs/preview/1bit-mac.jpg) |
+| ![](docs/shots/tea-time.jpg) | ![](docs/shots/spring-meadow.jpg) | ![](docs/shots/1bit-mac.jpg) |
 
 </details>
 
 > 全部是新会话页面的实拍，没有后期处理。
+
+### 启动动画
+
+每套皮肤有自己的开场，不是一张静态遮罩。
+
+| 鲸歌 · 下潜 | 大肥鱼 · 深蓝 | 樱花树下 |
+|---|---|---|
+| ![](docs/shots/boot-whale.jpg) | ![](docs/shots/boot-bff.jpg) | ![](docs/shots/boot-sakura.jpg) |
+
+想关掉开场：URL 加 `?boot=0`。
+
 
 ## 再加一套皮肤
 
@@ -140,6 +151,9 @@ apply(ctx)
 > 为什么不是「设置里的一个下拉」：DSH 的设置导航是 `settings.section` 账本，插件确实可以往那里注册页面，但那是二阶入口——用户要先开设置、再找分区。换皮肤是**高频、看效果**的动作，应该在画面上直接可及。设置入口作为补充入口有价值，见下方路线图。
 
 ![皮肤库](preview/shots/panel.png)
+
+![切换器](docs/shots/switcher.jpg)
+
 
 ## 目录
 
@@ -224,6 +238,15 @@ node tools/verify-runtime.mjs # 运行时契约验证
 
 - 「黑金回廊」的穹顶彩窗为原创 SVG，不指向任何真实建筑。
 - 「鲸歌」的鲸鱼纹章是手写 SVG；写真为 AI 生成的原创人像，造型参考自社区「鲸鱼娘」二创，不指向任何真实人物，也不使用 DeepSeek 商标或官方标识。
+
+### 关于 EVA-02
+
+这一套是**非官方同人作品**：
+
+- 与 khara / 福音战士制作委员会没有任何关联，未获授权，也未获背书；
+- 不含任何官方素材文件：徽记是作者自绘的六边形 + 字母 Z，人物与场景由图像生成平台产出；
+- 不售卖、不接赞助、不做推广，仅作同人交流；
+- 权利方如提出要求，会立即移除，详见 [NOTICE](NOTICE.md)。
 
 联系方式：开 issue。
 
