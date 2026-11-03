@@ -160,7 +160,7 @@ apply(ctx)
 ## 目录
 
 ```
-huaping/
+painted-screens/
 ├── client.js                ← 构建产物（DSH 实际加载这个）
 ├── src/client.template.js   ← 可读源码，改这个
 ├── art/
