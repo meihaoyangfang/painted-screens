@@ -22,13 +22,13 @@
  */
 
 window.__ModuleLoader__.load({
-  id: '@mhstory/huaping',
+  id: '@mhstory/painted-screens',
   factory(require) {
     const React = require('react');
     const h = React.createElement;
     const { useEffect, useRef, useState } = React;
 
-    const SOURCE = '@mhstory/huaping';
+    const SOURCE = '@mhstory/painted-screens';
     const STORE_KEY = 'painted-screens:skin';
     const LEGACY_KEY = 'huaping-skin';
     const ROOT_ATTR = 'data-hp-skin';

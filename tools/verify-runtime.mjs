@@ -225,7 +225,7 @@ function walk(node, visit) {
 console.log('\n1. cold boot');
 const a = boot(null);
 
-check('module id', a.moduleDef.id === '@mhstory/huaping');
+check('module id', a.moduleDef.id === '@mhstory/painted-screens');
 check('plugin exposes apply()', typeof a.plugin.apply === 'function');
 a.plugin.apply(a.ctx);
 

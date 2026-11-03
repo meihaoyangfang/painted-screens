@@ -3,4 +3,4 @@
 # localStorage), so exactly one theme bundle is ever enabled.
 - insert:
     - id: huaping
-      name: '@mhstory/huaping'
+      name: '@mhstory/painted-screens'
