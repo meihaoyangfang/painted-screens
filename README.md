@@ -154,9 +154,7 @@ apply(ctx)
 
 > 为什么不是「设置里的一个下拉」：DSH 的设置导航是 `settings.section` 账本，插件确实可以往那里注册页面，但那是二阶入口——用户要先开设置、再找分区。换皮肤是**高频、看效果**的动作，应该在画面上直接可及。设置入口作为补充入口有价值，见下方路线图。
 
-![皮肤库](preview/shots/panel.png)
-
-![切换器](docs/shots/switcher.jpg)
+![皮肤库](docs/shots/switcher.jpg)
 
 
 ## 目录
