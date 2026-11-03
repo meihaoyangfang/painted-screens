@@ -128,12 +128,14 @@ apply(ctx)
 │   ├── <style>                     该皮肤的 CSS，切换即换
 │   └── data-hp-skin="…"            根属性，便于 CSS 作用域
 ├── skinStore.subscribe(activate)  ← 切换的唯一入口
-└── 6 个 slot 注册（常驻，不随切换重建）
-    ├── shell.overlay ×2           皮肤 overlay + 切换器
+└── 8 个 slot（10 个注册点，常驻，不随切换重建）
+    ├── shell.overlay ×3           皮肤 overlay + 切换器 + 画廊
     ├── sidebar.brand.mark / .name
+    ├── sidebar.footer.action
     ├── conversation.hero.brand.mark
     ├── conversation.input.left
-    └── conversation.composer.dock
+    ├── conversation.composer.dock
+    └── settings.section
 ```
 
 关键点：**slot 只注册一次**。每个 slot 是一个「宿主组件」，它从 store 读当前皮肤，渲染对应组件，切肤时把 `key` 换掉从而重挂载。这样避免了反复注册 slot 带来的泄漏和顺序问题。
