@@ -49,12 +49,12 @@
   "author": "mhstory",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mhstory/huaping.git"
+    "url": "git+https://github.com/meihaoyangfang/huaping.git"
   },
   "bugs": {
-    "url": "https://github.com/mhstory/huaping/issues"
+    "url": "https://github.com/meihaoyangfang/huaping/issues"
   },
-  "homepage": "https://github.com/mhstory/huaping#readme",
+  "homepage": "https://github.com/meihaoyangfang/huaping#readme",
   "scripts": {
     "build": "node tools/build.mjs",
     "build:check": "node tools/build.mjs --check",
