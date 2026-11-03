@@ -470,7 +470,7 @@ html body [class*="overlayLayer"]{z-index:2147483000 !important}
     function useAnchor() {
       const [pos, setPos] = useState(() => {
         try {
-          const raw = window.localStorage.getItem('huaping-anchor');
+          const raw = window.localStorage.getItem('painted-screens:anchor') || window.localStorage.getItem('huaping-anchor');
           const parsed = raw ? JSON.parse(raw) : null;
           if (!parsed || typeof parsed.x !== 'number' || typeof parsed.y !== 'number') return null;
           // 存下来的是绝对像素。换了显示器（大屏→笔记本小屏）之后，
@@ -486,7 +486,7 @@ html body [class*="overlayLayer"]{z-index:2147483000 !important}
       const save = (next) => {
         setPos(next);
         try {
-          window.localStorage.setItem('huaping-anchor', JSON.stringify(next));
+          window.localStorage.setItem('painted-screens:anchor', JSON.stringify(next));
         } catch (error) {
           /* storage optional */
         }
