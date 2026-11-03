@@ -20,7 +20,6 @@
     "cordis.patch.yml",
     "icon.svg",
     "locale/*.json",
-    "skins/*/skin.json",
     "README.md",
     "NOTICE.md",
     "LICENSE",
