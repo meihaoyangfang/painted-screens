@@ -26,6 +26,21 @@ DSH Web UI 的多皮肤包。一个插件行、一个版本号、一个仓库—
 
 ---
 
+## 皮肤预览
+
+| 樱花树下 | 鲸歌 |
+|---|---|
+| ![樱花树下](docs/preview/sakura.jpg) | ![鲸歌](docs/preview/whale-song.jpg) |
+
+| 霓虹残响 | EVA-02 |
+|---|---|
+| ![霓虹残响](docs/preview/cyberpunk.jpg) | ![EVA-02](docs/preview/eva02-asuka.jpg) |
+
+| 玫瑰奶油 | 墨竹 |
+|---|---|
+| ![玫瑰奶油](docs/preview/rose-cream.jpg) | ![墨竹](docs/preview/ink-bamboo.jpg) |
+
+
 ## 预览
 
 `preview/index.html` 用**真实的 `client.js`** 加一个 40 行的迷你 React，在浏览器里跑起一个仿真外壳——不安装、不碰 DSH profile：
