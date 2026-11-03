@@ -95,9 +95,9 @@ dsh plugin --profile desktop add /path/to/painted-screens
 
 每套皮肤有自己的开场，不是一张静态遮罩。
 
-| 鲸歌 · 下潜 | 大肥鱼 · 深蓝 | 樱花树下 |
+| 绯夜尤物 | 大肥鱼 | 墨竹 |
 |---|---|---|
-| ![](docs/shots/boot-whale.jpg) | ![](docs/shots/boot-bff.jpg) | ![](docs/shots/boot-sakura.jpg) |
+| ![](docs/shots/boot-velvet.jpg) | ![](docs/shots/boot-bff.jpg) | ![](docs/shots/boot-ink.jpg) |
 
 想关掉开场：URL 加 `?boot=0`。
 
