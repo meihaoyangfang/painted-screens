@@ -1,0 +1,13 @@
+{
+  "id": "sakura",
+  "name": "樱花树下",
+  "latin": "UNDER THE SAKURA",
+  "appearance": "dark",
+  "blurb": "黄昏樱并木 · 实时三维落樱",
+  "composerBg": "#120C15",
+  "hosted": true,
+  "variant": null,
+  "rootClasses": [
+    "sk-whale"
+  ]
+}

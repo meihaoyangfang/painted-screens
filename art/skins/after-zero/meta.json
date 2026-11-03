@@ -1,0 +1,20 @@
+{
+  "id": "after-zero",
+  "name": "零点以后",
+  "latin": "AFTER ZERO",
+  "appearance": "dark",
+  "blurb": "夜班女仆长 · 黄铜怀表与丝绒",
+  "composerBg": "rgba(18, 7, 12, 0.55)",
+  "bootKey": "after-zero-boot-v1",
+  "slots": {
+    "sidebar.brand.mark": "ZeroMark",
+    "sidebar.brand.name": "ZeroBrandName",
+    "conversation.hero.brand.mark": "ZeroHeroMark",
+    "conversation.input.left": "ZeroChip"
+  },
+  "rootClasses": [],
+  "widget": null,
+  "sidecars": [
+    "installLiveZeroWall"
+  ]
+}

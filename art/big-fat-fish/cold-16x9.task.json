@@ -1,0 +1,14 @@
+{
+  "task_id": "92848963-e57d-4493-8110-5c3c0ec8fc50",
+  "model": "gemini-3-pro-image-preview",
+  "size": "2K",
+  "ratio": "16:9",
+  "prompt_file": "tools/prompts/big-fat-fish/keyvisual-cold-16x9-v3.txt",
+  "idempotency_key": "bff-cold-003",
+  "usage": {
+    "points_charged": 160,
+    "points_refunded": 0
+  },
+  "output_url": "https://static.flux-art.net/gemini_92848963-e57d-4493-8110-5c3c0ec8fc50_930.png",
+  "bytes": 2579015
+}

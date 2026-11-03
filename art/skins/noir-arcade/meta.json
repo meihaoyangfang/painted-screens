@@ -1,0 +1,20 @@
+{
+  "id": "noir-arcade",
+  "name": "黑金回廊",
+  "latin": "NOIR ARCADE",
+  "appearance": "dark",
+  "blurb": "哥特夜景 · 穹顶彩窗与烛光",
+  "composerBg": "#040403",
+  "bootKey": "noir-cathedral-boot-v1",
+  "overlay": "NoirAtmosphere",
+  "slots": {
+    "sidebar.brand.mark": "NoirSidebarMark",
+    "sidebar.brand.name": "NoirBrandName",
+    "conversation.hero.brand.mark": "NoirHeroMark",
+    "conversation.input.left": "NoirVigilChip",
+    "conversation.composer.dock": "NoirRail"
+  },
+  "rootClasses": [],
+  "widget": null,
+  "sidecars": []
+}

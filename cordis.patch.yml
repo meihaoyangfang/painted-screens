@@ -1,0 +1,6 @@
+# 画屏 · PAINTED SCREENS — one row for the whole skin pack.
+# Skins are switched inside the plugin (floating switcher, choice persisted in
+# localStorage), so exactly one theme bundle is ever enabled.
+- insert:
+    - id: huaping
+      name: '@mhstory/huaping'

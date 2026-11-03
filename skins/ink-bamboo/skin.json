@@ -1,0 +1,18 @@
+{
+  "id": "ink-bamboo",
+  "name": "墨竹",
+  "latin": "INK BAMBOO",
+  "version": "0.1.0",
+  "appearance": "light",
+  "palette": "ink-bamboo",
+  "blurb": "纸窗竹影 · 一片叶子偶尔落下",
+  "slots": [
+    "shell.overlay",
+    "sidebar.brand.mark",
+    "sidebar.brand.name",
+    "conversation.hero.brand.mark",
+    "conversation.input.left",
+    "conversation.composer.dock"
+  ],
+  "notes": "Paper-white light skin. The bamboo is a hand-written SVG painted in the overlay layer, swayed by CSS and masked on its left edge so it never crosses the reading column; three leaf elements fall on their own timings."
+}

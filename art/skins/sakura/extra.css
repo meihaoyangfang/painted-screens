@@ -1,0 +1,66 @@
+/* 宿主输入区：暗色玻璃。场景在下面动，字得有个安静的底。
+   宿主把输入框画在一块写死的 rgb(44,44,46) 卡片上，只能按类名接管。 */
+/* 注意：这里**不能**用 backdrop-filter。
+   底下是每帧重画的 WebGL 场景，模糊层会跟着逐帧重算；
+   鼠标移到发送按钮上触发重绘时，就会闪一下。
+   改用稍厚一点的底色 + 内描边来保证字的对比。 */
+[class*="composerStack"] [class*="_card"] {
+  background-color: rgba(12, 8, 15, 0.74) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 214, 230, 0.10),
+    0 18px 44px rgba(0, 0, 0, 0.42);
+}
+
+/* 侧栏同样是写死的深灰，换成能透出树影的薄片 */
+html body [class*="sidebarCol"],
+html body [class*="quietBars"] {
+  background-color: rgba(12, 8, 15, 0.44) !important;
+}
+
+/* 输入卡下沿：14px 内快速收边，正文滚到此处即被盖住（统一规范） */
+/* 只在「输入卡正下方」压一条窄带：两侧不遮，正文滚到卡片下面即被盖住 */
+/* 输入区不再铺任何横向底带（两侧不该被遮） */
+
+/* 输入区底部封口：只在最后 60px 实色，卡片上方半点不碰 */
+html body [class*="composerSeat"] {
+  background: linear-gradient(180deg,
+    rgba(18, 12, 14, 0) 0,
+    rgba(18, 12, 14, 0) calc(100% - 60px),
+    rgba(18, 12, 14, 1) calc(100% - 34px),
+    rgba(18, 12, 14, 1) 100%) !important;
+  background-image: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+html body [class*="composerHero"] {
+  background: none !important;
+}
+
+
+/* 卡片下沿的收边：跟着卡片宽度走，40px 内渐隐，只盖住卡片正下方那条 */
+
+html body 
+/* 新会话页（hero 输入框）不要那条收边遮罩 */
+
+
+/* 会话正文在输入区上方渐隐：遮的是「内容」，不是卡片本身 */
+html body [class*="scrollBody"] > *:not([class*="composer"]):not([class*="Composer"]) {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+  mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+}
+/* 卡片下沿收边：用「composerStack + _card」这对类名（data 属性在新版宿主里不存在） */
+
+  mask-image: linear-gradient(180deg, #000 calc(100% - 190px), rgba(0,0,0,0.35) calc(100% - 96px), transparent calc(100% - 24px));
+}
+
+/* 会话文本层：scrollBody 的第一个子节点就是消息列表（它没有 class，只能按位置选） */
+html body [class*="scrollBody"] > *:first-child {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+  mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+}
+/* 输入卡：不透光，正文绝不可能从卡片里透出来 */
+html body [class*="composerStack"] [class*="_card"] {
+  background-color: rgba(18, 13, 16, 1) !important;
+}

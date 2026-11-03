@@ -1,0 +1,16 @@
+{
+  "task_id": "5f4277b7-ed20-47d2-ac41-a00f5b4a4ee7",
+  "model": "gemini-3-pro-image-preview",
+  "mode": "edit",
+  "size": "2K",
+  "ratio": "16:9",
+  "prompt_file": "tools/prompts/big-fat-fish/ear-tweak-v4.txt",
+  "source_url": "https://static.flux-art.net/gemini_a5a5def3-4bd6-400b-b8b2-736ccb028fee_234.png",
+  "idempotency_key": "bff-ears-005",
+  "usage": {
+    "points_charged": 160,
+    "points_refunded": 0
+  },
+  "output_url": "https://static.flux-art.net/gemini_5f4277b7-ed20-47d2-ac41-a00f5b4a4ee7_288.png",
+  "bytes": 2232043
+}

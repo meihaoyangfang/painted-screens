@@ -1,0 +1,22 @@
+{
+  "id": "aurelis",
+  "name": "曜界",
+  "latin": "AURELIS",
+  "appearance": "dark",
+  "blurb": "轨道机库 · 象牙白装甲与光晕",
+  "composerBg": "rgba(7, 9, 12, 0.55)",
+  "bootKey": "au-boot-v1",
+  "boot": "AurelisBoot",
+  "overlay": "AurelisFrame",
+  "slots": {
+    "sidebar.brand.mark": "AurelisSidebarMark",
+    "sidebar.brand.name": "AurelisBrandName",
+    "conversation.hero.brand.mark": "AurelisHeroMark",
+    "conversation.input.left": "AurelisChip",
+    "conversation.composer.dock": "AurelisComposerHud"
+  },
+  "rootClasses": [
+    "au-whale"
+  ],
+  "widget": "installWidgetSkin"
+}

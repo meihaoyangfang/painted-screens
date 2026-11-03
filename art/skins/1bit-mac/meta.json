@@ -1,0 +1,23 @@
+{
+  "id": "1bit-mac",
+  "name": "一比特",
+  "latin": "1-BIT SYSTEM",
+  "appearance": "light",
+  "blurb": "黑白两色 · 4×4 网点与 640K 自检",
+  "composerBg": "#FFFFFF",
+  "bootKey": "huaping-1bit-boot-v1",
+  "boot": "MonoBoot",
+  "overlay": "MonoAtmosphere",
+  "slots": {
+    "sidebar.brand.mark": "MonoSidebarMark",
+    "sidebar.brand.name": "MonoBrandName",
+    "conversation.hero.brand.mark": "MonoHeroMark",
+    "conversation.input.left": "MonoSoundChip",
+    "conversation.composer.dock": "MonoMachine"
+  },
+  "rootClasses": [
+    "onebit"
+  ],
+  "widget": null,
+  "sidecars": []
+}

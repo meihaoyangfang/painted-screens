@@ -1,0 +1,110 @@
+/* ── 三点一刻 · 挂件 ────────────────────────────────────────────────────
+   角色：一张贴纸（白边 + 虚线描边 + 轻微旋转）
+   气泡：奶白便签，草莓虚线边，薄荷色的数字
+   ──────────────────────────────────────────────────────────────────── */
+
+html.sk-tea .dshwv-img {
+  /* 她已经在壁纸里了，挂件换成她托盘上的那只茶壶 */
+  width: 44%;
+  height: 44%;
+  right: 5%;
+  bottom: 2%;
+  object-fit: contain;
+  object-position: 50% 100%;
+  clip-path: none !important;
+  border: none;
+  border-radius: 0;
+  background: none;
+  transform: rotate(-2deg);
+  filter: drop-shadow(0 8px 14px rgba(91, 64, 52, 0.18));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html.sk-tea .dshwv-img:hover { transform: rotate(0deg) translateY(-3px); }
+
+html.sk-tea .dshwv-img:hover { transform: rotate(-0.5deg) translateY(-3px); }
+
+html.sk-tea .dshwv-img:hover { transform: rotate(-1deg) translateY(-2px); }
+
+html.sk-tea .dshwv-shapewrap svg { filter: drop-shadow(0 10px 22px rgba(91, 64, 52, 0.16)); }
+
+html.sk-tea .dshwv-bshape {
+  fill: #FFFDFA;
+  stroke: rgba(255, 143, 166, 0.75);
+  stroke-width: 5;
+  stroke-dasharray: 16 12;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+html.sk-tea .dshwv-b1,
+html.sk-tea .dshwv-b2 { display: none; }
+html.sk-tea .dshwv-gif { display: none; }
+
+html.sk-tea .dshwv-text { color: #5B4034; font-family: "PingFang SC", "Hiragino Sans GB", sans-serif; }
+
+html.sk-tea .dshwv-label {
+  color: #5FA88C;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+}
+
+html.sk-tea .dshwv-amount {
+  color: #E2607F;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: none;
+}
+
+html.sk-tea .dshwv-hint { color: #9A7D6C; }
+
+/* 彩虹字 / 彩虹块：压成草莓与薄荷 */
+html.sk-tea .dshwv-text .dshwv-rgb,
+html.sk-tea .dshwv-text [class*="dshwv-rgb-"] {
+  background-image: none !important;
+  animation: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  color: #E2607F !important;
+  -webkit-text-fill-color: #E2607F !important;
+}
+
+html.sk-tea .dshwv-text .dshwv-bgrgb,
+html.sk-tea .dshwv-text [class*="dshwv-bgrgb-"] {
+  background-image: none !important;
+  background-color: rgba(191, 227, 208, 0.55) !important;
+  animation: none !important;
+  color: #3F7360 !important;
+  -webkit-text-fill-color: #3F7360 !important;
+  padding: 1px 7px;
+  border-radius: 999px;
+}
+
+html.sk-tea .dshwv-text .dshwv-trow { text-shadow: none !important; }
+
+/* 便签右上角贴一小截胶带 */
+html.sk-tea .dshwv-pop::after {
+  content: "";
+  position: absolute;
+  left: 52%;
+  top: 3.5%;
+  width: 58px;
+  height: 20px;
+  background: rgba(191, 227, 208, 0.85);
+  border-left: 1px dashed rgba(95, 168, 140, 0.6);
+  border-right: 1px dashed rgba(95, 168, 140, 0.6);
+  transform: rotate(-3deg);
+  opacity: 0;
+  transition: opacity 0.18s ease 0.2s;
+  pointer-events: none;
+}
+
+html.sk-tea .dshwv-pop.dshwv-pop-open::after { opacity: 1; }
+
+html.sk-tea .dshwv-menu-btn {
+  border-radius: 999px !important;
+  background: #FFFFFF !important;
+  border: 1px dashed rgba(255, 143, 166, 0.75) !important;
+  color: #E2607F !important;
+  box-shadow: 0 4px 12px rgba(91, 64, 52, 0.14) !important;
+}

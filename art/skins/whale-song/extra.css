@@ -1,0 +1,85 @@
+/* 鲸歌：壁纸几乎不加暗纱，让她原样透出来 */
+html body,
+html[data-platform='darwin'] body {
+  /* 只留人像：原来左下角叠的那只幽灵鲸（--ws-ghost）已经去掉 */
+  background-image:
+    radial-gradient(ellipse 46% 56% at 78% 36%, rgba(77, 107, 254, 0.20), rgba(4, 10, 19, 0) 70%),
+    var(--ws-visual) !important;
+  /* 106vh 让整幅人像正好落在窗口里：脸在标题区上方，脚在输入框下面。
+     再高就会变成「只剩半个头」，再低就变成缩略图。 */
+  background-size: cover, auto 106vh !important;
+  /* 贴住右边缘，不再留那 3vw 的空隙 */
+  background-position: center, right center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed, fixed !important;
+}
+
+/* 右侧提亮：只加光，不加暗 */
+html body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 42% 58% at 82% 42%, rgba(150, 205, 255, 0.22), rgba(150, 205, 255, 0) 68%);
+  mix-blend-mode: screen;
+}
+
+/* 会话面板近乎全透明。
+   注意目标必须是 body：主题的 token 是写在 body 的**行内样式**上的，
+   写 html:root 只会设到 html 上，继承不过去，行内值照样赢。 */
+html body {
+  --dsw-alias-bg-base: rgba(4, 10, 19, 0.30) !important;
+  --dsw-alias-bg-layer-1: rgba(6, 14, 26, 0.42) !important;
+  --dsw-alias-bg-layer-2: rgba(8, 18, 32, 0.58) !important;
+}
+
+/* 输入区那条底：只在左边压住，右边让壁纸透出来 */
+html body [class*="composerStack"]:not([class*="composerHero"]) {
+  background-color: transparent !important;
+  background-image: linear-gradient(
+    90deg,
+    rgba(4, 10, 19, 0.92) 0%,
+    rgba(4, 10, 19, 0.86) 34%,
+    rgba(4, 10, 19, 0.56) 58%,
+    rgba(4, 10, 19, 0.16) 78%,
+    rgba(4, 10, 19, 0) 100%
+  ) !important;
+}
+
+
+/* 输入区底部封口：只在最后 60px 实色，卡片上方半点不碰 */
+html body [class*="composerSeat"] {
+  background: linear-gradient(180deg,
+    rgba(18, 12, 14, 0) 0,
+    rgba(18, 12, 14, 0) calc(100% - 60px),
+    rgba(18, 12, 14, 1) calc(100% - 34px),
+    rgba(18, 12, 14, 1) 100%) !important;
+  background-image: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+html body [class*="composerHero"] {
+  background: none !important;
+}
+
+
+/* 正文加极淡投影，压在人像上也清楚 */
+[class*="messageBubble"], [class*="markdownBody"] {
+  text-shadow: 0 1px 3px rgba(2, 6, 12, 0.55);
+}
+/* 卡片下沿收边：用「composerStack + _card」这对类名（data 属性在新版宿主里不存在） */
+
+  mask-image: linear-gradient(180deg, #000 calc(100% - 190px), rgba(0,0,0,0.35) calc(100% - 96px), transparent calc(100% - 24px));
+}
+
+/* 会话文本层：scrollBody 的第一个子节点就是消息列表（它没有 class，只能按位置选） */
+html body [class*="scrollBody"] > *:first-child {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+  mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+}
+/* 输入卡：不透光，正文绝不可能从卡片里透出来 */
+html body [class*="composerStack"] [class*="_card"] {
+  background-color: rgba(18, 13, 16, 1) !important;
+}

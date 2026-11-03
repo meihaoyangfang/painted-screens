@@ -1,0 +1,331 @@
+/* ── 零点以后 · AFTER ZERO ───────────────────────────────────────────────
+   夜班女仆长：近黑酒红 + 黄铜细线 + 一支烛的光。
+   ──────────────────────────────────────────────────────────────────── */
+
+:root {
+  --az-bg: #12070C;
+  --az-wine: #2A1119;
+  --az-wine-deep: #1B0C12;
+  --az-lip: #E0245E;
+  --az-brass: #D9A441;
+  --az-brass-dim: rgba(217, 164, 65, 0.26);
+  --az-brass-line: rgba(217, 164, 65, 0.16);
+  --az-ivory: #F3E7DC;
+  --az-ink-2: #CDB6AC;
+  --az-ink-3: #A88F86;
+  --az-serif: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", serif;
+  --az-didone: "Didot", "Bodoni 72", "Times New Roman", serif;
+  --az-mono: "SF Mono", "Menlo", "Monaco", monospace;
+  --az-art: url("./assets/art.jpg");
+  --az-grain: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+html { background-color: var(--az-bg) !important; color-scheme: dark; }
+
+html body,
+html[data-platform='darwin'] body {
+  color-scheme: dark;
+  background-color: var(--az-bg) !important;
+  background-color: #12070C !important;
+  background-image:
+    linear-gradient(90deg,
+      rgba(15, 6, 10, 0.34) 0%,
+      rgba(16, 7, 11, 0.16) 20%,
+      rgba(18, 8, 13, 0.04) 38%,
+      rgba(18, 8, 13, 0) 56%),
+    linear-gradient(180deg,
+      rgba(14, 6, 9, 0.42) 0%,
+      rgba(14, 6, 9, 0) 12%,
+      rgba(14, 6, 9, 0) 78%,
+      rgba(10, 4, 7, 0.38) 100%),
+    var(--az-art);
+  background-size: 100% 100%, 100% 100%, cover;
+  background-position: center, center, right center;
+  background-repeat: no-repeat;
+  background-attachment: fixed, fixed, fixed;
+  color: var(--az-ivory);
+  font-family: "PingFang SC", "Hiragino Sans GB", -apple-system, sans-serif;
+}
+
+/* 会话列的面板底色。token 是行内写在 body 上的，
+   必须用带 !important 的 body 规则才盖得住，否则壁纸会被压掉六成。 */
+html body {
+  --dsw-alias-bg-base: rgba(18, 7, 12, 0.26) !important;
+  --dsw-alias-bg-layer-1: rgba(27, 12, 18, 0.46) !important;
+  --dsw-alias-bg-layer-2: rgba(36, 16, 24, 0.6) !important;
+}
+
+/* 丝绒颗粒 + 四角压暗 */
+html body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: var(--az-grain);
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+
+html body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(130% 108% at 54% 46%, transparent 62%, rgba(6, 2, 4, 0.42) 100%);
+}
+
+::selection { background: rgba(224, 36, 94, 0.32); color: #FFF4EE; }
+
+h1, h2, h3 { font-family: var(--az-serif); letter-spacing: 0.015em; }
+
+/* ── 侧栏 ─────────────────────────────────────────────────────────── */
+[class*="sidebarCol"] {
+  background: linear-gradient(180deg, rgba(16, 7, 11, 0.94), rgba(11, 4, 8, 0.97)) !important;
+  border-right: 1px solid var(--az-brass-line) !important;
+}
+
+[class*="sidebarCol"] [class*="row"]:hover,
+[class*="quietBars"] {
+  background-color: transparent !important;
+}
+
+/* 侧栏底部那条状态 */
+[class*="sidebarFooter"], [class*="sidebarFoot"] {
+  border-top: 1px solid var(--az-brass-line) !important;
+}
+
+/* ── 顶栏 ─────────────────────────────────────────────────────────── */
+header {
+  background-image: linear-gradient(180deg, rgba(18, 7, 12, 0.96), rgba(18, 7, 12, 0.72)) !important;
+  border-bottom: 1px solid var(--az-brass-line) !important;
+  backdrop-filter: blur(12px);
+}
+
+/* ── 输入区 ───────────────────────────────────────────────────────── */
+[data-composer-card] {
+  background-image: linear-gradient(180deg, rgba(44, 22, 32, 0.94), rgba(25, 11, 17, 0.97)) !important;
+  border: 1px solid rgba(217, 164, 65, 0.24) !important;
+  border-radius: 4px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(243, 231, 220, 0.07),
+    0 20px 48px rgba(0, 0, 0, 0.55),
+    0 0 60px rgba(217, 164, 65, 0.04) !important;
+}
+
+[data-composer-card]:focus-within {
+  border-color: rgba(217, 164, 65, 0.58) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(243, 231, 220, 0.10),
+    0 20px 48px rgba(0, 0, 0, 0.58),
+    0 0 26px rgba(217, 164, 65, 0.10) !important;
+}
+
+/* 输入区底下那条：左边压住字，右边让出来 */
+/* 输入卡下沿：14px 内快速收边，正文滚到此处即被盖住（统一规范） */
+/* 只在「输入卡正下方」压一条窄带：两侧不遮，正文滚到卡片下面即被盖住 */
+/* 输入区不再铺任何横向底带（两侧不该被遮） */
+
+/* 输入区底部封口：只在最后 60px 实色，卡片上方半点不碰 */
+html body [class*="composerSeat"] {
+  background: linear-gradient(180deg,
+    rgba(18, 7, 12, 0) 0,
+    rgba(18, 7, 12, 0) calc(100% - 60px),
+    rgba(18, 7, 12, 1) calc(100% - 34px),
+    rgba(18, 7, 12, 1) 100%) !important;
+  background-image: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+html body [class*="composerHero"] {
+  background: none !important;
+}
+
+
+/* 卡片下沿的收边：跟着卡片宽度走，40px 内渐隐，只盖住卡片正下方那条 */
+
+html body 
+
+
+
+html body [class*="composerStack"]:not([class*="composerHero"]) {
+  background-color: transparent !important;
+  background-image: linear-gradient(
+    90deg,
+    rgba(18, 7, 12, 0.46) 0%,
+    rgba(18, 7, 12, 0.34) 34%,
+    rgba(18, 7, 12, 0.16) 62%,
+    rgba(18, 7, 12, 0.04) 84%,
+    rgba(18, 7, 12, 0) 100%
+  ) !important;
+}
+
+/* ── 消息 / 卡片 ───────────────────────────────────────────────────── */
+[class*="messageBubble"], [class*="bubble"] {
+  border-radius: 4px !important;
+}
+
+[class*="codeBlock"], [class*="code-block"], pre {
+  border: 1px solid rgba(217, 164, 65, 0.14) !important;
+  border-radius: 3px !important;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(217, 164, 65, 0.24) !important;
+  border-radius: 2px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(217, 164, 65, 0.42) !important;
+}
+
+/* ── 品牌标记 ─────────────────────────────────────────────────────── */
+.az-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--az-brass-dim);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, rgba(224, 36, 94, 0.22), rgba(18, 7, 12, 0.9) 70%);
+}
+
+.az-watch { width: 19px; height: 19px; display: block; }
+
+.az-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  font-family: var(--az-didone);
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  color: var(--az-ivory);
+}
+
+.az-brand__after { color: var(--az-ink-2); letter-spacing: 0.24em; }
+.az-brand__zero { color: var(--az-lip); letter-spacing: 0.26em; }
+
+.az-brand__no {
+  font-family: var(--az-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--az-brass);
+  opacity: 0.8;
+  padding-left: 6px;
+  border-left: 1px solid var(--az-brass-line);
+}
+
+.az-hero {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+}
+
+.az-hero__halo {
+  position: absolute;
+  inset: -30%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 46%, rgba(224, 36, 94, 0.34), rgba(224, 36, 94, 0) 68%);
+  filter: blur(6px);
+  animation: az-breathe 3.4s ease-in-out infinite;
+}
+
+.az-hero__watch { width: 100%; height: 100%; }
+
+@keyframes az-breathe {
+  0%, 100% { opacity: 0.65; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+.az-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 22px;
+  padding: 0 9px;
+  border: 1px solid var(--az-brass-dim);
+  border-radius: 2px;
+  background: rgba(18, 7, 12, 0.6);
+  font-family: var(--az-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--az-ink-3);
+  white-space: nowrap;
+}
+
+.az-chip__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--az-lip);
+  box-shadow: 0 0 6px rgba(224, 36, 94, 0.8);
+  animation: az-breathe 3.4s ease-in-out infinite;
+}
+
+.az-chip__label { color: var(--az-ivory); letter-spacing: 0.14em; }
+.az-chip__sep { color: var(--az-brass); opacity: 0.6; }
+.az-chip__time { color: var(--az-brass); letter-spacing: 0.06em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .az-hero__halo, .az-chip__dot { animation: none; }
+}
+
+/* 微动壁纸：整幅铺满的 <img>，压在最底层。
+   呼吸交给 CSS transform —— 栅格逐帧动画再密也会“一格一格”，
+   而 transform 走合成器，60fps 且能套真正的缓动曲线。 */
+.az-live-img {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  z-index: -2;
+  pointer-events: none;
+  user-select: none;
+  transform-origin: 50% 100%;
+  animation: az-wall-breathe 6.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  will-change: transform;
+}
+
+/* 吸气 2.6s（略慢）→ 停一拍 → 呼气 3.2s，像人而不是节拍器 */
+@keyframes az-wall-breathe {
+  0%   { transform: scale(1) translateY(0); }
+  40%  { transform: scale(1.006) translateY(-2.4px); }
+  52%  { transform: scale(1.0065) translateY(-2.8px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .az-live-img { animation: none; }
+}
+
+html.az-live { background-color: #0C0509 !important; }
+html.az-live body {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* 新会话页（hero 输入框）不要那条收边遮罩 */
+
+
+/* 会话正文在输入区上方渐隐：遮的是「内容」，不是卡片本身 */
+html body [class*="scrollBody"] > *:not([class*="composer"]):not([class*="Composer"]) {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+  mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+}
+/* 卡片下沿收边：用「composerStack + _card」这对类名（data 属性在新版宿主里不存在） */
+
+  mask-image: linear-gradient(180deg, #000 calc(100% - 190px), rgba(0,0,0,0.35) calc(100% - 96px), transparent calc(100% - 24px));
+}
+
+/* 会话文本层：scrollBody 的第一个子节点就是消息列表（它没有 class，只能按位置选） */
+html body [class*="scrollBody"] > *:first-child {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+  mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+}
+/* 输入卡：不透光，正文绝不可能从卡片里透出来 */
+html body [class*="composerStack"] [class*="_card"] {
+  background-color: rgba(18, 13, 16, 1) !important;
+}

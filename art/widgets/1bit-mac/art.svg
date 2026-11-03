@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
+  <defs>
+    <pattern id="dith" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="2" height="2" fill="#000"/>
+      <rect x="2" y="2" width="2" height="2" fill="#000"/>
+    </pattern>
+  </defs>
+
+  <!-- 投影用网点，不用模糊 -->
+  <path d="M44 160 h112 v10 h-112 z" fill="url(#dith)"/>
+
+  <!-- 底座 -->
+  <path d="M50 140 h100 l14 18 h-128 z" fill="#fff" stroke="#000" stroke-width="4" stroke-linejoin="miter"/>
+
+  <!-- 机身 -->
+  <rect x="52" y="24" width="96" height="118" rx="5" fill="#fff" stroke="#000" stroke-width="4"/>
+
+  <!-- 屏幕 -->
+  <rect x="62" y="34" width="76" height="60" fill="#000"/>
+  <rect x="78"  y="50" width="8" height="11" fill="#fff"/>
+  <rect x="114" y="50" width="8" height="11" fill="#fff"/>
+  <path d="M78 70 h8 v6 h24 v-6 h8 v6 h-8 v7 h-24 v-7 h-8 z" fill="#fff"/>
+
+  <!-- 软驱口 + 散热格栅 -->
+  <rect x="62" y="104" width="26" height="7" fill="#000"/>
+  <path d="M100 105 h32 M100 113 h32 M100 121 h32" stroke="#000" stroke-width="3" stroke-linecap="square"/>
+</svg>

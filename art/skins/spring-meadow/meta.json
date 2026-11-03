@@ -1,0 +1,19 @@
+{
+  "id": "spring-meadow",
+  "name": "春野",
+  "latin": "SPRING MEADOW",
+  "appearance": "light",
+  "blurb": "三月草长 · 风把云推过山头",
+  "composerBg": "rgba(243, 250, 241, 0.62)",
+  "slots": {
+    "sidebar.brand.mark": "LeafMark",
+    "sidebar.brand.name": "SpringBrandName",
+    "conversation.hero.brand.mark": "SpringHeroMark",
+    "conversation.input.left": "SpringChip"
+  },
+  "rootClasses": [],
+  "widget": "installWidgetSkin",
+  "sidecars": [
+    "installSpringWall"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "cyberpunk",
+  "name": "霓虹残响",
+  "latin": "NEON AFTERIMAGE",
+  "appearance": "dark",
+  "blurb": "夜城霓虹 · 黄黑警戒与全息扫描",
+  "composerBg": "#0A0A0C",
+  "bootKey": "cyb-boot-v1",
+  "boot": "CybBoot",
+  "overlay": "CybFrame",
+  "slots": {
+    "sidebar.brand.mark": "CybSidebarMark",
+    "sidebar.brand.name": "CybBrandName",
+    "conversation.hero.brand.mark": "CybHeroMark",
+    "conversation.input.left": "CybUplink",
+    "conversation.composer.dock": "CybComposerHud"
+  },
+  "rootClasses": [
+    "cyb-whale"
+  ],
+  "widget": "installWidgetSkin",
+  "sidecars": []
+}

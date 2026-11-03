@@ -1,0 +1,61 @@
+/* 春野 · 挂件：一丛叶子 + 纸白气泡 */
+html.sk-spring .dshwv-img {
+  width: 52%;
+  height: 62%;
+  right: 2%;
+  bottom: 1%;
+  object-fit: contain;
+  clip-path: none !important;
+  border: none;
+  background: none;
+  z-index: 4;
+  filter: drop-shadow(0 10px 18px rgba(35, 64, 42, 0.16));
+  transform: rotate(-3deg);
+  transition: transform .25s cubic-bezier(.34,1.56,.64,1);
+}
+html.sk-spring .dshwv-img:hover { transform: rotate(-1deg) translateY(-3px); }
+html.sk-spring .dshwv-bshape { fill: #FFFFFF; stroke: rgba(78,139,74,.55); stroke-width: 4; stroke-dasharray: 10 8; }
+html.sk-spring .dshwv-text { color: #23402A; font-family: "PingFang SC", sans-serif; }
+html.sk-spring .dshwv-label { color: #4E8B4A; letter-spacing: .12em; font-weight: 600; }
+html.sk-spring .dshwv-amount { color: #3F7C3C; font-weight: 700; }
+html.sk-spring .dshwv-hint { color: #6B8C6A; }
+html.sk-spring .dshwv-b1, html.sk-spring .dshwv-b2, html.sk-spring .dshwv-gif { display: none; }
+html.sk-spring .dshwv-text .dshwv-rgb, html.sk-spring .dshwv-text [class*="dshwv-rgb-"] {
+  background-image: none !important; color: #3F7C3C !important; -webkit-text-fill-color: #3F7C3C !important; animation: none !important;
+}
+html.sk-spring .dshwv-text .dshwv-bgrgb, html.sk-spring .dshwv-text [class*="dshwv-bgrgb-"] {
+  background-image: none !important; background-color: rgba(207,232,184,.62) !important;
+  color: #2F5D24 !important; -webkit-text-fill-color: #2F5D24 !important; padding: 1px 7px; border-radius: 999px;
+}
+
+/* 三横菜单：更轻的白瓷胶囊，三条细横线，悬停翻绿 */
+html.sk-spring .dshwv-menu-btn {
+  width: 26px !important;
+  height: 26px !important;
+  display: grid !important;
+  place-items: center !important;
+  gap: 0 !important;
+  border-radius: 9px !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(78, 139, 74, 0.35) !important;
+  box-shadow: none !important;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+html.sk-spring .dshwv-menu-btn > span {
+  display: block !important;
+  width: 12px !important;
+  height: 1.8px !important;
+  border-radius: 2px !important;
+  background: #4E8B4A !important;
+  opacity: 1 !important;
+  margin: 1.5px 0 !important;
+  transition: background .18s ease, width .18s ease;
+}
+
+html.sk-spring .dshwv-menu-btn:hover {
+  background: #4E8B4A !important;
+  border-color: #4E8B4A !important;
+  transform: translateY(-1px);
+}
+html.sk-spring .dshwv-menu-btn:hover > span { background: #FFFFFF !important; }
+

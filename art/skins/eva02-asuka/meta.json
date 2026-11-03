@@ -1,0 +1,23 @@
+{
+  "id": "eva02-asuka",
+  "name": "EVA-02",
+  "latin": "ASUKA",
+  "appearance": "dark",
+  "blurb": "非官方同人 · 驾驶舱 HUD · 橙红警报与同步率",
+  "composerBg": "#050806",
+  "bootKey": "eva02-boot-v2",
+  "boot": "Eva02Boot",
+  "overlay": "Eva02Wallpaper",
+  "slots": {
+    "sidebar.brand.mark": "CrestMark",
+    "sidebar.brand.name": "Eva02BrandName",
+    "conversation.hero.brand.mark": "CrestMark",
+    "conversation.input.left": "Eva02A10Chip",
+    "conversation.composer.dock": "Eva02SyncHud"
+  },
+  "rootClasses": [
+    "eva02-whale"
+  ],
+  "widget": "installWhaleSkin",
+  "sidecars": []
+}

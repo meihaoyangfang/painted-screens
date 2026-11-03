@@ -1,0 +1,22 @@
+{
+  "id": "qingming",
+  "name": "青冥 · 剑冢",
+  "latin": "QINGMING",
+  "appearance": "dark",
+  "blurb": "雪夜剑气 · 宣纸留白与朱砂印",
+  "composerBg": "rgba(5, 11, 12, 0.55)",
+  "bootKey": "jianlai-qingming-boot-v1",
+  "boot": "JianBoot",
+  "overlay": "JianAtmosphere",
+  "slots": {
+    "sidebar.brand.mark": "JianSidebarMark",
+    "sidebar.brand.name": "JianBrandName",
+    "conversation.hero.brand.mark": "JianHeroMark",
+    "conversation.input.left": "JianVigilChip",
+    "conversation.composer.dock": "JianRail"
+  },
+  "rootClasses": [
+    "qingming-whale"
+  ],
+  "widget": "installWhaleSkin"
+}

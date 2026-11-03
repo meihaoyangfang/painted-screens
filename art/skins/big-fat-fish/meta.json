@@ -1,0 +1,19 @@
+{
+  "id": "big-fat-fish",
+  "name": "大肥鱼",
+  "latin": "BIG FAT FISH",
+  "appearance": "dark",
+  "blurb": "深海鲸娘 · 孤冷蓝调与鲸尾夜航",
+  "composerBg": "#041020",
+  "bootKey": "big-fat-fish-boot-v1",
+  "boot": "BffBoot",
+  "overlay": "BffAtmosphere",
+  "slots": {
+    "sidebar.brand.mark": "BffSidebarMark",
+    "sidebar.brand.name": "BffBrandName",
+    "conversation.hero.brand.mark": "BffHero",
+    "conversation.input.left": "BffChip",
+    "conversation.composer.dock": "BffDock"
+  },
+  "rootClasses": []
+}

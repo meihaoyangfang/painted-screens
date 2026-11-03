@@ -1,0 +1,130 @@
+/* ── 一比特 · 右下角挂件 ────────────────────────────────────────────────
+   角色：一台 1984 的 Mac（纯黑白，网点投影）
+   气泡：直角方框 + 2px 黑边 + 硬投影，圆形小点全部去掉
+   ─────────────────────────────────────────────────────────────────── */
+
+/* 角色 */
+html.sk-1bit .dshwv-img {
+  width: 68%;
+  height: 68%;
+  right: 1.5%;
+  bottom: 0.5%;
+  z-index: 3;
+  object-fit: contain;
+  image-rendering: pixelated;
+  /* 挂件给角色图套了一圈按原角色身形描出来的 clip-path，
+     套在这台方方正正的 Mac 上会把左上角削掉一块 */
+  clip-path: none !important;
+  filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, 0.92));
+}
+
+/* 气泡：用 svg 的硬投影，不用 blur */
+html.sk-1bit .dshwv-shapewrap svg {
+  filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.9));
+}
+
+html.sk-1bit .dshwv-bshape {
+  fill: #ffffff;
+  stroke: #000000;
+  stroke-width: 10;
+  stroke-linejoin: miter;
+}
+
+/* 云朵下面那两颗小圆点，在方框方案里是多余的 */
+html.sk-1bit .dshwv-b1,
+html.sk-1bit .dshwv-b2 { display: none; }
+
+/* 原来挂在气泡边上的鲸鱼 gif */
+html.sk-1bit .dshwv-gif { display: none; }
+
+/* 文字：等宽、纯黑，不要圆润 */
+/* 一比特就是纯黑白：气泡里任何字（含挂件面板里配的那条消息）都压成黑的 */
+html.sk-1bit .dshwv-text,
+html.sk-1bit .dshwv-text * {
+  color: #000000 !important;
+}
+
+html.sk-1bit .dshwv-text {
+  color: #000000;
+  font-family: "Chicago", "Monaco", "Menlo", "Courier New", "PingFang SC", monospace;
+}
+
+html.sk-1bit .dshwv-label {
+  color: #000000;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+html.sk-1bit .dshwv-amount {
+  color: #000000;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: none;
+}
+
+html.sk-1bit .dshwv-hint {
+  color: #3d3d3d;
+}
+
+/* 左上角那枚小标签，只在展开时出现 */
+html.sk-1bit .dshwv-pop::after {
+  content: "1-BIT";
+  position: absolute;
+  left: 8%;
+  top: 6%;
+  padding: 2px 4px;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  font: 700 8px/1 "Monaco", "Menlo", monospace;
+  letter-spacing: 0.22em;
+  opacity: 0;
+  transition: opacity 0.16s ease;
+  pointer-events: none;
+}
+
+html.sk-1bit .dshwv-pop.dshwv-pop-open::after { opacity: 1; }
+
+/* 菜单按钮：黑边白底方块 */
+html.sk-1bit .dshwv-menu-btn {
+  border-radius: 0 !important;
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9) !important;
+  color: #000000 !important;
+}
+
+html.sk-1bit .dshwv-menu-btn:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* 拖拽时不要有过渡延迟 */
+html.sk-1bit [data-dragging='true'] .dshwv-img {
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.9));
+}
+
+/* 挂件里带「彩虹字」和「彩虹底」的行（dshwv-rgb / dshwv-bgrgb），
+   本质上是用渐变裁切文字做的，一比特里全部压回黑白。 */
+html.sk-1bit .dshwv-text .dshwv-rgb,
+html.sk-1bit .dshwv-text [class*="dshwv-rgb-"] {
+  background-image: none !important;
+  animation: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  text-shadow: none !important;
+}
+
+html.sk-1bit .dshwv-text .dshwv-bgrgb,
+html.sk-1bit .dshwv-text [class*="dshwv-bgrgb-"] {
+  background-image: none !important;
+  background-color: #000000 !important;
+  animation: none !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: none !important;
+  padding: 1px 6px;
+}

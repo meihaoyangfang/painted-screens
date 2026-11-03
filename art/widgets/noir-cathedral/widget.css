@@ -1,0 +1,1421 @@
+:root {
+  --noir-shrine-niche:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20240%20300%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F1DCA8%22%2F%3E%3Cstop%20offset%3D%220.52%22%20stop-color%3D%22%23C8A35A%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23715426%22%2F%3E%3C%2FlinearGradient%3E%3CradialGradient%20id%3D%22h%22%20cx%3D%2250%25%22%20cy%3D%2272%25%22%20r%3D%2255%25%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23C8A35A%22%20stop-opacity%3D%220.16%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23C8A35A%22%20stop-opacity%3D%220%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22240%22%20height%3D%22300%22%20fill%3D%22url(%23h)%22%2F%3E%3Cpath%20d%3D%22M18%20296V118c0-46%2039-77%20102-112%2063%2035%20102%2066%20102%20112v178z%22%20fill%3D%22%23050403%22%20fill-opacity%3D%220.58%22%20stroke%3D%22url(%23g)%22%20stroke-opacity%3D%220.45%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22M30%20296V124c0-39%2034-68%2090-100%2056%2032%2090%2061%2090%20100v172%22%20fill%3D%22none%22%20stroke%3D%22%23C8A35A%22%20stroke-opacity%3D%220.17%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%2292%22%20r%3D%2231%22%20fill%3D%22none%22%20stroke%3D%22url(%23g)%22%20stroke-opacity%3D%220.35%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%2292%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23C8A35A%22%20stroke-opacity%3D%220.18%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23C8A35A%22%20stroke-opacity%3D%220.32%22%3E%3Cpath%20d%3D%22M120%2061v62M89%2092h62M98%2070l44%2044M142%2070l-44%2044%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M120%208v22M114%2018h12%22%20stroke%3D%22%23D4B16D%22%20stroke-opacity%3D%220.7%22%20stroke-width%3D%221.4%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M18%20296h204%22%20stroke%3D%22url(%23g)%22%20stroke-opacity%3D%220.38%22%2F%3E%3Cg%20fill%3D%22%23D4B16D%22%20opacity%3D%220.6%22%3E%3Cpath%20d%3D%22M18%20118l5%208-5%208-5-8z%22%2F%3E%3Cpath%20d%3D%22M222%20118l5%208-5%208-5-8z%22%2F%3E%3Ccircle%20cx%3D%22102%22%20cy%3D%22128%22%20r%3D%221.4%22%2F%3E%3Ccircle%20cx%3D%22138%22%20cy%3D%22128%22%20r%3D%221.4%22%2F%3E%3Ccircle%20cx%3D%22120%22%20cy%3D%22140%22%20r%3D%221.6%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23C8A35A%22%20stroke-opacity%3D%220.22%22%3E%3Cpath%20d%3D%22M48%20296v-24M192%20296v-24M72%20296v-13M168%20296v-13%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  --noir-relic-art:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20610%20610%22%20width%3D%22610%22%20height%3D%22610%22%20role%3D%22img%22%20aria-label%3D%22A%20black-and-gold%20gothic%20reliquary%20lantern%20with%20a%20rose%20window%20and%20candle%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22rb%22%20x1%3D%220.1%22%20y1%3D%220%22%20x2%3D%220.8%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23241A10%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.35%22%20stop-color%3D%22%230C0907%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.8%22%20stop-color%3D%22%23040403%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2315100A%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22rg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220.9%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F4E1B1%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.34%22%20stop-color%3D%22%23D4B16D%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.7%22%20stop-color%3D%22%23B68D4B%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%236E5127%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22rglow%22%20cx%3D%220.5%22%20cy%3D%220.55%22%20r%3D%220.56%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23C8A35A%22%20stop-opacity%3D%220.21%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.55%22%20stop-color%3D%22%237D5F2E%22%20stop-opacity%3D%220.07%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23000000%22%20stop-opacity%3D%220%22%2F%3E%0A%20%20%20%20%3C%2FradialGradient%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22rglass%22%20cx%3D%220.44%22%20cy%3D%220.36%22%20r%3D%220.68%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F5DCA4%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.3%22%20stop-color%3D%22%23CB954D%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.65%22%20stop-color%3D%22%237D3E22%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23291411%22%2F%3E%0A%20%20%20%20%3C%2FradialGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22rflame%22%20x1%3D%220%22%20y1%3D%221%22%20x2%3D%220%22%20y2%3D%220%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23C18435%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.45%22%20stop-color%3D%22%23EACB88%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23FFF2C9%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3CclipPath%20id%3D%22rroseclip%22%3E%3Ccircle%20cx%3D%22305%22%20cy%3D%22389%22%20r%3D%2252%22%2F%3E%3C%2FclipPath%3E%0A%20%20%20%20%3Cpath%20id%3D%22rpetal%22%20d%3D%22M305%20389C282%20365%20282%20343%20305%20330C328%20343%20328%20365%20305%20389Z%22%2F%3E%0A%20%20%3C%2Fdefs%3E%0A%0A%20%20%3Crect%20width%3D%22610%22%20height%3D%22610%22%20fill%3D%22url(%23rglow)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22340%22%20r%3D%22252%22%20fill%3D%22none%22%20stroke%3D%22%23C8A35A%22%20stroke-opacity%3D%220.14%22%20stroke-dasharray%3D%221%2013%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22340%22%20r%3D%22238%22%20fill%3D%22none%22%20stroke%3D%22%23C8A35A%22%20stroke-opacity%3D%220.06%22%2F%3E%0A%0A%20%20%3C!--%20Suspension%20chain%20and%20thurible%20cords%20--%3E%0A%20%20%3Cpath%20d%3D%22M305%200V160%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%222.1%22%20opacity%3D%220.58%22%2F%3E%0A%20%20%3Cg%20fill%3D%22none%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%221.3%22%20opacity%3D%220.58%22%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22305%22%20cy%3D%2220%22%20rx%3D%225.2%22%20ry%3D%229%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22305%22%20cy%3D%2247%22%20rx%3D%225.2%22%20ry%3D%229%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22305%22%20cy%3D%2274%22%20rx%3D%225.2%22%20ry%3D%229%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22305%22%20cy%3D%22101%22%20rx%3D%225.2%22%20ry%3D%229%22%2F%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22305%22%20cy%3D%22128%22%20rx%3D%225.2%22%20ry%3D%229%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22154%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22154%22%20r%3D%223.4%22%20fill%3D%22%23D4B16D%22%2F%3E%0A%20%20%3Cg%20fill%3D%22none%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%221.2%22%20opacity%3D%220.42%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M305%20164C275%20185%20248%20207%20220%20239%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M305%20164C335%20185%20362%20207%20390%20239%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M305%20164V198%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cpath%20d%3D%22M305%20196V176M296%20186H314%22%20fill%3D%22none%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M305%20198l6%207-6%207-6-7z%22%20fill%3D%22%23D4B16D%22%20opacity%3D%220.8%22%2F%3E%0A%0A%20%20%3C!--%20Pointed%20reliquary%20roof%20with%20crockets%20and%20vents%20--%3E%0A%20%20%3Cpath%20d%3D%22M178%20310C192%20270%20235%20236%20305%20186C375%20236%20418%20270%20432%20310Z%22%20fill%3D%22url(%23rb)%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%222.8%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M192%20304C208%20270%20247%20241%20305%20201C363%20241%20402%20270%20418%20304%22%20fill%3D%22none%22%20stroke%3D%22%23F2D9A2%22%20stroke-opacity%3D%220.16%22%20stroke-width%3D%221.2%22%2F%3E%0A%20%20%3Cg%20fill%3D%22none%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%221.2%22%20opacity%3D%220.38%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M305%20198C275%20228%20235%20253%20205%20309%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M305%20198C335%20228%20375%20253%20405%20309%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M305%20198V306%22%20opacity%3D%220.18%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cpath%20d%3D%22M284%20294V266C284%20255%20293%20246%20305%20236C317%20246%20326%20255%20326%20266V294Z%22%20fill%3D%22%231A110A%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%221.3%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M305%20247V286%22%20stroke%3D%22%23D4B16D%22%20stroke-opacity%3D%220.4%22%2F%3E%0A%20%20%3Cg%20fill%3D%22%23D4B16D%22%20opacity%3D%220.78%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M240%20272l3-6%203%206-3%206z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M252%20250l3-6%203%206-3%206z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M268%20227l3-6%203%206-3%206z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M342%20227l3-6%203%206-3%206z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M358%20250l3-6%203%206-3%206z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M370%20272l3-6%203%206-3%206z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cpath%20d%3D%22M178%20310l-14-34%2028%2014zM432%20310l14-34-28%2014z%22%20fill%3D%22url(%23rb)%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%221.2%22%2F%3E%0A%0A%20%20%3C!--%20Octagonal%20lantern%20body%20--%3E%0A%20%20%3Cpath%20d%3D%22M182%20310L428%20310L448%20378L437%20486L404%20520L206%20520L173%20486L162%20378Z%22%20fill%3D%22url(%23rb)%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%222.8%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M197%20322L413%20322L430%20380L420%20478L393%20506L217%20506L190%20478L180%20380Z%22%20fill%3D%22%23080604%22%20stroke%3D%22%23C8A35A%22%20stroke-opacity%3D%220.22%22%20stroke-width%3D%221%22%2F%3E%0A%20%20%3Cg%20fill%3D%22none%22%20stroke%3D%22url(%23rg)%22%20stroke-linecap%3D%22round%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M182%20310V520M428%20310V520%22%20stroke-width%3D%221.4%22%20stroke-opacity%3D%220.45%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M228%20316V514M382%20316V514%22%20stroke-width%3D%220.9%22%20stroke-opacity%3D%220.25%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M162%20378H448M173%20486H437%22%20stroke-width%3D%221%22%20stroke-opacity%3D%220.3%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%0A%20%20%3C!--%20Flanking%20lancets%20--%3E%0A%20%20%3Cpath%20d%3D%22M188%20486V376C188%20357%20198%20342%20209%20331C220%20342%20230%20357%20230%20376V486Z%22%20fill%3D%22%230F0A06%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%221.3%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M196%20478V380C196%20364%20202%20352%20209%20342C216%20352%20222%20364%20222%20380V478Z%22%20fill%3D%22url(%23rglass)%22%20opacity%3D%220.32%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M209%20352V478%22%20stroke%3D%22%23D4B16D%22%20stroke-opacity%3D%220.3%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M380%20486V376C380%20357%20390%20342%20401%20331C412%20342%20422%20357%20422%20376V486Z%22%20fill%3D%22%230F0A06%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%221.3%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M388%20478V380C388%20364%20394%20352%20401%20342C408%20352%20414%20364%20414%20380V478Z%22%20fill%3D%22url(%23rglass)%22%20opacity%3D%220.32%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M401%20352V478%22%20stroke%3D%22%23D4B16D%22%20stroke-opacity%3D%220.3%22%2F%3E%0A%0A%20%20%3C!--%20Central%20reliquary%20arch%20and%20rose%20window%20--%3E%0A%20%20%3Cpath%20d%3D%22M238%20506V394C238%20344%20269%20316%20305%20294C341%20316%20372%20344%20372%20394V506Z%22%20fill%3D%22%230B0705%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%222.2%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M248%20498V398C248%20353%20275%20327%20305%20307C335%20327%20362%20353%20362%20398V498Z%22%20fill%3D%22url(%23rglass)%22%20opacity%3D%220.12%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22389%22%20r%3D%2269%22%20fill%3D%22%23080604%22%20fill-opacity%3D%220.86%22%20stroke%3D%22url(%23rg)%22%20stroke-opacity%3D%220.56%22%20stroke-width%3D%221.6%22%2F%3E%0A%20%20%3Cg%20clip-path%3D%22url(%23rroseclip)%22%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22389%22%20r%3D%2252%22%20fill%3D%22url(%23rglass)%22%2F%3E%0A%20%20%20%20%3Cg%20opacity%3D%220.72%22%3E%0A%20%20%20%20%20%20%3Cuse%20href%3D%22%23rpetal%22%20fill%3D%22%23B97F38%22%2F%3E%0A%20%20%20%20%20%20%3Cuse%20href%3D%22%23rpetal%22%20fill%3D%22%2363261F%22%20transform%3D%22rotate(45%20305%20389)%22%2F%3E%0A%20%20%20%20%20%20%3Cuse%20href%3D%22%23rpetal%22%20fill%3D%22%23274740%22%20transform%3D%22rotate(90%20305%20389)%22%2F%3E%0A%20%20%20%20%20%20%3Cuse%20href%3D%22%23rpetal%22%20fill%3D%22%23C89A51%22%20transform%3D%22rotate(135%20305%20389)%22%2F%3E%0A%20%20%20%20%20%20%3Cuse%20href%3D%22%23rpetal%22%20fill%3D%22%236A2A20%22%20transform%3D%22rotate(180%20305%20389)%22%2F%3E%0A%20%20%20%20%20%20%3Cuse%20href%3D%22%23rpetal%22%20fill%3D%22%23A87535%22%20transform%3D%22rotate(225%20305%20389)%22%2F%3E%0A%20%20%20%20%20%20%3Cuse%20href%3D%22%23rpetal%22%20fill%3D%22%232D4D44%22%20transform%3D%22rotate(270%20305%20389)%22%2F%3E%0A%20%20%20%20%20%20%3Cuse%20href%3D%22%23rpetal%22%20fill%3D%22%23D0A25A%22%20transform%3D%22rotate(315%20305%20389)%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3Cg%20fill%3D%22none%22%20stroke%3D%22%23F2DCA8%22%20stroke-opacity%3D%220.52%22%20stroke-width%3D%220.9%22%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22389%22%20r%3D%2240%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22389%22%20r%3D%2224%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22389%22%20r%3D%2210%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M305%20337v104M253%20389h104M269%20353l72%2072M341%20353l-72%2072%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22389%22%20r%3D%223.4%22%20fill%3D%22%23E9C988%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22389%22%20r%3D%2258%22%20fill%3D%22none%22%20stroke%3D%22url(%23rg)%22%20stroke-opacity%3D%220.3%22%20stroke-width%3D%221%22%2F%3E%0A%20%20%3Cg%20fill%3D%22%23D4B16D%22%20opacity%3D%220.7%22%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22321%22%20r%3D%222%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22457%22%20r%3D%221.8%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22237%22%20cy%3D%22389%22%20r%3D%221.8%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22373%22%20cy%3D%22389%22%20r%3D%221.8%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%0A%20%20%3C!--%20Candle%20in%20the%20lower%20niche%20--%3E%0A%20%20%3Cpath%20d%3D%22M277%20506V472C277%20458%20289%20447%20305%20436C321%20447%20333%20458%20333%20472V506Z%22%20fill%3D%22%23140C08%22%20stroke%3D%22url(%23rg)%22%20stroke-opacity%3D%220.5%22%20stroke-width%3D%221.1%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22470%22%20r%3D%2224%22%20fill%3D%22url(%23rglow)%22%20opacity%3D%220.8%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M305%20466c-7-10%203-18%202-28%209%2011%2014%2020%202%2030z%22%20fill%3D%22url(%23rflame)%22%20opacity%3D%220.9%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22470%22%20r%3D%223%22%20fill%3D%22%23FFF0C4%22%20opacity%3D%220.8%22%2F%3E%0A%0A%20%20%3C!--%20Base%2C%20drops%20and%20incense%20--%3E%0A%20%20%3Cpath%20d%3D%22M206%20520H404L390%20556L347%20582L305%20598L263%20582L220%20556Z%22%20fill%3D%22url(%23rb)%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%222.4%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M220%20536H390M245%20554H365%22%20fill%3D%22none%22%20stroke%3D%22url(%23rg)%22%20stroke-opacity%3D%220.4%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M305%20534l10%2012-10%2012-10-12z%22%20fill%3D%22url(%23rg)%22%20opacity%3D%220.56%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22305%22%20cy%3D%22584%22%20r%3D%224%22%20fill%3D%22url(%23rg)%22%20opacity%3D%220.7%22%2F%3E%0A%20%20%3Cg%20fill%3D%22none%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%221.1%22%20opacity%3D%220.45%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M172%20486C160%20510%20154%20532%20150%20560%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M438%20486C450%20510%20456%20532%20460%20560%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cg%20fill%3D%22url(%23rg)%22%20opacity%3D%220.55%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M150%20560l5%209%205-9%205%209-5%209z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M460%20560l-5%209-5-9-5%209%205%209z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cg%20fill%3D%22none%22%20stroke%3D%22url(%23rg)%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.3%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M230%20300C214%20262%20240%20234%20225%20204C211%20178%20233%20150%20220%20118C209%2092%20227%2068%20218%2042%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M380%20300C396%20262%20370%20234%20385%20204C399%20178%20377%20150%20390%20118C401%2092%20383%2068%20392%2042%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cg%20fill%3D%22%23D4B16D%22%20opacity%3D%220.55%22%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22230%22%20cy%3D%22238%22%20r%3D%221.4%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22226%22%20cy%3D%22194%22%20r%3D%221%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22386%22%20cy%3D%22248%22%20r%3D%221.2%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22392%22%20cy%3D%22178%22%20r%3D%221.5%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22228%22%20cy%3D%22105%22%20r%3D%221%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22394%22%20cy%3D%2288%22%20r%3D%220.9%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cg%20fill%3D%22%23E4C47F%22%20opacity%3D%220.58%22%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22164%22%20cy%3D%22238%22%20r%3D%221.4%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22449%22%20cy%3D%22234%22%20r%3D%221.2%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22140%22%20cy%3D%22402%22%20r%3D%221%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22476%22%20cy%3D%22428%22%20r%3D%221.2%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22206%22%20cy%3D%22596%22%20r%3D%221%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%22409%22%20cy%3D%22594%22%20r%3D%221.3%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E");
+  --noir-ease:cubic-bezier(0.22, 0.61, 0.36, 1);
+  --noir-widget-line:rgba(200, 163, 90, 0.26);
+  --noir-widget-ink:#F0E6D4;
+  --noir-serif:"Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", "Times New Roman", "Songti SC", "Noto Serif SC", serif;
+  --noir-widget-muted:#A9987E;
+  --noir-widget-line-strong:rgba(200, 163, 90, 0.48);
+  --noir-widget-gold:#D4B16D;
+  --noir-widget-gold-bright:#E7CD95;
+  --noir-widget-panel:radial-gradient(ellipse at 88% -8%, rgba(200, 163, 90, 0.12), transparent 38%),
+    radial-gradient(ellipse at 6% 108%, rgba(108, 38, 36, 0.08), transparent 44%),
+    linear-gradient(155deg, rgba(20, 15, 10, 0.97), rgba(5, 4, 3, 0.992));
+}
+
+
+
+/* --- dsh-whale-widget: the black reliquary ------------------------------
+   The theme replaces the bottom-right widget's illustrated character with an
+   original gothic sanctuary lantern: a pointed shrine roof, rose-window
+   lantern body, candle niche and suspended thurible chains. No character or
+   animal portrait is visible. The original <img> is kept in the DOM but made
+   invisible so the widget's existing alpha hit-testing, drag, click, and
+   keyboard behavior stay intact. Bubble, menus and editors are re-dressed in
+   the same obsidian and gold. */
+
+html body .dshwv-root::before {
+  content: "" !important;
+  position: absolute;
+  right: -1%;
+  bottom: -2%;
+  width: 65%;
+  height: 84%;
+  z-index: 0;
+  pointer-events: none !important;
+  background-color: transparent !important;
+  background-image:
+    radial-gradient(ellipse at 58% 80%, rgba(200, 163, 90, 0.20), transparent 58%),
+    var(--noir-shrine-niche) !important;
+  background-repeat: no-repeat !important;
+  background-position: center bottom !important;
+  background-size: 100% 100% !important;
+  box-shadow: none !important;
+  opacity: 0.9;
+  animation: noir-relic-glint 8s ease-in-out infinite;
+}
+
+
+
+/* Hiding the photo must not hide its hit target. The original image stays
+   transparent but interactive, so the widget's alpha mask and drag logic are
+   untouched; the reliquary is a click-through painted layer above it. */
+html body .dshwv-img {
+  opacity: 0 !important;
+  filter: none !important;
+  pointer-events: auto !important;
+}
+
+
+
+html body .dshwv-root::after {
+  content: "" !important;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 59.45%;
+  height: 59.45%;
+  z-index: 0;
+  pointer-events: none !important;
+  background-color: transparent !important;
+  background-image:
+    radial-gradient(ellipse at 50% 77%, rgba(200, 163, 90, 0.16), transparent 62%),
+    var(--noir-relic-art) !important;
+  background-repeat: no-repeat !important;
+  background-position: center bottom !important;
+  background-size: 100% 100%, 100% 100% !important;
+  filter:
+    drop-shadow(0 14px 24px rgba(0, 0, 0, 0.62))
+    drop-shadow(0 0 20px rgba(200, 163, 90, 0.10));
+  transform-origin: 50% 0;
+  translate: 0 0;
+  animation: noir-relic-sway 12s ease-in-out infinite;
+  transition:
+    translate 220ms var(--noir-ease),
+    scale 220ms var(--noir-ease),
+    filter 220ms ease;
+  opacity: 1;
+}
+
+
+
+html body .dshwv-root:has(.dshwv-img:hover)::after {
+  translate: 0 -2px;
+}
+
+
+
+html body .dshwv-root.dshwv-dragging::after {
+  translate: 0 1px;
+  scale: 0.985;
+}
+
+
+
+/* The default role thumbnail is the same illustrated character. Blank it and
+   put the reliquary seal in its place; custom role thumbnails are untouched. */
+html body img.dshwv-rolethumb[src*='/dsh-whale/image.png'],
+html body img.dshwv-resthum[src*='/dsh-whale/image.png'] {
+  opacity: 0 !important;
+}
+
+
+
+html body .dshwv-roleitem:has(.dshwv-rolethumb[src*='/dsh-whale/image.png']),
+html body .dshwv-resrow:has(.dshwv-resthum[src*='/dsh-whale/image.png']) {
+  position: relative;
+}
+
+
+
+html body .dshwv-roleitem:has(.dshwv-rolethumb[src*='/dsh-whale/image.png'])::before,
+html body .dshwv-resrow:has(.dshwv-resthum[src*='/dsh-whale/image.png'])::before {
+  content: "" !important;
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  background: var(--noir-relic-art) center / contain no-repeat;
+  border: 1px solid var(--noir-widget-line);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(200, 163, 90, 0.12);
+}
+
+
+
+html body .dshwv-resrow:has(.dshwv-resthum[src*='/dsh-whale/image.png'])::before {
+  left: 7px;
+  width: 28px;
+  height: 28px;
+}
+
+
+
+/* The reliquary is the fixed theme avatar, so the role chooser/import row is
+   hidden. This also prevents the default illustrated character from being
+   reintroduced through role management. */
+html body .dshwv-menu-row:has(.dshwv-rolebtn) {
+  display: none !important;
+}
+
+
+
+html body .dshwv-pop .dshwv-shapewrap svg {
+  filter:
+    drop-shadow(0 0 14px rgba(200, 163, 90, 0.16))
+    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+}
+
+
+
+html body .dshwv-pop .dshwv-bshape,
+html body .dshwv-pop .dshwv-b1,
+html body .dshwv-pop .dshwv-b2 {
+  fill: #080604 !important;
+  stroke: #C8A35A !important;
+}
+
+
+
+html body .dshwv-text {
+  color: var(--noir-widget-ink);
+  font-family: var(--noir-serif);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 16px rgba(212, 177, 109, 0.10);
+}
+
+
+
+html body .dshwv-hint {
+  color: var(--noir-widget-muted);
+}
+
+
+
+html body .dshwv-menu-btn {
+  box-sizing: border-box;
+  border: 1px solid var(--noir-widget-line-strong) !important;
+  border-radius: 2px !important;
+  background: linear-gradient(180deg, rgba(30, 23, 14, 0.96), rgba(7, 6, 4, 0.98)) !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.45),
+    0 0 16px rgba(200, 163, 90, 0.12) !important;
+}
+
+
+
+html body .dshwv-menu-btn span {
+  background: var(--noir-widget-gold) !important;
+  border-radius: 0 !important;
+}
+
+
+
+html body .dshwv-menu-btn:hover {
+  background: linear-gradient(180deg, rgba(53, 41, 23, 0.98), rgba(15, 12, 8, 1)) !important;
+  border-color: var(--noir-widget-gold-bright) !important;
+}
+
+
+
+/* Floating panels, menus, cards and editor surfaces. */
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-colpop,
+  .dshwv-usagepanel,
+  .dshwv-qedit,
+  .dshwv-tplhelp,
+  .dshwv-about-flash,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin,
+  .dshwv-listbox,
+  .dshwv-usage-sub,
+  .dshwv-usage-tip,
+  .dshwv-fcard
+) {
+  color-scheme: dark !important;
+  background: var(--noir-widget-panel) !important;
+  border-color: var(--noir-widget-line) !important;
+  border-radius: 3px !important;
+  color: var(--noir-widget-ink) !important;
+  box-shadow:
+    0 20px 52px rgba(0, 0, 0, 0.70),
+    0 0 0 1px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(232, 206, 157, 0.06),
+    inset 0 0 0 1px rgba(232, 206, 157, 0.025) !important;
+}
+
+
+
+/* The overlay curtains become incense-dark, not flat navy. */
+html body :is(
+  .dshwv-audiomask,
+  .dshwv-cropmask,
+  .dshwv-gifmask,
+  .dshwv-confirmmask,
+  .dshwv-snapmask,
+  .dshwv-bubmask,
+  .dshwv-framemask,
+  .dshwv-usage-mask,
+  .dshwv-resmask
+) {
+  color-scheme: dark !important;
+  background: radial-gradient(ellipse at 50% 42%, rgba(20, 15, 10, 0.54), rgba(2, 2, 1, 0.84) 70%) !important;
+  -webkit-backdrop-filter: blur(7px) saturate(0.75);
+  backdrop-filter: blur(7px) saturate(0.75);
+}
+
+
+
+/* Broad base for text and hairlines inside our panels. Deliberately not
+   !important: a user's per-line / per-module custom colors still win. */
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-colpop,
+  .dshwv-usagepanel,
+  .dshwv-qedit,
+  .dshwv-tplhelp,
+  .dshwv-about-flash,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin,
+  .dshwv-listbox,
+  .dshwv-usage-sub,
+  .dshwv-usage-tip,
+  .dshwv-fcard
+) *:not(.dshwv-text):not(.dshwv-text *) {
+  color: var(--noir-widget-ink);
+  border-color: var(--noir-widget-line);
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-colpop,
+  .dshwv-usagepanel,
+  .dshwv-qedit,
+  .dshwv-tplhelp,
+  .dshwv-about-flash,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin,
+  .dshwv-listbox,
+  .dshwv-usage-sub,
+  .dshwv-usage-tip,
+  .dshwv-fcard
+) a {
+  color: var(--noir-widget-gold-bright) !important;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard
+) :is(
+  .dshwv-bubtitle,
+  .dshwv-fetitle,
+  .dshwv-audiotitle,
+  .dshwv-croptitle,
+  .dshwv-giftitle,
+  .dshwv-snaptitle,
+  .dshwv-restitle
+) {
+  color: var(--noir-widget-gold) !important;
+  font-family: var(--noir-serif);
+  letter-spacing: 0.07em;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin,
+  .dshwv-usagepanel,
+  .dshwv-colpop,
+  .dshwv-qedit
+) :is(
+  .dshwv-bubsec,
+  .dshwv-fenote,
+  .dshwv-audiopreset,
+  .dshwv-gifhint,
+  .dshwv-usage-tip,
+  .dshwv-snapunit,
+  .dshwv-resmeta,
+  .dshwv-about-note
+) {
+  color: var(--noir-widget-muted) !important;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-colpop,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin
+) :is(input, select, textarea):not([type='range']):not([type='checkbox']):not([type='radio']):not([type='color']) {
+  color-scheme: dark !important;
+  color: var(--noir-widget-ink) !important;
+  border-color: var(--noir-widget-line) !important;
+  border-radius: 2px;
+  background-color: rgba(4, 4, 3, 0.82) !important;
+  background-image: none !important;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-colpop,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin
+) :is(input, select, textarea)::placeholder {
+  color: var(--noir-widget-muted);
+  opacity: 0.7;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-colpop,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin
+) :is(input[type='range'], input[type='checkbox'], input[type='radio']) {
+  accent-color: #C8A35A;
+  color-scheme: dark;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-colpop,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin
+) :is(input, select, textarea):focus-visible {
+  border-color: var(--noir-widget-line-strong) !important;
+  box-shadow: 0 0 0 1px rgba(200, 163, 90, 0.16);
+}
+
+
+
+/* A handful of legacy nodes inside the whale's settings screens carry their
+   colour inline. Lift only the low-contrast office-blue values; the bubble
+   preview (which may deliberately use any custom colour) is excluded. */
+html body [class*='dshwv-'] [style*='color: rgb(32, 49, 112)']:not(.dshwv-text):not(.dshwv-text *):not(.dshwv-pvmod):not(.dshwv-pvmod *),
+html body [class*='dshwv-'] [style*='color:rgb(32,49,112)']:not(.dshwv-text):not(.dshwv-text *):not(.dshwv-pvmod):not(.dshwv-pvmod *),
+html body [class*='dshwv-'] [style*='color: #203170']:not(.dshwv-text):not(.dshwv-text *):not(.dshwv-pvmod):not(.dshwv-pvmod *),
+html body [class*='dshwv-'] [style*='color:#203170']:not(.dshwv-text):not(.dshwv-text *):not(.dshwv-pvmod):not(.dshwv-pvmod *),
+html body [class*='dshwv-'] [style*='color: #2f4488']:not(.dshwv-text):not(.dshwv-text *):not(.dshwv-pvmod):not(.dshwv-pvmod *),
+html body [class*='dshwv-'] [style*='color:#2f4488']:not(.dshwv-text):not(.dshwv-text *):not(.dshwv-pvmod):not(.dshwv-pvmod *) {
+  color: var(--noir-widget-ink) !important;
+}
+
+
+
+/* Buttons that carry a real action, excluding color swatches, ghost icons,
+   destructive actions, and the three primary confirm buttons. */
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-colpop,
+  .dshwv-usagepanel,
+  .dshwv-qedit,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin
+) button:not([class*='dshwv-col']):not(.dshwv-bubmini):not(.dshwv-roledel):not(.dshwv-audiodel):not(.dshwv-resdel):not(.dshwv-libdel):not(.dshwv-rolepin):not(.dshwv-ficonbtn):not(.dshwv-resclose):not(.dshwv-usage-collapse):not(.dshwv-usage-back):not(.dshwv-about-refresh):not(.dshwv-cropbtn-ok):not(.dshwv-snapbtn-ok):not(.dshwv-bubbtn-ok) {
+  color: var(--noir-widget-ink);
+  border-color: var(--noir-widget-line);
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(29, 23, 14, 0.92), rgba(10, 8, 6, 0.96));
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-colpop,
+  .dshwv-usagepanel,
+  .dshwv-qedit,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin
+) button:not([class*='dshwv-col']):not(.dshwv-bubmini):not(.dshwv-roledel):not(.dshwv-audiodel):not(.dshwv-resdel):not(.dshwv-libdel):not(.dshwv-rolepin):not(.dshwv-ficonbtn):not(.dshwv-resclose):not(.dshwv-usage-collapse):not(.dshwv-usage-back):not(.dshwv-about-refresh):not(.dshwv-cropbtn-ok):not(.dshwv-snapbtn-ok):not(.dshwv-bubbtn-ok):hover {
+  color: var(--noir-widget-gold-bright);
+  border-color: var(--noir-widget-line-strong);
+  background: linear-gradient(180deg, rgba(59, 46, 27, 0.96), rgba(20, 15, 9, 0.98));
+}
+
+
+
+/* Primary confirmations in the editor windows. */
+html body .dshwv-cropbtn-ok,
+html body .dshwv-snapbtn-ok,
+html body .dshwv-bubbtn-ok {
+  color: #0D0905 !important;
+  border-color: var(--noir-widget-gold-bright) !important;
+  background: linear-gradient(180deg, #E1C487, #BD934D) !important;
+  text-shadow: none;
+}
+
+
+
+html body .dshwv-cropbtn-ok:hover,
+html body .dshwv-snapbtn-ok:hover,
+html body .dshwv-bubbtn-ok:hover {
+  color: #070504 !important;
+  background: linear-gradient(180deg, #EED7A5, #C9A25D) !important;
+}
+
+
+
+/* Selected / pressed states. */
+html body :is(
+  .dshwv-feslot-on,
+  .dshwv-fechip-on,
+  .dshwv-cropflip-on,
+  .dshwv-roleitem-cur,
+  .dshwv-fcard-on
+) {
+  color: var(--noir-widget-gold-bright) !important;
+  border-color: var(--noir-widget-line-strong) !important;
+  background-color: rgba(200, 163, 90, 0.16) !important;
+}
+
+
+
+html body .dshwv-fcard-on {
+  box-shadow:
+    0 0 0 1px rgba(200, 163, 90, 0.35),
+    inset 0 0 0 1px rgba(200, 163, 90, 0.2) !important;
+}
+
+
+
+/* Semantic accents that the broad ivory rule must not swallow. */
+html body :is(
+  .dshwv-roledel,
+  .dshwv-audiodel,
+  .dshwv-resdel,
+  .dshwv-libdel
+) {
+  color: #E2A198 !important;
+  border-color: rgba(204, 128, 118, 0.32) !important;
+  background-color: rgba(160, 74, 68, 0.12) !important;
+}
+
+
+
+html body .dshwv-resplay {
+  color: #9AB58B !important;
+  border-color: rgba(154, 181, 139, 0.32) !important;
+  background-color: rgba(115, 146, 103, 0.10) !important;
+}
+
+
+
+html body .dshwv-roleGifTag,
+html body .dshwv-restag {
+  color: var(--noir-widget-gold-bright) !important;
+  background: rgba(200, 163, 90, 0.16) !important;
+}
+
+
+
+html body .dshwv-about-badge-dev {
+  color: #E2A198 !important;
+  background: rgba(160, 74, 68, 0.18) !important;
+}
+
+
+
+html body .dshwv-about-ok {
+  color: #9AB58B !important;
+}
+
+
+
+html body .dshwv-about-bad {
+  color: #E2A198 !important;
+}
+
+
+
+html body .dshwv-ver {
+  color: var(--noir-widget-gold) !important;
+  font-family: var(--noir-serif);
+  letter-spacing: 0.14em;
+  opacity: 0.52;
+}
+
+
+
+html body :is(.dshwv-menu-sep, .dshwv-about-hr) {
+  border-color: var(--noir-widget-line) !important;
+  background-color: var(--noir-widget-line);
+}
+
+
+
+html body :is(
+  .dshwv-menu-row,
+  .dshwv-roleitem,
+  .dshwv-audioitem,
+  .dshwv-resrow,
+  .dshwv-rgbopt
+):hover {
+  background-color: rgba(200, 163, 90, 0.075);
+}
+
+
+
+html body .dshwv-bubmini:hover,
+html body .dshwv-resclose:hover,
+html body .dshwv-rolepin:hover,
+html body .dshwv-ficonbtn:hover,
+html body .dshwv-about-refresh:hover {
+  color: var(--noir-widget-gold-bright) !important;
+  background-color: rgba(200, 163, 90, 0.10) !important;
+}
+
+
+
+html body .dshwv-fcardname {
+  color: var(--noir-widget-gold) !important;
+  background: rgba(8, 6, 4, 0.95) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) !important;
+}
+
+
+
+html body .dshwv-dualrange-thumb,
+html body .dshwv-snaphandle {
+  background: var(--noir-widget-gold) !important;
+  border-color: var(--noir-widget-gold-bright) !important;
+}
+
+
+
+html body .dshwv-snapoff {
+  color: var(--noir-widget-muted) !important;
+  background: rgba(7, 5, 4, 0.88) !important;
+}
+
+
+
+html body .dshwv-pvmod {
+  color: var(--noir-widget-ink);
+  background: rgba(14, 11, 7, 0.96);
+  border-color: var(--noir-widget-line);
+  border-radius: 2px;
+}
+
+
+
+html body :is(.dshwv-rolethumb, .dshwv-resthum, .dshwv-resicon) {
+  background-color: rgba(200, 163, 90, 0.08) !important;
+  border-color: var(--noir-widget-line) !important;
+}
+
+
+
+html body .dshwv-qcolorhost input[type='color'] {
+  background: rgba(4, 4, 3, 0.65) !important;
+  border-color: var(--noir-widget-line) !important;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-usage-sub,
+  .dshwv-listbox,
+  .dshwv-about,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card
+) {
+  scrollbar-color: rgba(200, 163, 90, 0.34) transparent;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-usage-sub,
+  .dshwv-listbox,
+  .dshwv-about,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card
+)::-webkit-scrollbar-thumb {
+  background: rgba(200, 163, 90, 0.30) !important;
+  border-radius: 4px;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-usage-sub,
+  .dshwv-listbox,
+  .dshwv-about,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card
+)::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 163, 90, 0.48) !important;
+}
+
+
+
+html body .dshwv-menu ::selection,
+html body .dshwv-bubcard ::selection,
+html body .dshwv-framecard ::selection,
+html body .dshwv-usage-card ::selection {
+  background: rgba(200, 163, 90, 0.30);
+  color: var(--noir-widget-ink);
+}
+
+
+
+/* --- Reliquary scriptorium: the popovers, menus and editors --------------
+   The widget's panels are treated as illuminated chapel pages: a gilt menu
+   wordmark, diamond bullets, serif labels, square reliquary controls, a rose
+   of light in the stone, and a gold rule with a finial on every dialog. */
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-rolelist,
+  .dshwv-audiolist,
+  .dshwv-slotlist,
+  .dshwv-rgbmenu,
+  .dshwv-colpop,
+  .dshwv-usagepanel,
+  .dshwv-qedit,
+  .dshwv-tplhelp,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin,
+  .dshwv-listbox,
+  .dshwv-usage-sub,
+  .dshwv-usage-tip,
+  .dshwv-fcard
+) {
+  background:
+    radial-gradient(ellipse at 88% -8%, rgba(200, 163, 90, 0.13), transparent 38%),
+    radial-gradient(ellipse at 6% 108%, rgba(108, 38, 36, 0.08), transparent 44%),
+    var(--noir-widget-panel) !important;
+  border: 1px solid var(--noir-widget-line-strong) !important;
+  border-radius: 2px !important;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.78),
+    0 0 0 1px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(232, 206, 157, 0.04),
+    inset 0 1px 0 rgba(244, 225, 177, 0.09) !important;
+}
+
+
+
+/* The main popover gets an actual chapel lintel, not just a recolour. */
+html body .dshwv-menu {
+  padding: 30px 12px 4px !important;
+  border-color: rgba(200, 163, 90, 0.46) !important;
+}
+
+
+
+html body .dshwv-menu::before {
+  content: "NOIR CATHÉDRALE";
+  position: absolute;
+  top: 7px;
+  left: 12px;
+  right: 12px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--noir-serif);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.30em;
+  text-indent: 0.30em;
+  color: var(--noir-widget-gold);
+  background:
+    linear-gradient(90deg, transparent, rgba(200, 163, 90, 0.55) 22%, rgba(200, 163, 90, 0.55) 78%, transparent) bottom / 100% 1px no-repeat;
+  text-shadow: 0 0 12px rgba(200, 163, 90, 0.25);
+  pointer-events: none;
+}
+
+
+
+html body .dshwv-menu::after {
+  content: "◆";
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  font-size: 7px;
+  color: var(--noir-widget-gold-bright);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+
+
+html body .dshwv-menu-row {
+  gap: 9px;
+  margin: 6px 0;
+  font-family: var(--noir-serif);
+  font-size: 12.2px;
+  letter-spacing: 0.035em;
+}
+
+
+
+html body .dshwv-menu-row > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  color: var(--noir-widget-muted);
+  font-size: 11.3px;
+  letter-spacing: 0.08em;
+}
+
+
+
+html body .dshwv-menu-row > span:first-child::before {
+  content: "◆";
+  margin-right: 6px;
+  color: var(--noir-widget-gold);
+  font-size: 4.5px;
+  line-height: 1;
+  opacity: 0.75;
+  transform: translateY(-0.5px);
+}
+
+
+
+html body .dshwv-menu-sep,
+html body .dshwv-about-hr {
+  position: relative;
+  height: 9px !important;
+  margin: 7px 0 !important;
+  border: 0 !important;
+  background:
+    linear-gradient(90deg, transparent, rgba(200, 163, 90, 0.30) 16%, rgba(200, 163, 90, 0.30) 84%, transparent) center / 100% 1px no-repeat !important;
+}
+
+
+
+html body .dshwv-menu-sep::after,
+html body .dshwv-about-hr::after {
+  content: "◆";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 5px;
+  background: #090705;
+  color: var(--noir-widget-gold);
+  font-size: 5px;
+  line-height: 9px;
+}
+
+
+
+/* The scale rail becomes a gilt measuring line with a diamond thumb. */
+html body .dshwv-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  background: transparent !important;
+  cursor: pointer;
+}
+
+
+
+html body .dshwv-range::-webkit-slider-runnable-track {
+  height: 2px;
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(90deg, rgba(200, 163, 90, 0.14), rgba(200, 163, 90, 0.62) 50%, rgba(200, 163, 90, 0.14));
+}
+
+
+
+html body .dshwv-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  margin-top: -4px;
+  border: 1px solid #F2DCA8;
+  border-radius: 0;
+  background: linear-gradient(135deg, #E9CF97, #A97F3D);
+  transform: rotate(45deg);
+  box-shadow: 0 0 9px rgba(200, 163, 90, 0.55);
+}
+
+
+
+html body .dshwv-range:focus-visible {
+  outline: 1px solid var(--noir-widget-line-strong);
+  outline-offset: 3px;
+}
+
+
+
+html body .dshwv-menu .dshwv-number {
+  height: 22px;
+  border: 0 !important;
+  border-bottom: 1px solid var(--noir-widget-line-strong) !important;
+  border-radius: 0 !important;
+  background: rgba(0, 0, 0, 0.30) !important;
+  color: var(--noir-widget-gold-bright) !important;
+  font-family: var(--noir-serif);
+  font-size: 12px;
+  text-align: center;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin,
+  .dshwv-usagepanel,
+  .dshwv-qedit,
+  .dshwv-listbox
+) :is(input[type='text'], input[type='number'], input[type='search'], textarea, select) {
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: var(--noir-widget-line) !important;
+  border-radius: 1px !important;
+  background-color: rgba(0, 0, 0, 0.28) !important;
+  font-family: var(--noir-serif);
+  caret-color: var(--noir-widget-gold);
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin,
+  .dshwv-usagepanel,
+  .dshwv-qedit,
+  .dshwv-listbox
+) :is(input, select, textarea):focus {
+  border-color: var(--noir-widget-gold) !important;
+  box-shadow: 0 0 0 1px rgba(200, 163, 90, 0.14);
+  outline: 0 !important;
+}
+
+
+
+html body .dshwv-check,
+html body :is(
+  .dshwv-menu,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin,
+  .dshwv-usagepanel,
+  .dshwv-qedit
+) input[type='checkbox'] {
+  width: 14px;
+  height: 14px;
+  accent-color: #C8A35A;
+  cursor: pointer;
+}
+
+
+
+html body :is(
+  .dshwv-menu,
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-rescard,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin,
+  .dshwv-usagepanel,
+  .dshwv-qedit
+) button {
+  font-family: var(--noir-serif);
+  letter-spacing: 0.045em;
+}
+
+
+
+/* The fixed footer of the menu is a full-width reliquary plaque. */
+html body .dshwv-menu > .dshwv-menu-row > .dshwv-roleimport {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  border: 1px solid var(--noir-widget-line-strong) !important;
+  border-radius: 0 !important;
+  padding: 0 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: linear-gradient(180deg, rgba(44, 33, 19, 0.96), rgba(8, 6, 4, 0.99)) !important;
+  color: var(--noir-widget-gold-bright) !important;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  box-shadow:
+    inset 0 0 0 1px rgba(232, 206, 157, 0.035),
+    0 0 20px rgba(200, 163, 90, 0.07) !important;
+}
+
+
+
+html body .dshwv-menu > .dshwv-menu-row > .dshwv-roleimport::before,
+html body .dshwv-menu > .dshwv-menu-row > .dshwv-roleimport::after {
+  content: "◆";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--noir-widget-gold);
+  font-size: 6px;
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+
+
+html body .dshwv-menu > .dshwv-menu-row > .dshwv-roleimport::before {
+  left: 9px;
+}
+
+
+
+html body .dshwv-menu > .dshwv-menu-row > .dshwv-roleimport::after {
+  right: 9px;
+}
+
+
+
+html body .dshwv-menu > .dshwv-menu-row > .dshwv-roleimport:hover {
+  border-color: var(--noir-widget-gold-bright) !important;
+  background: linear-gradient(180deg, rgba(65, 50, 28, 0.98), rgba(14, 10, 6, 1)) !important;
+}
+
+
+
+/* In the main menu, the footer plaque says "圣堂账册"; in the ledger view the
+   plugin changes the same button to "‹ 返回", so the state-dependent overlay
+   yields to the real back label. This avoids touching the plugin's text. */
+html body .dshwv-menu:not(:has(.dshwv-usage-sub[style*="display: block"])) > .dshwv-menu-row:has(> .dshwv-roleimport) {
+  position: relative;
+}
+
+
+
+html body .dshwv-menu:not(:has(.dshwv-usage-sub[style*="display: block"])) > .dshwv-menu-row > .dshwv-roleimport {
+  font-size: 0 !important;
+  letter-spacing: 0 !important;
+}
+
+
+
+html body .dshwv-menu:not(:has(.dshwv-usage-sub[style*="display: block"])) > .dshwv-menu-row:has(> .dshwv-roleimport)::after {
+  content: "圣 堂 账 册";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--noir-widget-gold-bright);
+  font-family: var(--noir-serif);
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-indent: 0.24em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+
+
+/* Every dialog is an illuminated page: gold upper rule plus a diamond finial. */
+html body :is(
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin
+) {
+  position: relative;
+  border-color: rgba(200, 163, 90, 0.42) !important;
+}
+
+
+
+html body :is(
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin
+)::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 163, 90, 0.42) 18%, rgba(200, 163, 90, 0.42) 82%, transparent);
+  pointer-events: none;
+}
+
+
+
+html body :is(
+  .dshwv-bubcard,
+  .dshwv-framecard,
+  .dshwv-usage-card,
+  .dshwv-audiowin,
+  .dshwv-cropwin,
+  .dshwv-gifwin,
+  .dshwv-confirmwin,
+  .dshwv-snapwin
+)::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  transform: translateX(-50%) rotate(45deg);
+  border: 1px solid rgba(200, 163, 90, 0.55);
+  background: #090705;
+  pointer-events: none;
+}
+
+
+
+html body :is(
+  .dshwv-bubtitle,
+  .dshwv-fetitle,
+  .dshwv-audiotitle,
+  .dshwv-croptitle,
+  .dshwv-giftitle,
+  .dshwv-snaptitle,
+  .dshwv-restitle
+) {
+  font-weight: 500 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase;
+  text-shadow: 0 0 18px rgba(200, 163, 90, 0.12);
+}
+
+
+
+html body .dshwv-usage-subtitle {
+  margin: 4px 0 9px !important;
+  font-size: 0 !important;
+  line-height: 1.2 !important;
+}
+
+
+
+html body .dshwv-usage-subtitle::before {
+  content: "圣 堂 账 册";
+  display: block;
+  font-family: var(--noir-serif);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  color: var(--noir-widget-gold);
+}
+
+
+
+html body .dshwv-usage-subtitle::after {
+  content: "LIBER RATIONIS";
+  display: block;
+  margin-top: 3px;
+  font-family: var(--noir-serif);
+  font-size: 7px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.26em;
+  text-indent: 0.26em;
+  color: var(--noir-widget-muted);
+}
+
+
+
+html body .dshwv-usage-wintitle {
+  color: var(--noir-widget-gold) !important;
+  font-family: var(--noir-serif) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em;
+  background: linear-gradient(180deg, rgba(200, 163, 90, 0.06), transparent) !important;
+  border-bottom: 1px solid var(--noir-widget-line) !important;
+}
+
+
+
+html body .dshwv-usage-row {
+  padding: 5px 0 !important;
+  border-bottom: 1px solid rgba(200, 163, 90, 0.08);
+  font-family: var(--noir-serif);
+}
+
+
+
+html body .dshwv-usage-row:last-child {
+  border-bottom: 0;
+}
+
+
+
+html body .dshwv-usage-sec {
+  color: var(--noir-widget-gold) !important;
+  font-family: var(--noir-serif);
+  letter-spacing: 0.12em;
+  border-bottom-color: var(--noir-widget-line) !important;
+}
+
+
+
+html body .dshwv-usage-total,
+html body .dshwv-usage-oview-num,
+html body .dshwv-usage-yuan,
+html body .dshwv-usage-ratio-pct {
+  font-family: var(--noir-serif);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+
+
+html body .dshwv-usage-total {
+  color: var(--noir-widget-gold-bright) !important;
+}
+
+
+
+html body .dshwv-usage-ratio-track {
+  border: 1px solid rgba(200, 163, 90, 0.14);
+  border-radius: 0 !important;
+  background: rgba(200, 163, 90, 0.10) !important;
+}
+
+
+
+html body .dshwv-usage-ratio-fill {
+  border-radius: 0 !important;
+  background: linear-gradient(90deg, #6C2624, #C8A35A 70%, #E7CD95) !important;
+}
+
+
+
+html body .dshwv-usage-ratio-label,
+html body .dshwv-usage-ratio-pct {
+  color: var(--noir-widget-muted) !important;
+}
+
+
+
+html body .dshwv-usage-hint {
+  color: var(--noir-widget-muted) !important;
+  font-family: var(--noir-serif);
+  font-style: italic;
+}
+
+
+
+html body .dshwv-usage-chartwrap {
+  border: 1px solid var(--noir-widget-line) !important;
+  border-radius: 1px !important;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(200, 163, 90, 0.06), transparent 65%),
+    rgba(4, 4, 3, 0.45) !important;
+}
+
+
+
+html body .dshwv-about-name {
+  font-size: 0 !important;
+}
+
+
+
+html body .dshwv-about-name::before {
+  content: "黑 金 圣 堂";
+  font-family: var(--noir-serif);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--noir-widget-gold);
+}
+
+
+
+@keyframes noir-relic-glint {
+  0%, 100% { opacity: 0.72; }
+  50% { opacity: 0.92; }
+}
+
+
+
+@keyframes noir-relic-sway {
+  0%, 100% { rotate: -0.55deg; }
+  50% { rotate: 0.55deg; }
+}

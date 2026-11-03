@@ -1,0 +1,874 @@
+/* 大肥鱼 · BIG FAT FISH
+   Deep-sea night for the DSH Web UI: DeepSeek blue, cyan rim light, cream
+   bubbles and a chubby whale that keeps you company at any depth. */
+
+:root {
+  color-scheme: dark;
+  --bff-ink: #EDF4FF;
+  --bff-ink-soft: #C4D8F0;
+  --bff-caption: #7C93B2;
+  --bff-blue: #4D6BFE;
+  --bff-blue-bright: #7FB2FF;
+  --bff-cyan: #7FE7FF;
+  --bff-cream: #FFF4DF;
+  --bff-coral: #FF9FB2;
+  --bff-gold: #FFD98A;
+  --bff-deep: #020913;
+  --bff-panel: rgba(6, 15, 30, 0.72);
+  --bff-line: rgba(127, 231, 255, 0.18);
+  --bff-line-soft: rgba(127, 231, 255, 0.10);
+  --bff-display: "Avenir Next Rounded", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Segoe UI", sans-serif;
+  --bff-sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --bff-mono: "SF Mono", "JetBrains Mono", "IBM Plex Mono", Menlo, Consolas, monospace;
+  --bff-art: url("./assets/keyvisual.webp");
+  --bff-face: url("./assets/face.webp");
+  --bff-grain: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.86%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20type%3D%22saturate%22%20values%3D%220%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20filter%3D%22url(%23n)%22%20opacity%3D%220.5%22%2F%3E%3C%2Fsvg%3E");
+}
+
+html {
+  background-color: var(--bff-deep) !important;
+}
+
+html body,
+html[data-platform='darwin'] body {
+  color-scheme: dark;
+  font-family: var(--bff-sans);
+  background-color: var(--bff-deep) !important;
+  background-image:
+    radial-gradient(110% 84% at 78% 10%, rgba(77, 107, 254, 0.20) 0%, rgba(77, 107, 254, 0.06) 38%, transparent 64%),
+    linear-gradient(90deg, rgba(2, 9, 19, 0.96) 0%, rgba(2, 9, 19, 0.76) 22%, rgba(2, 9, 19, 0.24) 46%, rgba(2, 9, 19, 0.00) 68%, rgba(2, 9, 19, 0.30) 100%),
+    linear-gradient(180deg, rgba(2, 9, 19, 0.58) 0%, rgba(2, 9, 19, 0.06) 24%, rgba(2, 9, 19, 0.04) 68%, rgba(2, 9, 19, 0.62) 100%),
+    var(--bff-art);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center, center center, center center, right -46px top 14px;
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(77, 107, 254, 0.44);
+  color: #ffffff;
+}
+
+html body ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html body ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html body ::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 99px;
+  background: linear-gradient(180deg, rgba(127, 231, 255, 0.42), rgba(77, 107, 254, 0.42)) padding-box;
+}
+
+html body ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(127, 231, 255, 0.70), rgba(77, 107, 254, 0.70)) padding-box;
+}
+
+html body :is([role='dialog'], [aria-modal='true']) {
+  backdrop-filter: blur(18px) saturate(1.15);
+}
+
+html body [class*='composerStack']:not([class*='composerHero']),
+html body [class*='composerSeat'] {
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.38);
+}
+
+/* 新会话页（抬头 + 输入卡居中）座位底下没有正文，这团 46px 的投影只会
+   投在空纸面上，看着像一层半透明黑遮罩——只在有人滚正文的会话页保留。 */
+html:has([class*='composerHero']) [class*='composerSeat'] {
+  box-shadow: none !important;
+}
+
+/* ---------------------------------------------------------------- 鲸鱼娘 */
+
+.bff-face {
+  display: block;
+  flex: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image: var(--bff-face);
+  background-size: cover;
+  background-position: center center;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+    0 0 12px rgba(77, 107, 254, 0.34);
+}
+
+.bff-whale {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 2px 7px rgba(77, 107, 254, 0.35));
+}
+
+.bff-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  padding: 1.5px;
+  border-radius: 50%;
+  border: 1px solid rgba(127, 231, 255, 0.36);
+  background: radial-gradient(120% 120% at 30% 18%, rgba(127, 231, 255, 0.30), rgba(77, 107, 254, 0.14) 55%, rgba(4, 16, 32, 0.55));
+  box-shadow: 0 0 14px rgba(77, 107, 254, 0.35), inset 0 0 9px rgba(127, 231, 255, 0.16);
+}
+
+/* ---------------------------------------------------------------- 字标 */
+
+.bff-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.36em;
+  min-width: 0;
+  font-family: var(--bff-sans);
+}
+
+.bff-brand__cn {
+  color: var(--bff-ink);
+  font: 700 15px/1.1 var(--bff-display);
+  letter-spacing: 0.10em;
+  background: linear-gradient(96deg, #FFFFFF 0%, #CFE4FF 34%, #8FC8FF 72%, #7FE7FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 9px rgba(127, 231, 255, 0.22));
+}
+
+.bff-brand__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #E6F7FF;
+  box-shadow: 0 0 8px rgba(191, 240, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.bff-brand__sub {
+  font: 500 8px/1 var(--bff-mono);
+  letter-spacing: 0.22em;
+  color: #7FA8D0;
+  white-space: nowrap;
+}
+
+.bff-brand__ver {
+  font: 400 8px/1 var(--bff-mono);
+  letter-spacing: 0.08em;
+  color: rgba(127, 168, 208, 0.55);
+}
+
+/* ---------------------------------------------------------------- Hero */
+
+.bff-hero {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 420px;
+  padding: 13px 22px 13px 13px;
+  border-radius: 28px;
+  border: 1px solid rgba(127, 231, 255, 0.16);
+  background:
+    linear-gradient(118deg, rgba(3, 12, 24, 0.84) 0%, rgba(4, 16, 32, 0.64) 62%, rgba(4, 16, 32, 0.46) 100%);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.30), inset 0 0 34px rgba(127, 231, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(1.12);
+}
+
+.bff-hero::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 26px;
+  bottom: 6px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(127, 231, 255, 0.22), transparent);
+  opacity: 0.7;
+}
+
+.bff-hero__badge {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 68px;
+  height: 68px;
+  padding: 5px;
+  border-radius: 24px;
+  background: radial-gradient(130% 130% at 28% 16%, rgba(127, 231, 255, 0.28), rgba(77, 107, 254, 0.14) 52%, rgba(4, 16, 32, 0.62));
+  border: 1px solid rgba(127, 231, 255, 0.26);
+  box-shadow:
+    0 12px 30px rgba(2, 9, 19, 0.55),
+    inset 0 0 18px rgba(127, 231, 255, 0.10);
+  backdrop-filter: blur(10px);
+}
+
+.bff-hero__ring {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 1px dashed rgba(127, 231, 255, 0.35);
+  animation: bff-spin 30s linear infinite;
+}
+
+.bff-face--hero {
+  width: 54px;
+  height: 54px;
+}
+
+.bff-hero__copy {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
+}
+
+.bff-hero__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.bff-hero__cn {
+  color: #F4FAFF;
+  font: 700 27px/1.04 var(--bff-display);
+  letter-spacing: 0.12em;
+  background: linear-gradient(96deg, #FFFFFF 0%, #D6E8FF 32%, #9FCBFF 64%, #7FE7FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 16px rgba(127, 231, 255, 0.28));
+}
+
+.bff-hero__latin {
+  font: 600 8.5px/1 var(--bff-mono);
+  letter-spacing: 0.32em;
+  color: rgba(160, 202, 255, 0.66);
+  white-space: nowrap;
+}
+
+.bff-hero__sub {
+  font: 500 9px/1.5 var(--bff-mono);
+  letter-spacing: 0.30em;
+  color: #A6CBE8;
+}
+
+.bff-hero__wave {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 4px 0 5px;
+}
+
+.bff-hero__wave i {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(127, 231, 255, 0.55);
+  box-shadow: 0 0 6px rgba(127, 231, 255, 0.35);
+}
+
+.bff-hero__wave i:nth-child(2) {
+  width: 6px;
+  height: 6px;
+  background: rgba(127, 231, 255, 0.8);
+  animation: bff-pulse 3.4s ease-in-out infinite;
+}
+
+.bff-hero__wave i:nth-child(3) {
+  width: 3px;
+  height: 3px;
+  opacity: 0.55;
+}
+
+.bff-hero__tagline {
+  font: 400 11.5px/1.5 var(--bff-sans);
+  letter-spacing: 0.08em;
+  color: #A6C2DE;
+}
+
+/* ---------------------------------------------------------------- 输入 chip */
+
+.bff-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 27px;
+  padding: 0 9px 0 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(127, 231, 255, 0.24);
+  background: linear-gradient(135deg, rgba(77, 107, 254, 0.24), rgba(6, 16, 32, 0.62));
+  box-shadow: inset 0 0 10px rgba(127, 231, 255, 0.08);
+  color: #DCEBFF;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.bff-face--chip {
+  width: 19px;
+  height: 19px;
+}
+
+.bff-chip__text {
+  font: 600 11px/1 var(--bff-sans);
+  letter-spacing: 0.08em;
+  color: #E6F2FF;
+}
+
+.bff-chip__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--bff-cyan);
+  box-shadow: 0 0 7px rgba(127, 231, 255, 0.9);
+  animation: bff-pulse 2.8s ease-in-out infinite;
+}
+
+.bff-chip__sub {
+  font: 500 8px/1 var(--bff-mono);
+  letter-spacing: 0.16em;
+  color: #84A8CB;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------- 输入下方 */
+
+.bff-dock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 2px;
+  color: #7C93B2;
+  font: 500 8.5px/1 var(--bff-mono);
+  letter-spacing: 0.16em;
+  user-select: none;
+}
+
+.bff-whale--dock {
+  width: 14px;
+  height: 14px;
+  opacity: 0.9;
+}
+
+.bff-dock__label {
+  color: #6F98C2;
+}
+
+.bff-dock__meter {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 16px;
+}
+
+.bff-dock__meter i {
+  display: block;
+  width: 3px;
+  border-radius: 99px;
+  background: rgba(127, 231, 255, 0.16);
+}
+
+.bff-dock__meter i.is-on {
+  background: linear-gradient(180deg, #7FE7FF, #4D6BFE);
+  box-shadow: 0 0 6px rgba(127, 231, 255, 0.45);
+}
+
+.bff-dock__value {
+  color: #A9CBEE;
+  letter-spacing: 0.10em;
+}
+
+.bff-dock__hint {
+  margin-left: auto;
+  color: rgba(124, 147, 178, 0.72);
+  letter-spacing: 0.08em;
+}
+
+/* ---------------------------------------------------------------- 氛围层 */
+
+.bff-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 2147482000;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bff-atmosphere__glow {
+  position: absolute;
+  top: -26%;
+  right: -12%;
+  width: 76vw;
+  height: 76vw;
+  background: radial-gradient(circle at 50% 50%, rgba(77, 107, 254, 0.20), rgba(127, 231, 255, 0.07) 42%, transparent 66%);
+  filter: blur(18px);
+  animation: bff-breathe 12s ease-in-out infinite;
+}
+
+.bff-atmosphere__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(124% 94% at 50% 44%, transparent 50%, rgba(1, 5, 12, 0.58) 100%);
+}
+
+.bff-atmosphere__grain {
+  position: absolute;
+  inset: 0;
+  background-image: var(--bff-grain);
+  opacity: 0.16;
+  mix-blend-mode: soft-light;
+}
+
+.bff-atmosphere__frame {
+  position: absolute;
+  inset: 13px;
+  border: 1px solid rgba(127, 231, 255, 0.09);
+  border-radius: 20px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 16%, transparent 84%, #000 100%);
+  mask-image: linear-gradient(180deg, #000 0%, transparent 16%, transparent 84%, #000 100%);
+}
+
+.bff-atmosphere__spine {
+  position: absolute;
+  top: 50%;
+  right: 17px;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font: 500 8.5px/1 var(--bff-mono);
+  letter-spacing: 0.46em;
+  color: rgba(160, 202, 255, 0.40);
+  white-space: nowrap;
+}
+
+.bff-bubble {
+  position: absolute;
+  bottom: -34px;
+  border-radius: 50%;
+  border: 1px solid rgba(196, 242, 255, 0.52);
+  background: radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.82), rgba(127, 231, 255, 0.16) 46%, rgba(77, 107, 254, 0.05) 70%, transparent 73%);
+  box-shadow: inset 0 0 7px rgba(255, 255, 255, 0.22);
+  opacity: 0;
+  animation-name: bff-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.bff-atmosphere__star {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(150deg, #FFF3C8, #FFC96B);
+  clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+  opacity: 0.72;
+  animation: bff-twinkle 4.8s ease-in-out infinite;
+}
+
+.bff-atmosphere__star--a {
+  top: 13%;
+  right: 18%;
+}
+
+.bff-atmosphere__star--b {
+  bottom: 21%;
+  left: 7%;
+  width: 11px;
+  height: 11px;
+  animation-delay: -2.2s;
+  opacity: 0.5;
+}
+
+/* ---------------------------------------------------------------- 启动幕 */
+
+.bff-boot {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  overflow: hidden;
+  background: var(--bff-deep);
+  isolation: isolate;
+  opacity: 1;
+  transition: opacity 320ms ease;
+}
+
+.bff-boot--leaving {
+  opacity: 0;
+}
+
+.bff-boot__art {
+  position: absolute;
+  inset: 0;
+  background: var(--bff-art) right -46px top 14px / cover no-repeat;
+  background-color: #020913;
+  opacity: 0.92;
+  transform: scale(1.03);
+  animation: bff-boot-drift 16s ease-out both;
+}
+
+.bff-boot__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(80% 70% at 82% 42%, rgba(77, 107, 254, 0.22), transparent 62%),
+    linear-gradient(90deg, rgba(2, 9, 19, 0.97) 0%, rgba(2, 9, 19, 0.86) 34%, rgba(2, 9, 19, 0.28) 62%, rgba(2, 9, 19, 0.05) 100%);
+}
+
+.bff-boot__caustic {
+  position: absolute;
+  inset: -10% -20%;
+  background: linear-gradient(112deg, transparent 34%, rgba(191, 240, 255, 0.10) 42%, rgba(127, 231, 255, 0.03) 48%, transparent 58%);
+  mix-blend-mode: screen;
+  animation: bff-caustic 8s ease-in-out infinite alternate;
+}
+
+.bff-boot__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: 760px;
+  padding: 0 clamp(28px, 9vw, 148px);
+  gap: 9px;
+}
+
+.bff-boot__badge {
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  margin-bottom: 15px;
+  padding: 7px;
+  border-radius: 30px;
+  background: radial-gradient(130% 130% at 28% 16%, rgba(127, 231, 255, 0.40), rgba(77, 107, 254, 0.20) 52%, rgba(5, 18, 36, 0.72));
+  border: 1px solid rgba(127, 231, 255, 0.44);
+  box-shadow: 0 0 38px rgba(77, 107, 254, 0.36), 0 20px 48px rgba(2, 9, 19, 0.55), inset 0 0 26px rgba(127, 231, 255, 0.18);
+  animation: bff-badge-in 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.bff-face--boot {
+  width: 68px;
+  height: 68px;
+}
+
+.bff-boot__kicker {
+  font: 500 9.5px/1 var(--bff-mono);
+  letter-spacing: 0.40em;
+  color: #9FC4E4;
+  animation: bff-fade-up 780ms 120ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.bff-boot__title {
+  font: 700 clamp(52px, 7.6vw, 92px) / 1.04 var(--bff-display);
+  letter-spacing: 0.16em;
+  color: #F6FBFF;
+  text-shadow: 0 0 34px rgba(127, 231, 255, 0.35), 0 12px 40px rgba(2, 9, 19, 0.65);
+  animation: bff-fade-up 820ms 160ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.bff-boot__latin {
+  font: 600 10.5px/1 var(--bff-mono);
+  letter-spacing: 0.56em;
+  color: rgba(196, 224, 255, 0.90);
+  animation: bff-fade-up 820ms 220ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.bff-boot__rule {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 8px;
+  animation: bff-fade-up 820ms 260ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.bff-boot__rule i {
+  display: block;
+  width: 210px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(127, 231, 255, 0.62), rgba(127, 231, 255, 0));
+}
+
+.bff-boot__rule em {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #E6F7FF;
+  box-shadow: 0 0 10px rgba(191, 240, 255, 0.9);
+}
+
+.bff-boot__verse {
+  font: 400 13px/1.7 var(--bff-sans);
+  letter-spacing: 0.14em;
+  color: #A9C6E4;
+  animation: bff-fade-up 820ms 300ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.bff-boot__progress {
+  position: relative;
+  display: block;
+  width: 232px;
+  height: 2px;
+  margin-top: 26px;
+  border-radius: 99px;
+  background: rgba(127, 231, 255, 0.12);
+  overflow: hidden;
+}
+
+.bff-boot__progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  background: linear-gradient(90deg, #4D6BFE, #7FE7FF);
+  box-shadow: 0 0 12px rgba(127, 231, 255, 0.65);
+  animation: bff-progress 2000ms cubic-bezier(0.3, 0.6, 0.2, 1) 120ms both;
+}
+
+.bff-boot__hint {
+  margin-top: 13px;
+  font: 500 8.5px/1 var(--bff-mono);
+  letter-spacing: 0.22em;
+  color: rgba(160, 190, 220, 0.86);
+  animation: bff-fade-up 820ms 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.bff-boot__replay {
+  color: rgba(124, 147, 178, 0.45);
+}
+
+.bff-boot__bubble {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(196, 242, 255, 0.34);
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.30), rgba(127, 231, 255, 0.06) 55%, transparent 72%);
+  animation: bff-boot-bubble 9s ease-in-out infinite;
+}
+
+.bff-boot__bubble--a {
+  right: 14%;
+  top: 22%;
+  width: 78px;
+  height: 78px;
+}
+
+.bff-boot__bubble--b {
+  right: 8%;
+  bottom: 18%;
+  width: 34px;
+  height: 34px;
+  animation-delay: -3s;
+}
+
+.bff-boot__bubble--c {
+  right: 26%;
+  bottom: 34%;
+  width: 16px;
+  height: 16px;
+  animation-delay: -5.5s;
+}
+
+/* ---------------------------------------------------------------- 动效 */
+
+@keyframes bff-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bff-wave {
+  0%, 100% { transform: translateY(0); opacity: 0.72; }
+  50% { transform: translateY(-1.5px); opacity: 1; }
+}
+
+@keyframes bff-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.82); }
+}
+
+@keyframes bff-breathe {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+@keyframes bff-rise {
+  0% { transform: translate3d(0, 0, 0) scale(0.82); opacity: 0; }
+  10% { opacity: 0.62; }
+  55% { transform: translate3d(var(--bff-drift, 12px), -56vh, 0) scale(1); }
+  88% { opacity: 0.36; }
+  100% { transform: translate3d(0, -112vh, 0) scale(1.08); opacity: 0; }
+}
+
+@keyframes bff-twinkle {
+  0%, 100% { opacity: 0.72; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.32; transform: scale(0.82) rotate(12deg); }
+}
+
+@keyframes bff-boot-drift {
+  from { transform: scale(1.02) translate3d(0, 0, 0); }
+  to { transform: scale(1.08) translate3d(-10px, -12px, 0); }
+}
+
+@keyframes bff-caustic {
+  from { transform: translateX(-4%) rotate(-1deg); opacity: 0.65; }
+  to { transform: translateX(4%) rotate(1deg); opacity: 1; }
+}
+
+@keyframes bff-boot-bubble {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
+  50% { transform: translate3d(-6px, -18px, 0) scale(1.06); opacity: 0.9; }
+}
+
+@keyframes bff-badge-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes bff-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bff-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (max-width: 1100px) {
+  html body,
+  html[data-platform='darwin'] body {
+    background-position: center center, center center, center center, 72% center;
+  }
+
+  .bff-atmosphere__spine {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  html body,
+  html[data-platform='darwin'] body {
+    background-image:
+      linear-gradient(180deg, rgba(2, 9, 19, 0.90) 0%, rgba(2, 9, 19, 0.62) 46%, rgba(2, 9, 19, 0.94) 100%),
+      var(--bff-art);
+    background-position: center center, 70% top;
+    background-size: cover, cover;
+  }
+
+  .bff-hero {
+    gap: 12px;
+  }
+
+  .bff-hero__badge {
+    width: 58px;
+    height: 58px;
+  }
+
+  .bff-face--hero {
+    width: 46px;
+    height: 46px;
+  }
+
+  .bff-hero__cn {
+    font-size: 21px;
+  }
+
+  .bff-hero__tagline {
+    display: none;
+  }
+
+  .bff-boot__art {
+    opacity: 0.45;
+  }
+
+  .bff-boot__glow {
+    background: linear-gradient(180deg, rgba(2, 9, 19, 0.82) 0%, rgba(2, 9, 19, 0.55) 55%, rgba(2, 9, 19, 0.92) 100%);
+  }
+
+  .bff-boot__content {
+    padding: 0 24px;
+  }
+
+  .bff-boot__title {
+    letter-spacing: 0.10em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bff-hero__ring,
+  .bff-hero__wave i,
+  .bff-chip__dot,
+  .bff-atmosphere__glow,
+  .bff-atmosphere__star,
+  .bff-bubble,
+  .bff-boot__art,
+  .bff-boot__caustic,
+  .bff-boot__bubble,
+  .bff-boot__badge,
+  .bff-boot__kicker,
+  .bff-boot__title,
+  .bff-boot__latin,
+  .bff-boot__rule,
+  .bff-boot__verse,
+  .bff-boot__hint {
+    animation: none !important;
+  }
+
+  .bff-boot__progress span {
+    animation-duration: 600ms;
+  }
+}
+
+/* 输入卡下沿：14px 内快速收边，正文滚到此处即被盖住（统一规范） */
+/* 只在「输入卡正下方」压一条窄带：两侧不遮，正文滚到卡片下面即被盖住 */
+/* 输入区不再铺任何横向底带（两侧不该被遮） */
+
+/* 输入区底部封口：只在最后 60px 实色，卡片上方半点不碰 */
+html body [class*="composerSeat"] {
+  background: linear-gradient(180deg,
+    rgba(18, 12, 14, 0) 0,
+    rgba(18, 12, 14, 0) calc(100% - 60px),
+    rgba(18, 12, 14, 1) calc(100% - 34px),
+    rgba(18, 12, 14, 1) 100%) !important;
+  background-image: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+html body [class*="composerHero"] {
+  background: none !important;
+}
+
+
+/* 卡片下沿的收边：跟着卡片宽度走，40px 内渐隐，只盖住卡片正下方那条 */
+
+html body 
+/* 新会话页（hero 输入框）不要那条收边遮罩 */
+
+
+/* 会话正文在输入区上方渐隐：遮的是「内容」，不是卡片本身 */
+html body [class*="scrollBody"] > *:not([class*="composer"]):not([class*="Composer"]) {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+  mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+}
+/* 卡片下沿收边：用「composerStack + _card」这对类名（data 属性在新版宿主里不存在） */
+
+  mask-image: linear-gradient(180deg, #000 calc(100% - 190px), rgba(0,0,0,0.35) calc(100% - 96px), transparent calc(100% - 24px));
+}
+
+/* 会话文本层：scrollBody 的第一个子节点就是消息列表（它没有 class，只能按位置选） */
+html body [class*="scrollBody"] > *:first-child {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+  mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+}
+/* 输入卡：不透光，正文绝不可能从卡片里透出来 */
+html body [class*="composerStack"] [class*="_card"] {
+  background-color: rgba(18, 13, 16, 1) !important;
+}

@@ -1,0 +1,19 @@
+{
+  "id": "tea-time",
+  "name": "午后三时",
+  "latin": "TEA AT THREE",
+  "appearance": "light",
+  "blurb": "试用期女仆 · 薄荷奶油与草莓塔",
+  "composerBg": "rgba(255, 248, 240, 0.62)",
+  "slots": {
+    "sidebar.brand.mark": "TeaMark",
+    "sidebar.brand.name": "TeaBrandName",
+    "conversation.hero.brand.mark": "TeaHeroMark",
+    "conversation.input.left": "TeaChip"
+  },
+  "rootClasses": [],
+  "widget": null,
+  "sidecars": [
+    "installLiveTeaWall"
+  ]
+}

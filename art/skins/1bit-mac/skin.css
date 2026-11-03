@@ -1,0 +1,609 @@
+/* =========================================================================
+   单色 · 1-BIT SYSTEM — 1984 的电脑，接上 2026 年的模型
+   -------------------------------------------------------------------------
+   规则只有三条：
+     1. 只有一种墨（#000）和一种纸（#FFF）。所有灰度都是 4×4 Bayer 抖动。
+     2. 没有圆角、没有毛玻璃、没有柔光投影；阴影是 1px 硬偏移。
+     3. 动效是跳变的（steps()），不是插值的——机器只有开和关两种状态。
+   本文件由 huaping 引擎在切换皮肤时整片挂载/卸载，作用域是 html.onebit。
+   ========================================================================= */
+
+html.onebit {
+  --b1-paper: #fff;
+  --b1-ink: #000;
+  --b1-mono: 'SFMono-Regular', ui-monospace, Menlo, 'Cascadia Mono', 'IBM Plex Mono', monospace;
+  --b1-crawl: 0px;
+
+  /* 4×4 Bayer 点阵纹理。JS 会用真实生成的 SVG tile 覆盖这几个变量；
+     这里的 conic-gradient 只是 JS 没跑起来时的兜底棋盘格。注意值里不能带
+     position/size（`0 0 / 4px 4px`），否则整条 background-image 声明作废。 */
+  --b1-dot-1: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%);
+  --b1-dot-2: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%);
+  --b1-dot-4: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%);
+  --b1-dot-6: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%);
+  --b1-dot-8: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%);
+  --b1-dot-12: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%);
+
+  /* 16px 黑白箭头，热点在 1,1 */
+  --b1-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'%3E%3Cpath d='M1 1 L1 12 L4 9 L6 14 L8 13 L6 8 L10 8 Z' fill='%23fff' stroke='%23fff' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M1 1 L1 12 L4 9 L6 14 L8 13 L6 8 L10 8 Z' fill='%23000'/%3E%3C/svg%3E");
+
+  background: #fff;
+  cursor: var(--b1-arrow) 1 1, default;
+}
+
+html.onebit body {
+  background: #fff;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* -------------------------------------------------------------------------
+   1. 去高清：圆角、模糊、柔光投影、平滑过渡，全部拿掉
+   ------------------------------------------------------------------------- */
+
+html.onebit *,
+html.onebit *::before,
+html.onebit *::after {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  transition-timing-function: steps(3, end) !important;
+  animation-timing-function: steps(3, end);
+}
+
+/* 结构性容器上的渐变一律抹平——灰度只允许来自抖动层 */
+html.onebit body,
+html.onebit [class*='sidebar'],
+html.onebit [class*='composer'],
+html.onebit [class*='header'],
+html.onebit [class*='card'],
+html.onebit [class*='panel'],
+html.onebit [class*='overlay'],
+html.onebit [class*='menu'] {
+  background-image: none !important;
+}
+
+/* 图片暂时降为 1-bit 观感；指针移上去还原彩色，提醒你后面还有 2026。
+   皮肤库的封面图除外——挑皮肤时得看得见别的皮肤本来长什么样。 */
+html.onebit img:not(.hp-card__shot) {
+  filter: grayscale(1) contrast(1.06);
+  transition: filter 90ms steps(2, end) !important;
+}
+html.onebit img:not(.hp-card__shot):hover {
+  filter: none;
+}
+
+/* 固定在右下角的鲸鱼挂件也归这台机器管：只把它的图降成黑白，
+   不动它的布局与文案——滤镜挂在根容器上会让 fixed/crop 窗口错位。 */
+html.onebit [class*='dshwv-root'] :is(img, video, canvas) {
+  filter: grayscale(1) contrast(1.5) !important;
+}
+
+/* 选中文字：反白 + 1px 抖动描边（描边由 overlay 里的选区盒画出） */
+html.onebit ::selection {
+  background: #000 !important;
+  color: #fff !important;
+}
+html.onebit ::-moz-selection {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* 焦点：1px 点线，像 System 7 的键盘焦点框 */
+html.onebit :focus-visible {
+  outline: 1px dotted #000 !important;
+  outline-offset: 2px !important;
+}
+
+/* 滚动条：滑块实心黑，槽底铺 25% 抖动 */
+html.onebit ::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+html.onebit ::-webkit-scrollbar-track {
+  background-color: #fff;
+  background-image: var(--b1-dot-4);
+  background-size: 4px 4px;
+  background-repeat: repeat;
+}
+html.onebit ::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border: 1px solid #000;
+}
+html.onebit ::-webkit-scrollbar-corner {
+  background: #fff;
+}
+
+/* 原生控件直接黑化 */
+html.onebit :is(input[type='checkbox'], input[type='radio'], input[type='range'], progress) {
+  accent-color: #000;
+}
+
+/* 输入区：1px 直角框 + 内嵌硬阴影，像一张真的纸卡 */
+html.onebit :is(input, select, textarea):not([type='checkbox']):not([type='radio']):not([type='range']) {
+  cursor: text;
+}
+html.onebit :is(input, textarea)::placeholder {
+  color: rgba(0, 0, 0, 0.42);
+}
+
+/* 输入框所在的卡片：硬投影把它从纸面上「抬」起来 */
+html.onebit [class*='composerStack']:not([class*='composerHero']),
+html.onebit [class*='composerCard'] {
+  box-shadow: 2px 2px 0 #000 !important;
+  border: 1px solid #000;
+}
+
+/* -------------------------------------------------------------------------
+   2. 全屏层：抖动画布 + 网点爬行 + 屏幕边框 + 选区描边
+   ------------------------------------------------------------------------- */
+
+html.onebit .onebit-atmosphere {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 这一层就是「网点」。滚动时它按 1px 取整平移，于是点阵一格一格往上爬。 */
+html.onebit .onebit-atmosphere__crawl {
+  position: absolute;
+  inset: -8px;
+  display: block;
+  background-image: var(--b1-dot-1);
+  background-size: 4px 4px;
+  background-repeat: repeat;
+  opacity: 0.42;
+  transform: translate3d(0, var(--b1-crawl, 0px), 0);
+  will-change: transform;
+}
+
+/* 屏幕边框：1px 实线 + 1px 点线，老显示器的双线框 */
+html.onebit .onebit-atmosphere__frame {
+  position: absolute;
+  inset: 7px;
+  display: block;
+  border: 1px solid #000;
+  outline: 1px dotted #000;
+  outline-offset: 3px;
+  opacity: 0.9;
+}
+
+html.onebit .onebit-atmosphere__corner {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  display: block;
+  border: 0 solid #000;
+}
+html.onebit .onebit-atmosphere__corner--tl {
+  left: 7px;
+  top: 7px;
+}
+html.onebit .onebit-atmosphere__corner--tr {
+  right: 7px;
+  top: 7px;
+}
+html.onebit .onebit-atmosphere__corner--bl {
+  left: 7px;
+  bottom: 7px;
+}
+html.onebit .onebit-atmosphere__corner--br {
+  right: 7px;
+  bottom: 7px;
+}
+
+/* 选区外圈：1px 点线，凑近看就是一圈抖动的黑点 */
+html.onebit .onebit-selection {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+html.onebit .onebit-selection__box {
+  position: absolute;
+  display: block;
+  outline: 1px dotted #000;
+  outline-offset: 0;
+  opacity: 0.75;
+}
+
+/* -------------------------------------------------------------------------
+   3. 侧边栏品牌行 = System 7 活动标题栏
+   ------------------------------------------------------------------------- */
+
+html.onebit .onebit-titlebar {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 5px;
+  background-image: repeating-linear-gradient(to bottom, #000 0 1px, #fff 1px 2px);
+  background-size: 100% 2px;
+}
+
+html.onebit .onebit-titlebar__text,
+html.onebit .onebit-titlebar__year {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  padding: 1px 3px;
+  font-family: var(--b1-mono);
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.05;
+  letter-spacing: 0.2em;
+}
+
+html.onebit .onebit-titlebar__year {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+html.onebit .onebit-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: #000;
+}
+
+html.onebit .onebit-mark__glyph {
+  display: block;
+}
+
+/* -------------------------------------------------------------------------
+   4. 空白会话的题签：1984 ——点线——► 2026
+   ------------------------------------------------------------------------- */
+
+html.onebit .onebit-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--b1-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #000;
+  padding: 2px 0;
+}
+
+html.onebit .onebit-hero__bridge {
+  position: relative;
+  display: block;
+  width: 46px;
+  height: 1px;
+  background-image: repeating-linear-gradient(to right, #000 0 1px, transparent 1px 3px);
+}
+
+html.onebit .onebit-hero__bridge::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -2px;
+  width: 0;
+  height: 0;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-left: 3px solid #000;
+}
+
+html.onebit .onebit-hero__note {
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* -------------------------------------------------------------------------
+   5. 输入框左侧的「咔」开关
+   ------------------------------------------------------------------------- */
+
+html.onebit .onebit-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 22px;
+  padding: 0 7px;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  font-family: var(--b1-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  box-shadow: 1px 1px 0 #000 !important;
+  cursor: var(--b1-arrow) 1 1, pointer;
+}
+
+html.onebit .onebit-chip:hover {
+  background: #000;
+  color: #fff;
+}
+
+html.onebit .onebit-chip:active {
+  transform: translate(1px, 1px);
+  box-shadow: none !important;
+}
+
+html.onebit .onebit-chip__led {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+}
+
+html.onebit .onebit-chip[data-mode='off'] .onebit-chip__led {
+  background: none;
+  box-shadow: inset 0 0 0 1px currentColor !important;
+}
+
+/* -------------------------------------------------------------------------
+   6. 挂件：一台老式一体机，黑屏里跑着白色的抖动柱状图
+   ------------------------------------------------------------------------- */
+
+html.onebit .onebit-machine {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 9px;
+  width: 100%;
+  padding-top: 2px;
+  pointer-events: none;
+  user-select: none;
+}
+
+html.onebit .onebit-machine__art {
+  display: block;
+}
+
+/* 机身左下那颗指示灯，一格一格地闪 */
+html.onebit .onebit-machine__led {
+  animation: onebit-blink 1.6s steps(1, end) infinite;
+}
+
+html.onebit .onebit-machine__plate {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  padding-bottom: 7px;
+  font-family: var(--b1-mono);
+  line-height: 1;
+  color: #000;
+}
+
+html.onebit .onebit-machine__brand {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+}
+
+html.onebit .onebit-machine__read {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* -------------------------------------------------------------------------
+   7. 启动：软盘 · 自检 MEMORY OK / 640K / READY · 窗口从中心展开
+   ------------------------------------------------------------------------- */
+
+html.onebit .onebit-boot {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483600;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  overflow: hidden;
+}
+
+html.onebit .onebit-boot__halftone {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background-image: var(--b1-dot-2);
+  background-size: 4px 4px;
+  background-repeat: repeat;
+  opacity: 0.55;
+}
+
+/* 从中心展开的那扇窗：8 帧跳变，不是平滑缩放 */
+html.onebit .onebit-boot__window {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(46vmin, 340px);
+  height: min(32vmin, 236px);
+  display: block;
+  background: #fff;
+  border: 1px solid #000;
+  box-shadow: 3px 3px 0 #000 !important;
+  transform: translate(-50%, -50%) scale(0.02);
+  opacity: 0;
+}
+
+html.onebit .onebit-boot--step4 .onebit-boot__window {
+  opacity: 1;
+  animation: onebit-zoom 620ms steps(8, end) forwards;
+}
+
+@keyframes onebit-zoom {
+  0% {
+    transform: translate(-50%, -50%) scale(0.02);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+html.onebit .onebit-boot__bar {
+  display: block;
+  height: 11px;
+  background-image: repeating-linear-gradient(to bottom, #000 0 1px, #fff 1px 2px);
+  background-size: 100% 2px;
+  border-bottom: 1px solid #000;
+}
+
+html.onebit .onebit-boot__windowbody {
+  display: block;
+  position: absolute;
+  inset: 12px 1px 1px;
+  background-image: var(--b1-dot-4);
+  background-size: 4px 4px;
+  opacity: 0.14;
+}
+
+html.onebit .onebit-boot__content {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 20px;
+  z-index: 1;
+}
+
+html.onebit .onebit-boot__floppy {
+  display: block;
+  animation: onebit-drive 1.4s steps(4, end) infinite;
+}
+
+@keyframes onebit-drive {
+  0%,
+  49% {
+    transform: translateY(0);
+  }
+  50%,
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+html.onebit .onebit-boot__selftest {
+  display: grid;
+  gap: 3px;
+  justify-items: start;
+  font-family: var(--b1-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #000;
+}
+
+html.onebit .onebit-boot__line {
+  display: block;
+  opacity: 0;
+}
+
+/* 三行自检按 1-bit 的节奏逐行「打」出来 */
+html.onebit .onebit-boot__line--1 {
+  animation: onebit-type 1ms steps(1, end) 240ms forwards;
+}
+html.onebit .onebit-boot__line--2 {
+  animation: onebit-type 1ms steps(1, end) 600ms forwards;
+}
+html.onebit .onebit-boot__line--3 {
+  animation: onebit-type 1ms steps(1, end) 940ms forwards;
+}
+
+@keyframes onebit-type {
+  to {
+    opacity: 1;
+  }
+}
+
+html.onebit .onebit-boot__prompt {
+  font-family: var(--b1-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  animation: onebit-blink 1s steps(1, end) infinite;
+}
+
+html.onebit .onebit-boot--leaving {
+  animation: onebit-boot-out 220ms steps(3, end) forwards;
+}
+
+@keyframes onebit-boot-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   8. 尊重系统「减少动态效果」
+   ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html.onebit .onebit-atmosphere__crawl {
+    transform: none;
+  }
+  html.onebit .onebit-machine__led,
+  html.onebit .onebit-boot__floppy,
+  html.onebit .onebit-boot__prompt {
+    animation: none;
+    opacity: 1;
+  }
+  html.onebit .onebit-boot--step4 .onebit-boot__window {
+    animation: none;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  html.onebit .onebit-boot__line--1,
+  html.onebit .onebit-boot__line--2,
+  html.onebit .onebit-boot__line--3 {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* 输入卡下沿：14px 内快速收边，正文滚到此处即被盖住（统一规范） */
+/* 只在「输入卡正下方」压一条窄带：两侧不遮，正文滚到卡片下面即被盖住 */
+/* 输入区不再铺任何横向底带（两侧不该被遮） */
+
+/* 输入区底部封口：只在最后 60px 实色，卡片上方半点不碰 */
+html body [class*="composerSeat"] {
+  background: linear-gradient(180deg,
+    rgba(250, 250, 246, 0) 0,
+    rgba(250, 250, 246, 0) calc(100% - 60px),
+    rgba(250, 250, 246, 1) calc(100% - 34px),
+    rgba(250, 250, 246, 1) 100%) !important;
+  background-image: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+html body [class*="composerHero"] {
+  background: none !important;
+}
+
+
+/* 卡片下沿的收边：跟着卡片宽度走，40px 内渐隐，只盖住卡片正下方那条 */
+
+html body 
+/* 新会话页（hero 输入框）不要那条收边遮罩 */
+
+
+/* 会话正文在输入区上方渐隐：遮的是「内容」，不是卡片本身 */
+html body [class*="scrollBody"] > *:not([class*="composer"]):not([class*="Composer"]) {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+  mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+}
+/* 卡片下沿收边：用「composerStack + _card」这对类名（data 属性在新版宿主里不存在） */
+
+  mask-image: linear-gradient(180deg, #000 calc(100% - 190px), rgba(0,0,0,0.35) calc(100% - 96px), transparent calc(100% - 24px));
+}
+
+/* 会话文本层：scrollBody 的第一个子节点就是消息列表（它没有 class，只能按位置选） */
+html body [class*="scrollBody"] > *:first-child {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+  mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+}
+/* 输入卡：不透光，正文绝不可能从卡片里透出来 */
+html body [class*="composerStack"] [class*="_card"] {
+  background-color: rgba(255, 255, 255, 1) !important;
+}

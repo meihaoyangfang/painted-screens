@@ -1,0 +1,278 @@
+/* ── 三点一刻 · TEA TIME ────────────────────────────────────────────────
+   见习女仆：奶油底 + 薄荷 + 草莓，圆角药丸、虚线贴纸、格子布。
+   ──────────────────────────────────────────────────────────────────── */
+
+:root {
+  --tt-cream: #FFF8F0;
+  --tt-paper: #FFFBF6;
+  --tt-mint: #5FA88C;
+  --tt-mint-soft: #BFE3D0;
+  --tt-mint-wash: rgba(191, 227, 208, 0.34);
+  --tt-straw: #FF8FA6;
+  --tt-straw-soft: #FFE3E9;
+  --tt-cocoa: #5B4034;
+  --tt-cocoa-2: #7A5A4A;
+  --tt-cocoa-3: #9A7D6C;
+  --tt-line: rgba(91, 64, 52, 0.14);
+  --tt-line-soft: rgba(91, 64, 52, 0.08);
+  --tt-round: 14px;
+  --tt-art: url("./assets/art.jpg");
+  /* 动态壁纸：CSS 背景不会动，交给 sidecar 用 <img> 播 */
+  --tt-live-src: url("./assets/live.webp");
+}
+
+html { background-color: var(--tt-cream) !important; color-scheme: light; }
+
+html body,
+html[data-platform='darwin'] body {
+  color-scheme: light;
+  background-color: var(--tt-cream) !important;
+  background-image:
+    /* 左边压一层奶油，保证正文可读；右边让她透出来 */
+    linear-gradient(90deg,
+      rgba(255, 248, 240, 0.72) 0%,
+      rgba(255, 248, 240, 0.50) 22%,
+      rgba(255, 248, 240, 0.20) 44%,
+      rgba(255, 248, 240, 0.03) 64%,
+      rgba(255, 248, 240, 0) 82%),
+    linear-gradient(180deg,
+      rgba(255, 251, 246, 0.60) 0%,
+      rgba(255, 251, 246, 0) 14%,
+      rgba(255, 251, 246, 0) 86%,
+      rgba(253, 239, 228, 0.42) 100%),
+    var(--tt-art);
+  background-size: 100% 100%, 100% 100%, cover;
+  background-position: center, center, right center;
+  background-repeat: no-repeat;
+  background-attachment: fixed, fixed, fixed;
+  color: var(--tt-cocoa);
+  font-family: "PingFang SC", "Hiragino Sans GB", -apple-system, sans-serif;
+}
+
+/* 顶部一条格子布，只在最上面 6px，别铺满 */
+html body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 6px;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255, 143, 166, 0.55) 0 10px, rgba(255, 255, 255, 0) 10px 20px),
+    repeating-linear-gradient(0deg, rgba(95, 168, 140, 0.40) 0 3px, rgba(255, 255, 255, 0) 3px 6px);
+}
+
+::selection { background: rgba(255, 143, 166, 0.34); color: #5B4034; }
+
+h1, h2, h3 { letter-spacing: 0.01em; }
+
+/* ── 侧栏 ─────────────────────────────────────────────────────────── */
+[class*="sidebarCol"] {
+  background: linear-gradient(180deg, rgba(255, 251, 246, 0.94), rgba(255, 246, 236, 0.96)) !important;
+  border-right: 1px solid var(--tt-line) !important;
+}
+
+[class*="quietBars"] { background-color: transparent !important; }
+
+/* ── 顶栏 ─────────────────────────────────────────────────────────── */
+header {
+  background-image: linear-gradient(180deg, rgba(255, 251, 246, 0.94), rgba(255, 251, 246, 0.66)) !important;
+  border-bottom: 1px solid var(--tt-line-soft) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* ── 输入区 ───────────────────────────────────────────────────────── */
+[data-composer-card] {
+  background-image: linear-gradient(180deg, #FFFFFF, #FFFAF4) !important;
+  border: 1px solid rgba(95, 168, 140, 0.32) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 10px 26px rgba(91, 64, 52, 0.10),
+    0 2px 0 rgba(255, 255, 255, 0.9) inset !important;
+}
+
+[data-composer-card]:focus-within {
+  border-color: var(--tt-straw) !important;
+  box-shadow:
+    0 12px 30px rgba(255, 143, 166, 0.22),
+    0 0 0 4px rgba(255, 143, 166, 0.16) !important;
+}
+
+/* 输入区底下不要任何色带：卡片直接浮在壁纸上 */
+/* 输入卡下沿：14px 内快速收边，正文滚到此处即被盖住（统一规范） */
+/* 只在「输入卡正下方」压一条窄带：两侧不遮，正文滚到卡片下面即被盖住 */
+/* 输入区不再铺任何横向底带（两侧不该被遮） */
+
+/* 输入区底部封口：只在最后 60px 实色，卡片上方半点不碰 */
+html body [class*="composerSeat"] {
+  background: linear-gradient(180deg,
+    rgba(255, 248, 240, 0) 0,
+    rgba(255, 248, 240, 0) calc(100% - 60px),
+    rgba(255, 248, 240, 1) calc(100% - 34px),
+    rgba(255, 248, 240, 1) 100%) !important;
+  background-image: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+html body [class*="composerHero"] {
+  background: none !important;
+}
+
+
+/* 卡片下沿的收边：跟着卡片宽度走，40px 内渐隐，只盖住卡片正下方那条 */
+
+html body 
+
+
+
+html body [class*="composerStack"],
+html body [class*="composerStack"]:not([class*="composerHero"]) {
+  background: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* ── 消息 / 卡片 ───────────────────────────────────────────────────── */
+[class*="messageBubble"], [class*="bubble"] { border-radius: var(--tt-round) !important; }
+
+[class*="codeBlock"], [class*="code-block"], pre {
+  border: 1px dashed var(--tt-line) !important;
+  border-radius: 12px !important;
+  background: rgba(255, 253, 250, 0.9) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(95, 168, 140, 0.30) !important;
+  border-radius: 999px !important;
+}
+::-webkit-scrollbar-thumb:hover { background-color: rgba(95, 168, 140, 0.50) !important; }
+
+/* ── 品牌标记 ─────────────────────────────────────────────────────── */
+.tt-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--tt-mint-wash);
+  border: 1px dashed rgba(95, 168, 140, 0.45);
+}
+
+.tt-cup { width: 18px; height: 18px; display: block; }
+
+.tt-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--tt-cocoa);
+}
+
+.tt-brand__tea { color: var(--tt-mint); }
+.tt-brand__time { color: var(--tt-cocoa); }
+
+.tt-brand__no {
+  margin-left: 4px;
+  padding: 1px 6px;
+  border: 1px dashed rgba(255, 143, 166, 0.6);
+  border-radius: 999px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #C4566F;
+}
+
+.tt-hero { position: relative; display: inline-grid; place-items: center; }
+
+.tt-hero__halo {
+  position: absolute;
+  inset: -26%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, rgba(191, 227, 208, 0.85), rgba(191, 227, 208, 0) 70%);
+  animation: tt-breathe 5.2s ease-in-out infinite;
+}
+
+.tt-hero__cup { width: 100%; height: 100%; }
+
+@keyframes tt-breathe {
+  0%, 100% { transform: scale(0.96); opacity: 0.7; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+
+.tt-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 24px;
+  padding: 0 10px;
+  border: 1px dashed rgba(95, 168, 140, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  color: var(--tt-cocoa-2);
+  white-space: nowrap;
+}
+
+.tt-chip__bow {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--tt-straw);
+  box-shadow: 0 0 0 3px rgba(255, 143, 166, 0.20);
+}
+
+.tt-chip__label { color: var(--tt-cocoa); }
+.tt-chip__time {
+  padding-left: 6px;
+  border-left: 1px dashed var(--tt-line);
+  color: var(--tt-mint);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tt-hero__halo { animation: none; }
+}
+
+/* 动态壁纸：一张铺满的 <img>（WebP 动画），压在最底层 */
+.tt-live-img {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  z-index: -2;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 动画接管时：底色挪到 <html>，body 变透明，否则 z-index:-2 的 <img> 会被 body 底色挡住 */
+html.tt-live { background-color: #FFF8F0 !important; }
+html.tt-live body {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* 新会话页（hero 输入框）不要那条收边遮罩 */
+
+
+/* 会话正文在输入区上方渐隐：遮的是「内容」，不是卡片本身 */
+html body [class*="scrollBody"] > *:not([class*="composer"]):not([class*="Composer"]) {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+  mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+}
+/* 卡片下沿收边：用「composerStack + _card」这对类名（data 属性在新版宿主里不存在） */
+
+  mask-image: linear-gradient(180deg, #000 calc(100% - 190px), rgba(0,0,0,0.35) calc(100% - 96px), transparent calc(100% - 24px));
+}
+
+/* 会话文本层：scrollBody 的第一个子节点就是消息列表（它没有 class，只能按位置选） */
+html body [class*="scrollBody"] > *:first-child {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+  mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+}
+/* 输入卡：不透光，正文绝不可能从卡片里透出来 */
+html body [class*="composerStack"] [class*="_card"] {
+  background-color: rgba(255, 255, 255, 1) !important;
+}

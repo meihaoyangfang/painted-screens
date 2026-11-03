@@ -1,0 +1,420 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="An original gothic cathedral beneath a dark sky, lit by a rose window and candles">
+  <defs>
+    <linearGradient id="nc-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#030305"/>
+      <stop offset="0.34" stop-color="#070606"/>
+      <stop offset="0.64" stop-color="#0D0A07"/>
+      <stop offset="1" stop-color="#050404"/>
+    </linearGradient>
+    <radialGradient id="nc-glow" cx="0.71" cy="0.40" r="0.63">
+      <stop offset="0" stop-color="#D0A75D" stop-opacity="0.36"/>
+      <stop offset="0.24" stop-color="#8E682D" stop-opacity="0.17"/>
+      <stop offset="0.58" stop-color="#2A1F12" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#050404" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nc-rose-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F0D194" stop-opacity="0.40"/>
+      <stop offset="0.28" stop-color="#C49248" stop-opacity="0.20"/>
+      <stop offset="0.65" stop-color="#7B4A25" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#7B4A25" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="nc-stone" x1="0" y1="0" x2="0.32" y2="1">
+      <stop offset="0" stop-color="#151009"/>
+      <stop offset="0.4" stop-color="#0B0806"/>
+      <stop offset="1" stop-color="#060504"/>
+    </linearGradient>
+    <linearGradient id="nc-stone-lit" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#181108"/>
+      <stop offset="0.48" stop-color="#0C0805"/>
+      <stop offset="1" stop-color="#070504"/>
+    </linearGradient>
+    <linearGradient id="nc-gold" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#F4DCA2"/>
+      <stop offset="0.4" stop-color="#D2AD64"/>
+      <stop offset="0.76" stop-color="#9B7539"/>
+      <stop offset="1" stop-color="#5C431F"/>
+    </linearGradient>
+    <linearGradient id="nc-glass-amber" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E8C583" stop-opacity="0.78"/>
+      <stop offset="0.5" stop-color="#A67530" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#4A2C16" stop-opacity="0.28"/>
+    </linearGradient>
+    <linearGradient id="nc-glass-wine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7C3129" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#2A1110" stop-opacity="0.42"/>
+    </linearGradient>
+    <linearGradient id="nc-wine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4B1718"/>
+      <stop offset="0.55" stop-color="#320F12"/>
+      <stop offset="1" stop-color="#17080A"/>
+    </linearGradient>
+    <linearGradient id="nc-beam" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#EBCB8E" stop-opacity="0.30"/>
+      <stop offset="0.5" stop-color="#D0A667" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#D0A667" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="nc-left-veil" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#030303" stop-opacity="0.92"/>
+      <stop offset="0.3" stop-color="#040403" stop-opacity="0.58"/>
+      <stop offset="0.56" stop-color="#050404" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#050404" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="nc-fog" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#3A2F22" stop-opacity="0.38"/>
+      <stop offset="0.55" stop-color="#211B15" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#0A0806" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nc-candle" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F4D59A" stop-opacity="0.54"/>
+      <stop offset="0.3" stop-color="#C9964F" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#C9964F" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nc-vignette" cx="0.59" cy="0.46" r="0.78">
+      <stop offset="0.42" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="0.75" stop-color="#000000" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.86"/>
+    </radialGradient>
+    <linearGradient id="nc-bottom-veil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#030303" stop-opacity="0"/>
+      <stop offset="0.62" stop-color="#030303" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#030303" stop-opacity="0.76"/>
+    </linearGradient>
+    <linearGradient id="nc-top-veil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#020204" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#020204" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="nc-blur-xl" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="42"/>
+    </filter>
+    <filter id="nc-blur-md" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="nc-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="soft"/>
+      <feMerge>
+        <feMergeNode in="soft"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="nc-rose-clip">
+      <circle cx="1110" cy="430" r="116"/>
+    </clipPath>
+    <path id="nc-petal" d="M1110 430C1076 384 1076 349 1110 312C1144 349 1144 384 1110 430Z"/>
+    <path id="nc-crocket" d="M0 0c7-3 12-9 15-17 3 8 8 14 15 17-7 3-12 9-15 17-3-8-8-14-15-17z"/>
+    <pattern id="nc-lancet-mesh" width="26" height="36" patternUnits="userSpaceOnUse">
+      <path d="M0 36V0h26v36z" fill="none" stroke="#E5C98F" stroke-opacity="0.24" stroke-width="0.7"/>
+      <path d="M13 0v36M0 18h26" stroke="#E5C98F" stroke-opacity="0.12" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- ground: night, incense and a low horizon -->
+  <rect width="1600" height="1000" fill="url(#nc-sky)"/>
+  <rect width="1600" height="1000" fill="url(#nc-glow)"/>
+  <ellipse cx="1140" cy="420" rx="520" ry="420" fill="url(#nc-rose-glow)" opacity="0.70"/>
+
+  <!-- stars and drifting ash -->
+  <g fill="#E6D5AF">
+    <circle cx="89" cy="118" r="1.1" opacity="0.36"/>
+    <circle cx="171" cy="206" r="0.8" opacity="0.28"/>
+    <circle cx="246" cy="94" r="1.4" opacity="0.42"/>
+    <circle cx="315" cy="174" r="0.7" opacity="0.28"/>
+    <circle cx="394" cy="77" r="1" opacity="0.33"/>
+    <circle cx="468" cy="238" r="1.2" opacity="0.32"/>
+    <circle cx="535" cy="123" r="0.8" opacity="0.35"/>
+    <circle cx="611" cy="58" r="1.1" opacity="0.27"/>
+    <circle cx="681" cy="178" r="0.7" opacity="0.33"/>
+    <circle cx="759" cy="101" r="1.4" opacity="0.30"/>
+    <circle cx="843" cy="65" r="0.8" opacity="0.31"/>
+    <circle cx="923" cy="146" r="1" opacity="0.25"/>
+    <circle cx="1008" cy="82" r="0.8" opacity="0.34"/>
+    <circle cx="1092" cy="136" r="1.2" opacity="0.31"/>
+    <circle cx="1214" cy="70" r="1" opacity="0.33"/>
+    <circle cx="1297" cy="132" r="0.8" opacity="0.28"/>
+    <circle cx="1375" cy="48" r="1.3" opacity="0.38"/>
+    <circle cx="1460" cy="158" r="0.7" opacity="0.29"/>
+    <circle cx="1535" cy="92" r="1.1" opacity="0.35"/>
+    <circle cx="189" cy="336" r="0.7" opacity="0.24"/>
+    <circle cx="403" cy="374" r="1" opacity="0.19"/>
+    <circle cx="674" cy="306" r="0.8" opacity="0.20"/>
+    <circle cx="868" cy="354" r="0.7" opacity="0.19"/>
+    <circle cx="1280" cy="258" r="0.9" opacity="0.25"/>
+    <circle cx="1538" cy="314" r="0.8" opacity="0.22"/>
+  </g>
+  <g fill="#D8B371">
+    <circle cx="1035" cy="292" r="1.2" opacity="0.30"/>
+    <circle cx="1418" cy="238" r="1" opacity="0.26"/>
+    <circle cx="1472" cy="712" r="1.3" opacity="0.32"/>
+    <circle cx="1352" cy="830" r="0.9" opacity="0.28"/>
+    <circle cx="1240" cy="668" r="0.8" opacity="0.22"/>
+    <circle cx="1188" cy="568" r="0.7" opacity="0.22"/>
+    <circle cx="1522" cy="886" r="1.2" opacity="0.34"/>
+  </g>
+
+  <!-- far city, held back by haze -->
+  <g fill="#090807" opacity="0.82">
+    <path d="M0 806V676l44-44 30 54 42-22 35 62 54-11 38 48 55-34 50 62 63-29 46 53 32-40 55 32 58-65 44 68 46 9v125z"/>
+    <path d="M409 774V612l37-38v-56l34-66 32 66v56l39 38v162z"/>
+    <path d="M541 794V662l26-31v-43l26-50 26 50v43l27 31v132z"/>
+    <path d="M624 788V570l29-34v-69l31-64 30 64v69l30 34v218z"/>
+    <path d="M58 644V528l24-28v-42l22-48 22 48v42l25 28v116z"/>
+    <path d="M202 674V564l30-32v-38l23-48 24 48v38l28 33v109z"/>
+  </g>
+  <g fill="none" stroke="#AD8548" stroke-opacity="0.16">
+    <path d="M620 586V786M682 570v214M558 664v125M296 574v102M477 626v142M1025 733v100M1242 736v124"/>
+    <path d="M597 598h78M536 702h76M275 620h67M465 686h34M1009 790h32M1230 810h28"/>
+  </g>
+  <g fill="#B98F4E" opacity="0.40">
+    <rect x="625" y="608" width="3" height="33"/>
+    <rect x="677" y="590" width="2.5" height="41"/>
+    <rect x="565" y="705" width="2" height="32"/>
+    <rect x="305" y="616" width="2" height="24"/>
+    <rect x="1024" y="760" width="2" height="25"/>
+    <rect x="1247" y="785" width="2.5" height="30"/>
+  </g>
+  <ellipse cx="442" cy="728" rx="540" ry="170" fill="#0A0806" opacity="0.86" filter="url(#nc-blur-xl)"/>
+
+  <!-- light behind the cathedral -->
+  <g opacity="0.60">
+    <path d="M1092 254 690 1000H930z" fill="url(#nc-beam)"/>
+    <path d="M1136 260 1324 1000h194z" fill="url(#nc-beam)" opacity="0.68"/>
+    <path d="M1040 238 900 1000h90z" fill="url(#nc-beam)" opacity="0.34"/>
+  </g>
+
+  <!-- flying buttresses and rear pinnacles -->
+  <g fill="#080605" stroke="#2A1E12" stroke-width="2">
+    <path d="M870 518v482h-38V590z"/>
+    <path d="M928 558c-75 86-121 154-133 247l-23 195h24l30-180c17-92 64-164 128-238z"/>
+    <path d="M1295 474c75 95 113 171 123 267l18 259h-29l-24-242c-13-85-55-151-119-219z"/>
+    <path d="M1511 486c48 91 70 184 70 310v204h-34V798c-4-112-25-195-68-264z"/>
+  </g>
+  <g fill="none" stroke="#98733B" stroke-opacity="0.23">
+    <path d="M867 618c-79 89-126 158-138 260"/>
+    <path d="M862 668c-70 86-108 157-120 262"/>
+    <path d="M1296 552c68 82 105 163 116 267"/>
+    <path d="M1302 606c66 84 98 160 106 271"/>
+    <path d="M1512 526c42 81 64 172 66 292"/>
+  </g>
+
+  <!-- cathedral silhouette -->
+  <g>
+    <!-- left tower -->
+    <path d="M744 1000V556l42-48V382l60-104 59 104v126l47 48v444z" fill="url(#nc-stone-lit)" stroke="#2B1F12" stroke-width="2"/>
+    <path d="M846 278 808 342h76z" fill="#060504"/>
+    <path d="M846 278V194l8-16 8 16v84z" fill="#080605" stroke="#7D5A2B" stroke-opacity="0.40"/>
+    <path d="M846 198l-5 20 5 10 5-10z" fill="url(#nc-gold)" opacity="0.76"/>
+    <g fill="#090706" stroke="#594020" stroke-opacity="0.34">
+      <path d="M794 1010V696l29-30v-90l23-45 23 45v90l29 30v314z"/>
+    </g>
+
+    <!-- central nave -->
+    <path d="M856 1000V590c0-153 100-272 214-359 116 88 214 207 214 359v410z" fill="url(#nc-stone)" stroke="#2A1D10" stroke-width="2"/>
+    <path d="M883 1000V616c0-126 77-238 187-329 111 91 188 203 188 329v384z" fill="#0C0805" stroke="#5E4524" stroke-opacity="0.34"/>
+
+    <!-- right tower -->
+    <path d="M1268 1000V426l48-56V260l84-161 84 161v110l57 56v574z" fill="url(#nc-stone-lit)" stroke="#2E2112" stroke-width="2"/>
+    <path d="M1400 99 1316 260h168z" fill="#060504"/>
+    <path d="M1400 99V4l9-18 9 18v95z" fill="#070504" stroke="#81602F" stroke-opacity="0.36"/>
+    <path d="M1400 7l-5 22 5 11 5-11z" fill="url(#nc-gold)" opacity="0.8"/>
+
+    <!-- central spire and gable -->
+    <path d="M1036 353 1110 166l74 187z" fill="#070504" stroke="#5A4222" stroke-opacity="0.44"/>
+    <path d="M1110 166V49l10-21 10 21v117z" fill="#070504" stroke="#7A592B" stroke-opacity="0.34"/>
+    <path d="M1110 34l-6 26 6 12 6-12z" fill="url(#nc-gold)" opacity="0.84"/>
+    <path d="M1088 83l-18 48 18-7 9-31zM1132 83l18 48-18-7-9-31z" fill="#0A0705"/>
+    <path d="M1070 244l40-109 40 109-40-21z" fill="#0D0906" stroke="#876632" stroke-opacity="0.38"/>
+  </g>
+
+  <!-- stone tracery and edge light -->
+  <g fill="none" stroke="url(#nc-gold)" stroke-linecap="round">
+    <path d="M870 1000V608c0-114 65-217 166-307" stroke-width="1.4" stroke-opacity="0.32"/>
+    <path d="M886 1000V622c0-109 59-209 150-299" stroke-width="0.7" stroke-opacity="0.22"/>
+    <path d="M1290 1000V642c0-108-54-206-142-293" stroke-width="1.2" stroke-opacity="0.26"/>
+    <path d="M1370 1000V424M1400 406V204M1446 1000V384M1506 444v556" stroke-width="0.9" stroke-opacity="0.30"/>
+    <path d="M886 584l224-76 224 76M886 615l224-69 224 69" stroke-width="0.7" stroke-opacity="0.22"/>
+    <path d="M756 1000V548M790 1000V520M974 518v482M1012 484v516" stroke-width="0.8" stroke-opacity="0.24"/>
+    <path d="M1280 458l240-84M1280 488l240-76M1284 520l222-62" stroke-width="0.7" stroke-opacity="0.20"/>
+  </g>
+
+  <!-- crockets and finials on the central gable -->
+  <g fill="#0B0805" stroke="#75602F" stroke-width="0.8">
+    <use href="#nc-crocket" transform="translate(1036 353) rotate(-45) scale(0.65)"/>
+    <use href="#nc-crocket" transform="translate(1053 316) rotate(-36) scale(0.68)"/>
+    <use href="#nc-crocket" transform="translate(1070 278) rotate(-27) scale(0.7)"/>
+    <use href="#nc-crocket" transform="translate(1087 241) rotate(-18) scale(0.72)"/>
+    <use href="#nc-crocket" transform="translate(1133 241) rotate(18) scale(0.72)"/>
+    <use href="#nc-crocket" transform="translate(1150 278) rotate(27) scale(0.7)"/>
+    <use href="#nc-crocket" transform="translate(1167 316) rotate(36) scale(0.68)"/>
+    <use href="#nc-crocket" transform="translate(1184 353) rotate(45) scale(0.65)"/>
+  </g>
+  <g fill="url(#nc-gold)" opacity="0.68">
+    <circle cx="1036" cy="343" r="2.4"/>
+    <circle cx="1184" cy="343" r="2.4"/>
+    <path d="M1026 360l10 15 10-15zM1174 360l10 15 10-15z"/>
+    <path d="M1298 418l7 12 7-12zM1490 384l7 12 7-12z"/>
+    <path d="M766 547l6 10 6-10zM924 474l6 10 6-10z"/>
+  </g>
+
+  <!-- rose window -->
+  <circle cx="1110" cy="430" r="138" fill="#070504" stroke="#49331A" stroke-width="2"/>
+  <circle cx="1110" cy="430" r="128" fill="#100B07" stroke="url(#nc-gold)" stroke-opacity="0.65" stroke-width="2"/>
+  <g clip-path="url(#nc-rose-clip)">
+    <circle cx="1110" cy="430" r="116" fill="#1B1009"/>
+    <g opacity="0.88">
+      <use href="#nc-petal" fill="url(#nc-glass-wine)"/>
+      <use href="#nc-petal" fill="url(#nc-glass-amber)" transform="rotate(45 1110 430)"/>
+      <use href="#nc-petal" fill="#4A241E" opacity="0.65" transform="rotate(90 1110 430)"/>
+      <use href="#nc-petal" fill="url(#nc-glass-amber)" opacity="0.8" transform="rotate(135 1110 430)"/>
+      <use href="#nc-petal" fill="url(#nc-glass-wine)" transform="rotate(180 1110 430)"/>
+      <use href="#nc-petal" fill="#A27635" opacity="0.62" transform="rotate(225 1110 430)"/>
+      <use href="#nc-petal" fill="#3B4E44" opacity="0.52" transform="rotate(270 1110 430)"/>
+      <use href="#nc-petal" fill="url(#nc-glass-amber)" opacity="0.66" transform="rotate(315 1110 430)"/>
+    </g>
+    <circle cx="1110" cy="430" r="90" fill="#15100A" stroke="#E2C487" stroke-opacity="0.40" stroke-width="1.2"/>
+    <circle cx="1110" cy="430" r="58" fill="#20140C" stroke="#E2C487" stroke-opacity="0.32" stroke-width="1"/>
+    <circle cx="1110" cy="430" r="24" fill="#D2A55D" opacity="0.22" filter="url(#nc-glow)"/>
+    <g fill="none" stroke="#E8CF98" stroke-opacity="0.54" stroke-width="1">
+      <circle cx="1110" cy="430" r="80"/>
+      <circle cx="1110" cy="430" r="49"/>
+      <circle cx="1110" cy="430" r="17"/>
+      <path d="M1110 314v232M994 430h232M1029 349l162 162M1191 349l-162 162"/>
+      <path d="M1110 382c-18-17-18-38 0-55 18 17 18 38 0 55zM1110 382c18-17 18-38 0-55-18 17-18 38 0 55z"/>
+      <path d="M1062 430c17-18 38-18 55 0-17 18-38 18-55 0zM1062 430c17 18 38 18 55 0-17-18-38-18-55 0z"/>
+    </g>
+    <g fill="#F0D294" opacity="0.72">
+      <circle cx="1110" cy="354" r="2.2"/>
+      <circle cx="1110" cy="506" r="2.2"/>
+      <circle cx="1034" cy="430" r="2.2"/>
+      <circle cx="1186" cy="430" r="2.2"/>
+      <circle cx="1110" cy="430" r="3.4"/>
+    </g>
+    <g fill="#C89A54" opacity="0.19">
+      <circle cx="1058" cy="378" r="8"/>
+      <circle cx="1162" cy="378" r="8"/>
+      <circle cx="1058" cy="482" r="8"/>
+      <circle cx="1162" cy="482" r="8"/>
+    </g>
+  </g>
+  <circle cx="1110" cy="430" r="143" fill="none" stroke="#D0AA68" stroke-opacity="0.24" stroke-width="1"/>
+  <g fill="url(#nc-gold)" opacity="0.66">
+    <circle cx="1110" cy="286" r="3"/>
+    <circle cx="1110" cy="574" r="2.4"/>
+    <circle cx="962" cy="430" r="2.4"/>
+    <circle cx="1258" cy="430" r="2.4"/>
+  </g>
+
+  <!-- flanking lancet windows -->
+  <g>
+    <path d="M902 874V650c0-42 21-78 54-113 33 35 54 71 54 113v224z" fill="#080605" stroke="#89652F" stroke-opacity="0.54" stroke-width="1.6"/>
+    <path d="M916 862V662c0-33 16-64 40-94 24 30 40 61 40 94v200z" fill="#21140B"/>
+    <path d="M916 862V700h80v162z" fill="url(#nc-lancet-mesh)" opacity="0.54"/>
+    <path d="M956 580v282M926 670h60M932 766h48" fill="none" stroke="#D2AD6D" stroke-opacity="0.33" stroke-width="1"/>
+    <path d="M930 722c13-19 39-19 52 0-13 17-39 17-52 0z" fill="#A57431" opacity="0.19"/>
+
+    <path d="M1188 874V650c0-42 21-78 54-113 33 35 54 71 54 113v224z" fill="#080605" stroke="#89652F" stroke-opacity="0.54" stroke-width="1.6"/>
+    <path d="M1202 862V662c0-33 16-64 40-94 24 30 40 61 40 94v200z" fill="#21140B"/>
+    <path d="M1202 862V700h80v162z" fill="url(#nc-lancet-mesh)" opacity="0.44"/>
+    <path d="M1242 580v282M1212 670h60M1218 766h48" fill="none" stroke="#D2AD6D" stroke-opacity="0.33" stroke-width="1"/>
+    <path d="M1216 722c13-19 39-19 52 0-13 17-39 17-52 0z" fill="#A57431" opacity="0.17"/>
+  </g>
+
+  <!-- lower portal with a candle glow inside -->
+  <path d="M1042 1000V818c0-47 22-87 68-132 46 45 68 85 68 132v182z" fill="#060504" stroke="#7F5D2C" stroke-opacity="0.58" stroke-width="1.8"/>
+  <path d="M1058 1000V824c0-38 19-73 52-111 33 38 52 73 52 111v176z" fill="#0C0805" stroke="#B18A4C" stroke-opacity="0.30"/>
+  <path d="M1076 1000V846c0-30 12-57 34-86 22 29 34 56 34 86v154z" fill="#1A110A"/>
+  <rect x="1076" y="912" width="68" height="88" fill="url(#nc-candle)" opacity="0.34"/>
+  <path d="M1110 812v188M1082 880h56M1086 936h48" stroke="#D1AA67" stroke-opacity="0.26" fill="none"/>
+  <circle cx="1110" cy="892" r="6" fill="#EBC47E" opacity="0.34" filter="url(#nc-glow)"/>
+
+  <!-- tower windows -->
+  <g fill="#080605" stroke="#9C783E" stroke-opacity="0.50" stroke-width="1.2">
+    <path d="M798 546V407c0-20 10-39 26-58 17 19 27 38 27 58v139z"/>
+    <path d="M851 546V407c0-20 10-39 26-58 17 19 27 38 27 58v139z"/>
+    <path d="M798 690V564c0-18 9-35 24-52 15 17 24 34 24 52v126z"/>
+    <path d="M851 690V564c0-18 9-35 24-52 15 17 24 34 24 52v126z"/>
+    <path d="M1348 520V370c0-27 13-51 36-76 23 25 36 49 36 76v150z"/>
+    <path d="M1430 520V370c0-27 13-51 36-76 23 25 36 49 36 76v150z"/>
+    <path d="M1348 762V612c0-27 13-51 36-76 23 25 36 49 36 76v150z"/>
+    <path d="M1430 762V612c0-27 13-51 36-76 23 25 36 49 36 76v150z"/>
+  </g>
+  <g fill="#C69952" opacity="0.18">
+    <path d="M812 514V438h18v76zM865 514V438h18v76zM1358 486V424h16v62zM1440 486V424h16v62z"/>
+  </g>
+  <g fill="none" stroke="#D4B06F" stroke-opacity="0.28" stroke-width="0.8">
+    <path d="M823 470v70M875 470v70M1366 446v108M1448 446v108M1366 674v82M1448 674v82"/>
+    <path d="M806 505h65M806 544h65M859 648h65M859 688h65M1355 483h65M1437 483h65M1355 690h65M1437 690h65"/>
+  </g>
+
+  <!-- crimson banners -->
+  <g>
+    <path d="M733 540h78v281l-39-27-39 27z" fill="url(#nc-wine)" stroke="#8C6230" stroke-opacity="0.44" stroke-width="1"/>
+    <path d="M772 540v274" stroke="#C7A05D" stroke-opacity="0.26"/>
+    <path d="M752 606h40M772 584v74" stroke="#C7A05D" stroke-opacity="0.44" stroke-width="1.4"/>
+    <path d="M772 668l-16 22 16 21 16-21z" fill="none" stroke="#D2AD6D" stroke-opacity="0.38"/>
+    <path d="M733 540h78" stroke="#D8B77C" stroke-opacity="0.38"/>
+
+    <path d="M1466 632h74v272l-37-25-37 25z" fill="url(#nc-wine)" stroke="#8C6230" stroke-opacity="0.40" stroke-width="1"/>
+    <path d="M1503 632v266" stroke="#C7A05D" stroke-opacity="0.22"/>
+    <path d="M1484 696h38M1503 674v72" stroke="#C7A05D" stroke-opacity="0.38" stroke-width="1.2"/>
+    <path d="M1503 760l-15 20 15 20 15-20z" fill="none" stroke="#D2AD6D" stroke-opacity="0.32"/>
+  </g>
+
+  <!-- foreground arcade and candlelight -->
+  <g fill="#040302">
+    <path d="M-30 1000V854h97c42-104 156-155 236-58l23 30h105v174z"/>
+    <path d="M1290 1000V902h63c31-78 119-99 166-35l17 23h80v110z"/>
+  </g>
+  <g fill="none" stroke="#4F3A20" stroke-opacity="0.44">
+    <path d="M-20 884h87c42-91 139-134 211-51l24 35h90"/>
+    <path d="M1306 929h58c34-64 101-82 145-31l19 26h75"/>
+    <path d="M24 884v116M156 870v130M292 866v134M338 870v130M1324 929v71M1440 916v84M1549 922v78"/>
+  </g>
+  <g fill="#070504" stroke="#614823" stroke-opacity="0.42">
+    <path d="M58 1000V919c0-19 11-37 29-55 19 18 30 36 30 55v81z"/>
+    <path d="M196 1000V934c0-18 10-35 28-52 18 17 28 34 28 52v66z"/>
+    <path d="M1362 1000v-55c0-16 8-30 22-44 15 14 23 28 23 44v55z"/>
+  </g>
+
+  <g filter="url(#nc-glow)" opacity="0.8">
+    <circle cx="1200" cy="904" r="88" fill="url(#nc-candle)"/>
+    <path d="M1200 868c-24-24 9-40 8-64 20 29 34 43 8 64z" fill="#D9A65A" opacity="0.58"/>
+    <circle cx="1200" cy="862" r="4" fill="#F7D99C" opacity="0.72"/>
+  </g>
+  <g>
+    <path d="M1170 1000V934h60v66z" fill="#080605" stroke="#614723" stroke-opacity="0.45"/>
+    <path d="M1162 934h76l-10-13h-56z" fill="#0A0705" stroke="#8D6A35" stroke-opacity="0.44"/>
+    <path d="M1182 921h36v13h-36z" fill="#0D0906"/>
+    <path d="M1200 884l-9 27h18z" fill="#D7A65C" opacity="0.65"/>
+    <path d="M1181 1000v-22M1219 1000v-22" stroke="#3F2E18"/>
+  </g>
+  <g opacity="0.38">
+    <circle cx="535" cy="927" r="54" fill="url(#nc-candle)"/>
+    <path d="M535 900c-9-14 5-22 4-36 12 16 20 25 5 36z" fill="#C79650"/>
+  </g>
+
+  <!-- rising incense and foreground dust -->
+  <g filter="url(#nc-blur-xl)">
+    <ellipse cx="835" cy="914" rx="480" ry="118" fill="url(#nc-fog)"/>
+    <ellipse cx="1370" cy="884" rx="390" ry="126" fill="url(#nc-fog)" opacity="0.8"/>
+    <ellipse cx="612" cy="804" rx="330" ry="82" fill="url(#nc-fog)" opacity="0.38"/>
+  </g>
+  <g fill="#D6B477">
+    <circle cx="990" cy="854" r="1.3" opacity="0.30"/>
+    <circle cx="1062" cy="904" r="1" opacity="0.25"/>
+    <circle cx="1152" cy="832" r="1.6" opacity="0.34"/>
+    <circle cx="1262" cy="870" r="1" opacity="0.24"/>
+    <circle cx="1388" cy="848" r="1.4" opacity="0.30"/>
+    <circle cx="1458" cy="918" r="1.2" opacity="0.26"/>
+    <circle cx="1540" cy="866" r="0.9" opacity="0.23"/>
+    <circle cx="1240" cy="936" r="0.8" opacity="0.27"/>
+  </g>
+
+  <!-- theatrical veils -->
+  <g>
+    <path d="M1035 280 950 1000h-80z" fill="url(#nc-beam)" opacity="0.24"/>
+    <path d="M1184 272 1378 1000h96z" fill="url(#nc-beam)" opacity="0.16"/>
+    <rect x="0" y="0" width="1040" height="1000" fill="url(#nc-left-veil)"/>
+    <rect width="1600" height="170" fill="url(#nc-top-veil)"/>
+    <rect y="760" width="1600" height="240" fill="url(#nc-bottom-veil)"/>
+    <rect width="1600" height="1000" fill="url(#nc-vignette)"/>
+  </g>
+</svg>

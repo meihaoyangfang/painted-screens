@@ -1,0 +1,20 @@
+{
+  "id": "whale-song",
+  "name": "鲸歌",
+  "latin": "WHALE SONG",
+  "appearance": "dark",
+  "blurb": "深海女仆 · 鲸鳍耳与蕾丝围裙",
+  "composerBg": "#040A13",
+  "bootKey": "whale-song-boot-v1",
+  "boot": "WsBoot",
+  "overlay": "WsAtmosphere",
+  "slots": {
+    "sidebar.brand.mark": "WsSidebarMark",
+    "sidebar.brand.name": "WsBrandName",
+    "conversation.hero.brand.mark": "WsHero",
+    "conversation.input.left": "WsChip",
+    "conversation.composer.dock": "WsDock"
+  },
+  "rootClasses": [],
+  "widget": null
+}

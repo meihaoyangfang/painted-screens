@@ -1,0 +1,889 @@
+:root {
+  --ws-abyss: #040A13;
+  --ws-deep: #061224;
+  --ws-mid: #0A1B2E;
+  --ws-blue: #4D6BFE;
+  --ws-blue-soft: #7FB0FF;
+  --ws-cyan: #7FE0FF;
+  --ws-pearl: #EAF6FF;
+  --ws-mist: #C9DBEC;
+  --ws-gold: #E8C88F;
+  --ws-lace: rgba(245, 236, 214, 0.42);
+  --ws-grain: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.86%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20type%3D%22saturate%22%20values%3D%220%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20filter%3D%22url(%23n)%22%20opacity%3D%220.5%22%2F%3E%3C%2Fsvg%3E");
+  --ws-visual: url("./assets/visual.webp");
+  --ws-face: url("./assets/face.webp");
+  --ws-face-sm: url("./assets/face-sm.webp");
+  --ws-ghost: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2042%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%224%22%20y1%3D%228%22%20x2%3D%2258%22%20y2%3D%2238%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23BFE7FF%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%234D6BFE%22%2F%3E%3C%2FlinearGradient%3E%3Cfilter%20id%3D%22b%22%3E%3CfeGaussianBlur%20stdDeviation%3D%221.1%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M3.4%2024.2C3.4%2015.2%2011.3%209%2021.8%209c8.4%200%2015%203.5%2018.7%209.1%201.9%202.7%204.5%203.9%207.8%203.9h3.9c2.1-4.6%205.2-8.3%209.2-10.6-1.5%205.4-1.7%2010.3-.5%2015.9-3.7-2.2-7.2-3.4-10.6-3.4-3.2%200-6%201-8.4%202.9-4.8%204.3-11.7%207-19.2%207C11%2033.8%203.4%2030.9%203.4%2024.2Z%22%20fill%3D%22url%28%23g%29%22%20fill-opacity%3D%220.7%22%20filter%3D%22url%28%23b%29%22%2F%3E%3C%2Fsvg%3E");
+  --ws-serif: "Didot", "Bodoni 72", "Playfair Display", "Iowan Old Style", "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+  --ws-sans: "Avenir Next", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+  --ws-mono: "SF Mono", ui-monospace, Menlo, Consolas, "PingFang SC", monospace;
+  --ws-ease: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+html {
+  color-scheme: dark !important;
+  background-color: #040A13 !important;
+}
+
+/* 背景：左边被海水吞掉，右边浮出她。照片压在内容层下面，
+   所以正文永远比图更亮，不会出现玫瑰奶油那种“字被裙子吃掉”。 */
+html body,
+html[data-platform='darwin'] body {
+  color-scheme: dark;
+  background-color: #040A13 !important;
+  background-image:
+    linear-gradient(101deg, #040A13 0%, rgba(4, 10, 19, 0.985) 20%, rgba(4, 10, 19, 0.9) 40%, rgba(4, 10, 19, 0.52) 60%, rgba(4, 10, 19, 0.16) 77%, rgba(4, 10, 19, 0.46) 100%),
+    linear-gradient(180deg, rgba(4, 10, 19, 0.86) 0%, rgba(4, 10, 19, 0.2) 26%, rgba(4, 10, 19, 0.06) 62%, rgba(4, 10, 19, 0.72) 92%, #040A13 100%),
+    radial-gradient(ellipse 46% 56% at 80% 38%, rgba(77, 107, 254, 0.22), rgba(4, 10, 19, 0) 70%),
+    var(--ws-ghost),
+    var(--ws-visual);
+  background-repeat: no-repeat;
+  background-size: cover, cover, cover, min(52vh, 720px) auto, auto 104vh;
+  background-position: center, center, center, 4vw 84%, right -9vh bottom;
+  background-attachment: fixed, fixed, fixed, fixed, fixed;
+}
+
+@media (max-width: 1180px) {
+  html body,
+  html[data-platform='darwin'] body {
+    background-position: center, center, center, 2vw 86%, right -10vh bottom;
+    background-size: cover, cover, cover, min(44vh, 560px) auto, auto 96vh;
+  }
+}
+
+@media (max-width: 900px) {
+  html body,
+  html[data-platform='darwin'] body {
+    background-image:
+      linear-gradient(180deg, rgba(4, 10, 19, 0.82) 0%, rgba(4, 10, 19, 0.66) 34%, rgba(4, 10, 19, 0.94) 74%, #040A13 100%),
+      radial-gradient(ellipse 70% 50% at 60% 18%, rgba(77, 107, 254, 0.16), rgba(4, 10, 19, 0) 72%),
+      var(--ws-visual);
+    background-size: cover, cover, auto 62vh;
+    background-position: center, center, 62% top;
+  }
+}
+
+@media (max-width: 640px) {
+  html body,
+  html[data-platform='darwin'] body {
+    background-image:
+      linear-gradient(180deg, rgba(4, 10, 19, 0.9) 0%, rgba(4, 10, 19, 0.92) 40%, #040A13 100%),
+      radial-gradient(ellipse 80% 40% at 60% 12%, rgba(77, 107, 254, 0.14), rgba(4, 10, 19, 0) 70%),
+      var(--ws-visual);
+    background-size: cover, cover, auto 42vh;
+    background-position: center, center, 58% top;
+  }
+}
+
+::selection {
+  background: var(--dsw-alias-bg-document-selection);
+  color: #F4FBFF;
+}
+
+* {
+  scrollbar-color: rgba(127, 200, 255, 0.26) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(127, 200, 255, 0.5), rgba(77, 107, 254, 0.34));
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(160, 220, 255, 0.75), rgba(77, 107, 254, 0.5));
+  background-clip: padding-box;
+}
+
+/* =======================================================
+   鲸 · 侧栏标记 / 字标 / 首屏纹章
+   ======================================================= */
+
+.ws-cameo {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: 50%;
+  background-color: #061325;
+  background-image:
+    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.1), rgba(4, 10, 19, 0.06) 54%, rgba(4, 10, 19, 0.34) 100%),
+    var(--ws-face-sm);
+  background-size: cover, 100%;
+  background-position: 50% 50%, 50% 50%;
+  border: 1px solid rgba(232, 200, 143, 0.45);
+  box-shadow:
+    inset 0 0 10px rgba(4, 10, 19, 0.55),
+    0 0 14px rgba(77, 107, 254, 0.26);
+}
+
+.ws-cameo::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  border: 1px solid rgba(234, 246, 255, 0.14);
+  pointer-events: none;
+}
+
+.ws-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.ws-brand__dot {
+  width: 5px;
+  height: 5px;
+  flex: none;
+  border-radius: 50%;
+  align-self: center;
+  background: radial-gradient(circle at 34% 30%, #FFFFFF, #F3E3C4 42%, var(--ws-gold) 100%);
+  box-shadow: 0 0 7px rgba(232, 200, 143, 0.8);
+}
+
+.ws-brand__latin {
+  font: 500 12.5px/1 var(--ws-serif);
+  letter-spacing: 0.16em;
+  color: #EAF6FF;
+  text-transform: uppercase;
+}
+
+.ws-brand__cn {
+  font: 500 10.5px/1 var(--ws-sans);
+  letter-spacing: 0.24em;
+  color: rgba(159, 212, 255, 0.72);
+}
+
+.ws-hero {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 2px 4px;
+  animation: ws-rise 900ms var(--ws-ease) both;
+}
+
+.ws-hero__cameo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  flex: none;
+  border-radius: 50%;
+  background-color: #061325;
+  background-image:
+    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.07), rgba(4, 10, 19, 0.2) 56%, rgba(4, 10, 19, 0.62) 100%),
+    var(--ws-face);
+  background-size: cover, cover;
+  background-position: 50% 50%, 50% 44%;
+  border: 1px solid rgba(232, 200, 143, 0.42);
+  box-shadow:
+    inset 0 0 18px rgba(4, 10, 19, 0.5),
+    0 0 36px rgba(77, 107, 254, 0.28);
+}
+
+.ws-hero__cameo::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 200, 143, 0.26);
+}
+
+/* 女仆头饰那一圈蕾丝：缝线感的金环 */
+.ws-hero__lace {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px dotted rgba(245, 236, 214, 0.58);
+  opacity: 0.9;
+  animation: ws-lace-turn 46s linear infinite;
+  pointer-events: none;
+}
+
+.ws-hero__halo {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(127, 224, 255, 0.18), transparent 66%);
+  animation: ws-breathe 5.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.ws-hero__text {
+  display: grid;
+  gap: 3px;
+  text-align: left;
+}
+
+.ws-hero__latin {
+  font: 500 9.5px/1 var(--ws-serif);
+  letter-spacing: 0.42em;
+  color: rgba(159, 212, 255, 0.82);
+  text-transform: uppercase;
+}
+
+.ws-hero__cn {
+  font: 400 19px/1.2 var(--ws-serif);
+  letter-spacing: 0.2em;
+  color: #EAF6FF;
+  text-shadow: 0 0 22px rgba(77, 107, 254, 0.42);
+}
+
+.ws-hero__sub {
+  font: 400 10px/1.4 var(--ws-sans);
+  letter-spacing: 0.08em;
+  color: rgba(201, 219, 236, 0.56);
+}
+
+/* =======================================================
+   输入区：蓝鲸胶囊 + 深度尺
+   ======================================================= */
+
+.ws-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 22px;
+  padding: 0 9px 0 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(127, 200, 255, 0.2);
+  background: linear-gradient(180deg, rgba(18, 40, 68, 0.72), rgba(8, 20, 36, 0.72));
+  box-shadow: inset 0 1px 0 rgba(234, 246, 255, 0.07);
+  white-space: nowrap;
+}
+
+.ws-chip__bead {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #FFFFFF, #9FD4FF 44%, #4D6BFE 100%);
+  box-shadow: 0 0 8px rgba(127, 224, 255, 0.85);
+  animation: ws-pulse 3.4s ease-in-out infinite;
+}
+
+.ws-chip__label {
+  font: 500 10.5px/1 var(--ws-sans);
+  letter-spacing: 0.18em;
+  color: #DCEFFF;
+}
+
+.ws-chip__sep {
+  width: 1px;
+  height: 9px;
+  background: rgba(232, 200, 143, 0.32);
+}
+
+.ws-chip__depth {
+  font: 500 8.5px/1 var(--ws-mono);
+  letter-spacing: 0.12em;
+  color: rgba(159, 212, 255, 0.7);
+}
+
+.ws-dock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 14px 6px;
+  border-top: 1px solid rgba(127, 200, 255, 0.08);
+  font-family: var(--ws-mono);
+  color: rgba(159, 212, 255, 0.55);
+}
+
+/* 围裙边那一圈蕾丝：用半圆点阵画在声呐条的上沿 */
+.ws-dock::before {
+  content: "";
+  position: absolute;
+  inset: -4px 0 auto 0;
+  height: 4px;
+  background-image: radial-gradient(circle at 4px 4px, rgba(232, 200, 143, 0.28) 3.2px, transparent 3.5px);
+  background-size: 8px 4px;
+  background-repeat: repeat-x;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.ws-dock__left {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+
+.ws-dock__bead {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7FE0FF;
+  box-shadow: 0 0 8px rgba(127, 224, 255, 0.9);
+  animation: ws-pulse 2.8s ease-in-out infinite;
+}
+
+.ws-dock__label {
+  font-size: 8.5px;
+  letter-spacing: 0.22em;
+  color: rgba(127, 200, 255, 0.5);
+}
+
+.ws-dock__value {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #CFEAFF;
+}
+
+.ws-dock__unit {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: rgba(127, 200, 255, 0.44);
+}
+
+.ws-dock__sonar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+  height: 12px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 82%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 82%, transparent);
+}
+
+.ws-dock__sonar i {
+  width: 1px;
+  height: 5px;
+  flex: none;
+  border-radius: 1px;
+  background: rgba(127, 200, 255, 0.42);
+  animation: ws-scan 3.6s linear infinite;
+  animation-delay: calc(var(--i) * -0.13s);
+}
+
+.ws-dock__sonar i:nth-child(4n) {
+  height: 9px;
+  background: rgba(127, 224, 255, 0.6);
+}
+
+.ws-dock__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+.ws-dock__brand {
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  color: rgba(234, 246, 255, 0.4);
+}
+
+.ws-dock__sep {
+  width: 12px;
+  height: 1px;
+  background: rgba(232, 200, 143, 0.32);
+}
+
+.ws-dock__cn {
+  font: 400 9px/1 var(--ws-sans);
+  letter-spacing: 0.2em;
+  color: rgba(159, 212, 255, 0.5);
+}
+
+/* =======================================================
+   气氛层：光柱、气泡、颗粒（只加光，不压暗）
+   ======================================================= */
+
+.ws-atmos {
+  position: fixed;
+  inset: 0;
+  z-index: 2147482000;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ws-atmos__shaft {
+  position: absolute;
+  top: -30%;
+  height: 130%;
+  width: 26vw;
+  background: linear-gradient(180deg, rgba(127, 224, 255, 0.15), rgba(127, 224, 255, 0.05) 46%, rgba(127, 224, 255, 0) 78%);
+  filter: blur(34px);
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  transform-origin: top center;
+}
+
+.ws-atmos__shaft--a {
+  right: 2vw;
+  transform: rotate(11deg);
+  animation: ws-sway 17s ease-in-out infinite;
+}
+
+.ws-atmos__shaft--b {
+  right: 22vw;
+  width: 15vw;
+  opacity: 0.34;
+  transform: rotate(-8deg);
+  animation: ws-sway 23s ease-in-out infinite reverse;
+}
+
+.ws-atmos__shaft--c {
+  right: 44vw;
+  width: 9vw;
+  opacity: 0.2;
+  transform: rotate(17deg);
+  animation: ws-sway 29s ease-in-out infinite;
+}
+
+.ws-atmos__swell {
+  position: absolute;
+  inset: -12% -6% auto auto;
+  width: 62vw;
+  height: 62vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(77, 107, 254, 0.16), rgba(77, 107, 254, 0) 62%);
+  mix-blend-mode: screen;
+  animation: ws-breathe 13s ease-in-out infinite;
+}
+
+.ws-atmos__bubbles {
+  position: absolute;
+  inset: 0;
+}
+
+.ws-atmos__bubbles i {
+  position: absolute;
+  bottom: -6vh;
+  left: calc(4% + var(--i) * 6.1%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(234, 246, 255, 0.5);
+  box-shadow: 0 0 6px rgba(127, 224, 255, 0.5);
+  opacity: 0;
+  animation: ws-drift calc(16s + var(--i) * 1.4s) linear infinite;
+  animation-delay: calc(var(--i) * -2.3s);
+}
+
+.ws-atmos__bubbles i:nth-child(3n) {
+  width: 5px;
+  height: 5px;
+  background: rgba(200, 234, 255, 0.34);
+}
+
+.ws-atmos__bubbles i:nth-child(4n) {
+  width: 2px;
+  height: 2px;
+}
+
+.ws-atmos__bubbles i:nth-child(5n) {
+  left: calc(10% + var(--i) * 4.7%);
+  animation-duration: calc(22s + var(--i) * 1.1s);
+}
+
+.ws-atmos__grain {
+  position: absolute;
+  inset: 0;
+  background-image: var(--ws-grain);
+  background-size: 160px 160px;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+}
+
+/* =======================================================
+   开场：下潜
+   ======================================================= */
+
+.ws-boot {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483642;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 34%, rgba(28, 58, 108, 0.6), transparent 70%),
+    radial-gradient(ellipse 90% 70% at 50% 120%, rgba(77, 107, 254, 0.24), transparent 64%),
+    #03080F;
+  animation: ws-fade 260ms ease both;
+}
+
+.ws-boot--leaving {
+  animation: ws-surface 260ms ease both;
+}
+
+.ws-boot__sea {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(104deg, rgba(127, 224, 255, 0.06) 0 1px, transparent 1px 190px),
+    radial-gradient(ellipse 52% 34% at 50% 0%, rgba(127, 224, 255, 0.22), transparent 72%),
+    radial-gradient(ellipse 70% 30% at 50% 100%, rgba(77, 107, 254, 0.18), transparent 76%);
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: auto, auto, auto;
+  background-position: center, center, center;
+  mix-blend-mode: screen;
+  opacity: 0.8;
+}
+
+.ws-boot__deep {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ws-boot__deep i {
+  position: absolute;
+  left: calc(8% + var(--i) * 9.4%);
+  bottom: -4vh;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(234, 246, 255, 0.6);
+  box-shadow: 0 0 7px rgba(127, 224, 255, 0.7);
+  animation: ws-drift calc(9s + var(--i) * 0.9s) linear infinite;
+  animation-delay: calc(var(--i) * -1.6s);
+}
+
+.ws-boot__inner {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0;
+  text-align: center;
+  animation: ws-rise 900ms var(--ws-ease) both;
+}
+
+.ws-boot__glyph {
+  display: grid;
+  place-items: center;
+  width: 122px;
+  height: 122px;
+  margin-bottom: 26px;
+  border-radius: 50%;
+  background-color: #061325;
+  background-image:
+    radial-gradient(circle at 50% 26%, rgba(255, 255, 255, 0.06), rgba(4, 10, 19, 0.16) 54%, rgba(4, 10, 19, 0.58) 100%),
+    var(--ws-face);
+  background-size: cover, cover;
+  background-position: 50% 50%, 50% 46%;
+  border: 1px solid rgba(232, 200, 143, 0.42);
+  box-shadow:
+    inset 0 0 26px rgba(4, 10, 19, 0.5),
+    0 0 60px rgba(77, 107, 254, 0.32);
+  animation: ws-dive 1100ms var(--ws-ease) both;
+}
+
+.ws-boot__lace {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 3px dotted rgba(245, 236, 214, 0.52);
+  opacity: 0.85;
+  animation: ws-lace-turn 60s linear infinite;
+  pointer-events: none;
+}
+
+.ws-boot__latin {
+  font: 500 10.5px/1 var(--ws-serif);
+  letter-spacing: 0.6em;
+  color: rgba(159, 212, 255, 0.86);
+  text-indent: 0.52em;
+  animation: ws-fade 700ms 260ms ease both;
+}
+
+.ws-boot__cn {
+  margin-top: 14px;
+  font: 400 40px/1.2 var(--ws-serif);
+  letter-spacing: 0.32em;
+  text-indent: 0.32em;
+  color: #EAF6FF;
+  text-shadow: 0 0 40px rgba(77, 107, 254, 0.55);
+  animation: ws-fade 700ms 340ms ease both;
+}
+
+.ws-boot__sub {
+  margin-top: 14px;
+  font: 400 11px/1.5 var(--ws-sans);
+  letter-spacing: 0.16em;
+  color: rgba(201, 219, 236, 0.5);
+  animation: ws-fade 700ms 420ms ease both;
+}
+
+.ws-boot__rule {
+  width: 216px;
+  height: 1px;
+  margin: 28px 0 14px;
+  background: linear-gradient(90deg, transparent, rgba(232, 200, 143, 0.45), rgba(159, 212, 255, 0.5), transparent);
+  animation: ws-fade 700ms 420ms ease both;
+}
+
+.ws-boot__bar {
+  width: 216px;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(127, 200, 255, 0.12);
+}
+
+.ws-boot__fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(127, 224, 255, 0.2), #7FE0FF 60%, #EAF6FF);
+  box-shadow: 0 0 12px rgba(127, 224, 255, 0.6);
+  animation: ws-fill 1600ms 300ms var(--ws-ease) both;
+}
+
+.ws-boot__meta {
+  display: flex;
+  justify-content: space-between;
+  width: 216px;
+  margin-top: 9px;
+  font: 500 8px/1 var(--ws-mono);
+  letter-spacing: 0.26em;
+  color: rgba(127, 200, 255, 0.44);
+}
+
+.ws-boot__hint {
+  margin-top: 34px;
+  font: 400 9.5px/1 var(--ws-sans);
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  color: rgba(159, 212, 255, 0.3);
+  animation: ws-fade 800ms 900ms ease both;
+}
+
+/* =======================================================
+   宿主表面的收口：让玻璃更薄、边线更像水
+   ======================================================= */
+
+/* 输入卡下沿：14px 内快速收边，正文滚到此处即被盖住（统一规范） */
+/* 只在「输入卡正下方」压一条窄带：两侧不遮，正文滚到卡片下面即被盖住 */
+/* 输入区不再铺任何横向底带（两侧不该被遮） */
+
+/* 输入区底部封口：只在最后 60px 实色，卡片上方半点不碰 */
+html body [class*="composerSeat"] {
+  background: linear-gradient(180deg,
+    rgba(18, 12, 14, 0) 0,
+    rgba(18, 12, 14, 0) calc(100% - 60px),
+    rgba(18, 12, 14, 1) calc(100% - 34px),
+    rgba(18, 12, 14, 1) 100%) !important;
+  background-image: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+html body [class*="composerHero"] {
+  background: none !important;
+}
+
+
+/* 卡片下沿的收边：跟着卡片宽度走，40px 内渐隐，只盖住卡片正下方那条 */
+
+html body 
+
+
+
+/* =======================================================
+   动画
+   ======================================================= */
+
+@keyframes ws-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ws-dive {
+  from {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.86);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes ws-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ws-surface {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes ws-fill {
+  from {
+    transform: scaleX(0.02);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ws-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes ws-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes ws-sway {
+  0%,
+  100% {
+    transform: rotate(11deg) translateX(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(9deg) translateX(-2vw);
+    opacity: 0.62;
+  }
+}
+
+@keyframes ws-drift {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  12% {
+    opacity: 0.75;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(1.6vw, -104vh, 0);
+  }
+}
+
+@keyframes ws-lace-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ws-scan {
+  0% {
+    transform: scaleY(0.6);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scaleY(1.5);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scaleY(0.6);
+    opacity: 0.3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ws-atmos__shaft,
+  .ws-atmos__swell,
+  .ws-atmos__bubbles i,
+  .ws-boot__deep i,
+  .ws-hero__halo,
+  .ws-chip__bead,
+  .ws-dock__bead,
+  .ws-dock__sonar i,
+  .ws-hero__lace,
+  .ws-boot__lace {
+    animation: none !important;
+  }
+  .ws-hero,
+  .ws-boot__inner,
+  .ws-boot__glyph,
+  .ws-boot__latin,
+  .ws-boot__cn,
+  .ws-boot__rule,
+  .ws-boot__hint,
+  .ws-boot__fill {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .ws-dock__brand,
+  .ws-dock__sep {
+    display: none;
+  }
+  .ws-hero__sub {
+    display: none;
+  }
+  .ws-atmos__shaft--c {
+    display: none;
+  }
+}
+
+/* 新会话页（hero 输入框）不要那条收边遮罩 */
+
+
+/* 会话正文在输入区上方渐隐：遮的是「内容」，不是卡片本身 */
+html body [class*="scrollBody"] > *:not([class*="composer"]):not([class*="Composer"]) {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+  mask-image: linear-gradient(180deg, #000 calc(100% - 148px), transparent 100%);
+}
+/* 卡片下沿收边：用「composerStack + _card」这对类名（data 属性在新版宿主里不存在） */
+
+  mask-image: linear-gradient(180deg, #000 calc(100% - 190px), rgba(0,0,0,0.35) calc(100% - 96px), transparent calc(100% - 24px));
+}
+
+/* 会话文本层：scrollBody 的第一个子节点就是消息列表（它没有 class，只能按位置选） */
+html body [class*="scrollBody"] > *:first-child {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+  mask-image: linear-gradient(180deg, #000 calc(100% - 200px), rgba(0,0,0,.4) calc(100% - 110px), transparent calc(100% - 40px));
+}
+/* 输入卡：不透光，正文绝不可能从卡片里透出来 */
+html body [class*="composerStack"] [class*="_card"] {
+  background-color: rgba(18, 13, 16, 1) !important;
+}

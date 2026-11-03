@@ -1,0 +1,20 @@
+{
+  "id": "velvet-sin",
+  "name": "绯夜尤物",
+  "latin": "VELVET SIN",
+  "appearance": "dark",
+  "blurb": "装饰艺术 · 绯红霓虹与旧金细线",
+  "composerBg": "#070205",
+  "bootKey": "velvet-sin-boot-v1",
+  "boot": "VelvetBoot",
+  "overlay": "VelvetAtmosphere",
+  "slots": {
+    "sidebar.brand.mark": "VelvetSidebarMark",
+    "sidebar.brand.name": "VelvetBrandName",
+    "conversation.hero.brand.mark": "VelvetHeroMark",
+    "conversation.input.left": "VelvetChip",
+    "conversation.composer.dock": "VelvetPulse"
+  },
+  "rootClasses": [],
+  "widget": null
+}

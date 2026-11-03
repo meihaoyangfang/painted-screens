@@ -1,0 +1,791 @@
+/* ==========================================================================
+   VELVET SIN — whale widget skin
+   Scope: html.vs-whale. Only dshwv-* nodes are touched.
+   ========================================================================== */
+
+html.vs-whale {
+  --vsw-black: #070205;
+  --vsw-panel: #12040a;
+  --vsw-panel-2: #1b0710;
+  --vsw-ink: #f8e9e8;
+  --vsw-dim: #d8bfc0;
+  --vsw-faint: #8e7378;
+  --vsw-crimson: #ff335f;
+  --vsw-crimson-deep: #b80e33;
+  --vsw-gold: #e9bc72;
+  --vsw-gold-deep: #a9742f;
+  --vsw-line: rgba(233, 188, 114, 0.24);
+  --vsw-line-red: rgba(255, 51, 95, 0.5);
+  --vsw-serif: "Didot", "Bodoni 72", "Bodoni MT", "Playfair Display", "Iowan Old Style", "Songti SC", "Noto Serif SC", serif;
+  --vsw-sans: "Avenir Next", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+  --vsw-mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+/* --------------------------------------------------------------------------
+   Character: a gold-ringed VELVET SIN martini emblem
+   -------------------------------------------------------------------------- */
+
+html.vs-whale .dshwv-img {
+  width: 68% !important;
+  height: 68% !important;
+  right: 1% !important;
+  bottom: 1% !important;
+  z-index: 1;
+  clip-path: circle(50%) !important;
+  -webkit-clip-path: circle(50%) !important;
+  filter:
+    drop-shadow(0 12px 22px rgba(0, 0, 0, 0.78))
+    drop-shadow(0 0 18px rgba(255, 51, 95, 0.34))
+    saturate(1.04) contrast(1.03) !important;
+}
+html.vs-whale .dshwv-root.dshwv-left .dshwv-img {
+  transform: scaleX(-1) !important;
+}
+html.vs-whale .dshwv-root:has(.dshwv-pop-open) .dshwv-img {
+  filter:
+    drop-shadow(0 12px 22px rgba(0, 0, 0, 0.78))
+    drop-shadow(0 0 26px rgba(255, 51, 95, 0.5))
+    brightness(1.05) saturate(1.06) !important;
+}
+html.vs-whale .dshwv-body::before {
+  content: "";
+  position: absolute;
+  right: -2%;
+  bottom: -2%;
+  width: 78%;
+  height: 78%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 56% 54%, rgba(255, 51, 95, 0.32), rgba(233, 188, 114, 0.1) 42%, transparent 68%);
+  filter: blur(10px);
+  opacity: 0.8;
+}
+
+/* HUD around the emblem */
+.vsw-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: visible;
+  font-family: var(--vsw-mono);
+}
+html.vs-whale .dshwv-root.dshwv-left .vsw-hud {
+  transform: scaleX(-1);
+}
+.vsw-hud__mono {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  font-family: var(--vsw-serif);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(233, 188, 114, 0.28);
+}
+.vsw-hud__rail {
+  position: absolute;
+  left: 2%;
+  top: 23%;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 6px;
+  line-height: 1;
+  letter-spacing: 2.1px;
+  color: rgba(233, 188, 114, 0.52);
+  white-space: nowrap;
+}
+.vsw-hud__tag {
+  position: absolute;
+  left: 3.5%;
+  bottom: 12%;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 5.5px;
+  letter-spacing: 1.2px;
+  color: rgba(255, 51, 95, 0.82);
+}
+.vsw-hud__tag::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--vsw-crimson);
+  box-shadow: 0 0 6px var(--vsw-crimson);
+  animation: vsw-blink 2.8s steps(1, end) infinite;
+}
+.vsw-hud__time {
+  position: absolute;
+  right: 3%;
+  top: 7%;
+  font-size: 5.5px;
+  letter-spacing: 1.2px;
+  color: rgba(233, 188, 114, 0.46);
+}
+.vsw-hud__corner {
+  position: absolute;
+  width: 9%;
+  height: 9%;
+  border: 0 solid rgba(255, 51, 95, 0.42);
+}
+.vsw-hud__corner--tl { left: 3%; top: 9%; border-left-width: 1px; border-top-width: 1px; }
+.vsw-hud__corner--br { right: 5%; bottom: 4%; border-right-width: 1px; border-bottom-width: 1px; }
+html.vs-whale .dshwv-root:has(.dshwv-pop-open) .vsw-hud__rail,
+html.vs-whale .dshwv-root:has(.dshwv-pop-open) .vsw-hud__mono,
+html.vs-whale .dshwv-root:has(.dshwv-pop-open) .vsw-hud__time {
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+@keyframes vsw-blink {
+  0%, 62% { opacity: 1; }
+  63%, 100% { opacity: 0.2; }
+}
+
+/* --------------------------------------------------------------------------
+   Bubble: a cut-corner velvet data card
+   -------------------------------------------------------------------------- */
+
+html.vs-whale .dshwv-pop .dshwv-bshape {
+  fill: transparent !important;
+  stroke: none !important;
+}
+html.vs-whale .dshwv-pop .dshwv-b1,
+html.vs-whale .dshwv-pop .dshwv-b2 {
+  display: none !important;
+}
+html.vs-whale .dshwv-shapewrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, var(--vsw-gold), rgba(255, 51, 95, 0.75) 34%, rgba(233, 188, 114, 0.9) 62%, var(--vsw-gold-deep));
+  clip-path: polygon(0 0, 84% 0, 100% 16%, 100% 100%, 0 100%);
+  opacity: 0;
+  transform: scale(0.955) translateY(4px);
+  transform-origin: 78% 100%;
+  transition: opacity 0.18s ease, transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+html.vs-whale .dshwv-shapewrap::after {
+  content: "";
+  position: absolute;
+  inset: 1.5px;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0 5.6%, rgba(255, 51, 95, 0.9) 5.6% 6.2%, transparent 6.2%),
+    radial-gradient(120% 110% at 100% 0%, rgba(255, 51, 95, 0.16), transparent 52%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 4px),
+    linear-gradient(152deg, rgba(27, 7, 16, 0.985), rgba(7, 2, 5, 0.985) 64%, rgba(17, 4, 10, 0.99));
+  background-repeat: no-repeat;
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  clip-path: polygon(0 0, 84% 0, 100% 16%, 100% 100%, 0 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(233, 188, 114, 0.12),
+    inset 0 0 30px rgba(0, 0, 0, 0.45);
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.72));
+  opacity: 0;
+  transform: scale(0.955) translateY(4px);
+  transform-origin: 78% 100%;
+  transition: opacity 0.2s ease 0.03s, transform 0.24s cubic-bezier(0.2, 0.9, 0.3, 1) 0.03s;
+}
+html.vs-whale .dshwv-pop.dshwv-pop-open .dshwv-shapewrap::before,
+html.vs-whale .dshwv-pop.dshwv-pop-open .dshwv-shapewrap::after {
+  opacity: 1;
+  transform: none;
+}
+html.vs-whale .dshwv-pop::before {
+  content: "VELVET SIN // PRIVATE LEDGER";
+  position: absolute;
+  left: 12%;
+  top: 10.5%;
+  z-index: 4;
+  pointer-events: none;
+  padding: 1px 5px 1px 6px;
+  font-family: var(--vsw-mono);
+  font-size: 5.6px;
+  line-height: 1.2;
+  letter-spacing: 1.1px;
+  color: var(--vsw-gold);
+  background: linear-gradient(90deg, rgba(255, 51, 95, 0.16), transparent 72%);
+  border-left: 2px solid var(--vsw-crimson);
+  opacity: 0;
+  transition: opacity 0.2s ease 0.08s;
+}
+html.vs-whale .dshwv-pop.dshwv-pop-open::before {
+  opacity: 1;
+}
+html.vs-whale .dshwv-root.dshwv-left .dshwv-pop::before {
+  transform: scaleX(-1);
+}
+html.vs-whale .dshwv-root.dshwv-left .dshwv-pop::before {
+  left: auto;
+  right: 12%;
+}
+
+.vsw-fold {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16%;
+  height: 16%;
+  z-index: 6;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255, 239, 206, 0.55), rgba(233, 188, 114, 0.28) 38%, rgba(255, 51, 95, 0.16) 66%, rgba(7, 2, 5, 0.9));
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  filter: drop-shadow(-3px 3px 6px rgba(0, 0, 0, 0.55));
+  opacity: 0;
+  transition: opacity 0.2s ease 0.1s;
+}
+.vsw-fold::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 141.5%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 239, 206, 0.8), rgba(233, 188, 114, 0.35));
+  transform: rotate(45deg);
+  transform-origin: left top;
+}
+html.vs-whale .dshwv-pop.dshwv-pop-open .vsw-fold {
+  opacity: 1;
+}
+
+html.vs-whale .dshwv-text {
+  top: 52.5% !important;
+  left: 50% !important;
+  width: 80% !important;
+  height: auto !important;
+  z-index: 5;
+  color: var(--vsw-ink) !important;
+  font-family: var(--vsw-sans);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+html.vs-whale .dshwv-text .dshwv-trow {
+  margin: 2px 0 !important;
+  color: var(--vsw-dim) !important;
+  font-family: var(--vsw-sans) !important;
+  font-size: calc(var(--dshw-u) * 54) !important;
+  line-height: 1.34 !important;
+  letter-spacing: 0.2px;
+  white-space: normal !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  text-wrap: pretty;
+}
+html.vs-whale .dshwv-text :is(.dshwv-label, .dshwv-hint, .dshwv-period, .dshwv-wrap) {
+  white-space: normal !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  font-size: calc(var(--dshw-u) * 54) !important;
+  line-height: 1.34 !important;
+}
+html.vs-whale .dshwv-text .dshwv-trow:first-of-type {
+  color: var(--vsw-gold) !important;
+  font-family: var(--vsw-mono) !important;
+  font-size: calc(var(--dshw-u) * 40) !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase;
+}
+html.vs-whale .dshwv-text .dshwv-rgb {
+  background-image: linear-gradient(90deg, #ff9aae, var(--vsw-crimson) 30%, #ffe3b0 52%, var(--vsw-crimson) 74%, #ff8aa0 100%) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 7px rgba(255, 51, 95, 0.25));
+}
+html.vs-whale .dshwv-text .dshwv-trow.dshwv-rgb {
+  font-family: var(--vsw-sans) !important;
+  font-size: calc(var(--dshw-u) * 54) !important;
+  letter-spacing: 0.2px;
+  line-height: 1.34 !important;
+  white-space: normal !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+}
+html.vs-whale .dshwv-text .dshwv-trow.vsw-amount {
+  font-family: var(--vsw-serif) !important;
+  font-size: calc(var(--dshw-u) * 94) !important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  max-width: none !important;
+  overflow-wrap: normal !important;
+  color: var(--vsw-gold) !important;
+  text-shadow: 0 0 10px rgba(233, 188, 114, 0.25);
+}
+html.vs-whale .dshwv-text .dshwv-trow.vsw-time {
+  font-family: var(--vsw-mono) !important;
+  font-size: calc(var(--dshw-u) * 42) !important;
+  letter-spacing: 0.08em;
+  white-space: nowrap !important;
+  color: rgba(255, 51, 95, 0.85) !important;
+}
+html.vs-whale .dshwv-text .dshwv-trowline {
+  margin-top: 3px !important;
+  gap: 2px;
+  justify-content: center;
+  display: flex !important;
+  align-items: center;
+  white-space: nowrap !important;
+  max-width: none !important;
+}
+html.vs-whale .dshwv-text .dshwv-trowline .dshwv-trow {
+  font-family: var(--vsw-mono) !important;
+  font-size: calc(var(--dshw-u) * 36) !important;
+  color: var(--vsw-faint) !important;
+  letter-spacing: 0.4px;
+}
+html.vs-whale .dshwv-text .dshwv-bgrgb {
+  background: rgba(255, 51, 95, 0.14) !important;
+  background-image: none !important;
+  color: var(--vsw-crimson) !important;
+  -webkit-text-fill-color: var(--vsw-crimson) !important;
+  border: 1px solid rgba(255, 51, 95, 0.4);
+  border-radius: 1px !important;
+  padding: 1px 5px !important;
+  animation: none !important;
+  text-shadow: none !important;
+}
+html.vs-whale .dshwv-text .dshwv-trowline .dshwv-rgb {
+  -webkit-text-fill-color: var(--vsw-gold) !important;
+  color: var(--vsw-gold) !important;
+  background: none !important;
+  filter: none;
+  font-variant-numeric: tabular-nums;
+}
+html.vs-whale .dshwv-text .dshwv-trow.dshwv-trowline > .dshwv-trow:first-child {
+  color: var(--vsw-crimson) !important;
+}
+html.vs-whale .dshwv-pop .dshwv-gif {
+  filter: saturate(0.8) contrast(1.05) drop-shadow(0 0 10px rgba(255, 51, 95, 0.3));
+}
+
+/* --------------------------------------------------------------------------
+   Menu and settings panels
+   -------------------------------------------------------------------------- */
+
+html.vs-whale .dshwv-menu {
+  min-width: 252px;
+  padding: 25px 12px 0 !important;
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 51, 95, 0.11), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 4px),
+    linear-gradient(162deg, rgba(27, 7, 16, 0.995), rgba(7, 2, 5, 0.995)) !important;
+  border: 1px solid rgba(233, 188, 114, 0.38) !important;
+  border-radius: 3px !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 51, 95, 0.08),
+    0 18px 44px rgba(0, 0, 0, 0.72),
+    0 0 30px rgba(255, 51, 95, 0.1) !important;
+  color-scheme: dark !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+html.vs-whale .dshwv-menu::before {
+  content: "VELVET SIN  ·  MEMBERS ONLY";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 18px;
+  padding: 5px 10px 0;
+  box-sizing: border-box;
+  font-family: var(--vsw-mono);
+  font-size: 6.5px;
+  line-height: 1;
+  letter-spacing: 1.7px;
+  color: var(--vsw-gold);
+  background:
+    linear-gradient(90deg, rgba(255, 51, 95, 0.26), rgba(255, 51, 95, 0.04) 58%, transparent),
+    rgba(14, 3, 8, 0.9);
+  border-bottom: 1px solid rgba(255, 51, 95, 0.5);
+  pointer-events: none;
+}
+html.vs-whale .dshwv-menu::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--vsw-crimson), var(--vsw-gold) 24%, transparent 78%);
+  opacity: 0.75;
+  pointer-events: none;
+}
+html.vs-whale .dshwv-menu-row {
+  color: var(--vsw-dim) !important;
+  font-family: var(--vsw-sans);
+  font-size: 11px !important;
+  gap: 7px !important;
+  margin: 5px 0 !important;
+}
+html.vs-whale .dshwv-menu-sep {
+  height: 1px !important;
+  margin: 7px 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(233, 188, 114, 0.38), rgba(255, 51, 95, 0.24), transparent) !important;
+}
+html.vs-whale .dshwv-rolebtn,
+html.vs-whale .dshwv-roleimport,
+html.vs-whale .dshwv-usage-more,
+html.vs-whale .dshwv-audiobtn,
+html.vs-whale .dshwv-audioimport,
+html.vs-whale .dshwv-bubmini,
+html.vs-whale .dshwv-splitbtn,
+html.vs-whale .dshwv-custbtn,
+html.vs-whale .dshwv-bubnewbtn {
+  border: 1px solid rgba(233, 188, 114, 0.3) !important;
+  border-radius: 2px !important;
+  background: rgba(255, 51, 95, 0.06) !important;
+  color: var(--vsw-gold) !important;
+  font-family: var(--vsw-sans);
+  font-size: 11px !important;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+html.vs-whale .dshwv-rolebtn:hover,
+html.vs-whale .dshwv-roleimport:hover,
+html.vs-whale .dshwv-usage-more:hover,
+html.vs-whale .dshwv-audiobtn:hover,
+html.vs-whale .dshwv-audioimport:hover,
+html.vs-whale .dshwv-bubmini:hover,
+html.vs-whale .dshwv-splitbtn:hover,
+html.vs-whale .dshwv-custbtn:hover,
+html.vs-whale .dshwv-bubnewbtn:hover {
+  background: var(--vsw-crimson) !important;
+  border-color: var(--vsw-gold) !important;
+  color: #1a0309 !important;
+}
+html.vs-whale .dshwv-pop {
+  z-index: 2;
+  transform: translateY(-46%) !important;
+}
+html.vs-whale .dshwv-menu-btn {
+  z-index: 4 !important;
+  width: 26px !important;
+  height: 26px !important;
+  border: 1px solid rgba(233, 188, 114, 0.45) !important;
+  border-radius: 4px !important;
+  background:
+    linear-gradient(135deg, rgba(255, 51, 95, 0.2), transparent 62%),
+    rgba(10, 2, 6, 0.88) !important;
+  box-shadow: 0 0 12px rgba(255, 51, 95, 0.16), inset 0 0 10px rgba(233, 188, 114, 0.05);
+}
+html.vs-whale .dshwv-menu-btn span {
+  background: var(--vsw-gold) !important;
+  height: 1.5px !important;
+  box-shadow: 0 0 4px rgba(233, 188, 114, 0.45);
+}
+html.vs-whale .dshwv-menu-btn:hover {
+  background: var(--vsw-crimson) !important;
+  border-color: var(--vsw-gold) !important;
+}
+html.vs-whale .dshwv-menu-btn:hover span {
+  background: #1a0309 !important;
+}
+html.vs-whale .dshwv-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  background: transparent !important;
+  accent-color: var(--vsw-crimson);
+}
+html.vs-whale .dshwv-range::-webkit-slider-runnable-track {
+  height: 3px;
+  background: linear-gradient(90deg, var(--vsw-crimson), var(--vsw-gold));
+  box-shadow: 0 0 6px rgba(255, 51, 95, 0.3);
+}
+html.vs-whale .dshwv-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 9px;
+  height: 14px;
+  margin-top: -5.5px;
+  border: 1px solid var(--vsw-gold);
+  border-radius: 1px;
+  background: var(--vsw-black);
+  box-shadow: 0 0 7px rgba(233, 188, 114, 0.5);
+}
+html.vs-whale .dshwv-range::-moz-range-track {
+  height: 3px;
+  background: linear-gradient(90deg, var(--vsw-crimson), var(--vsw-gold));
+}
+html.vs-whale .dshwv-range::-moz-range-thumb {
+  width: 9px;
+  height: 14px;
+  border: 1px solid var(--vsw-gold);
+  border-radius: 1px;
+  background: var(--vsw-black);
+}
+html.vs-whale .dshwv-check {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 13px !important;
+  height: 13px !important;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  border: 1px solid rgba(233, 188, 114, 0.45) !important;
+  border-radius: 2px !important;
+  background: rgba(10, 2, 6, 0.92) !important;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  position: relative;
+}
+html.vs-whale .dshwv-check:checked {
+  border-color: var(--vsw-gold) !important;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 11 11'%3E%3Cpath d='M2 5.5l2.3 2.3L9 2.8' fill='none' stroke='%231a0309' stroke-width='2' stroke-linecap='square'/%3E%3C/svg%3E") center / 10px 10px no-repeat,
+    var(--vsw-crimson) !important;
+  box-shadow: 0 0 8px rgba(255, 51, 95, 0.32);
+}
+html.vs-whale .dshwv-check:disabled { opacity: 0.35 !important; cursor: not-allowed; }
+html.vs-whale .dshwv-number,
+html.vs-whale .dshwv-winput,
+html.vs-whale .dshwv-fenum,
+html.vs-whale .dshwv-feinp,
+html.vs-whale .dshwv-fontinp,
+html.vs-whale .dshwv-audionameinput,
+html.vs-whale .dshwv-fadd input,
+html.vs-whale .dshwv-bubcard input,
+html.vs-whale .dshwv-bubcard textarea {
+  background: rgba(10, 2, 6, 0.92) !important;
+  border: 1px solid rgba(233, 188, 114, 0.3) !important;
+  border-radius: 2px !important;
+  color: var(--vsw-ink) !important;
+  font-family: var(--vsw-mono) !important;
+  font-size: 10.5px !important;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4);
+}
+html.vs-whale .dshwv-number:focus,
+html.vs-whale .dshwv-winput:focus,
+html.vs-whale .dshwv-fenum:focus,
+html.vs-whale .dshwv-feinp:focus,
+html.vs-whale .dshwv-fontinp:focus,
+html.vs-whale .dshwv-audionameinput:focus {
+  outline: 1px solid var(--vsw-gold) !important;
+  border-color: var(--vsw-gold) !important;
+}
+html.vs-whale .dshwv-ver {
+  color: rgba(233, 188, 114, 0.55) !important;
+  font-family: var(--vsw-mono) !important;
+  letter-spacing: 1.2px;
+  opacity: 1 !important;
+}
+html.vs-whale .dshwv-ver::before {
+  content: "VELVET SIN // ";
+  color: rgba(255, 51, 95, 0.65);
+}
+html.vs-whale .dshwv-usage-sub,
+html.vs-whale .dshwv-menuview { color: var(--vsw-dim) !important; }
+html.vs-whale .dshwv-volpct {
+  color: var(--vsw-gold) !important;
+  font-family: var(--vsw-mono);
+  font-size: 9.5px !important;
+}
+html.vs-whale .dshwv-menu ::selection { background: rgba(255, 51, 95, 0.35); }
+
+/* Retint the widget's inline light-theme colors. */
+html.vs-whale :is(
+  .dshwv-menu, .dshwv-bubcard, .dshwv-bubmask, .dshwv-usage-card, .dshwv-usage-mask,
+  .dshwv-rescard, .dshwv-resmask, .dshwv-audiowin, .dshwv-audiomask, .dshwv-confirmwin,
+  .dshwv-confirmmask, .dshwv-cropwin, .dshwv-snapwin, .dshwv-framecard, .dshwv-gifwin
+) [style*="color: rgb(32, 49, 112)"],
+html.vs-whale :is(.dshwv-menu, .dshwv-bubcard, .dshwv-bubmask, .dshwv-usage-card, .dshwv-rescard, .dshwv-audiowin) [style*="color:rgb(32,49,112)"] {
+  color: var(--vsw-dim) !important;
+}
+html.vs-whale :is(.dshwv-menu, .dshwv-bubcard, .dshwv-bubmask, .dshwv-usage-card, .dshwv-rescard) [style*="color: rgb(159, 176, 217)"],
+html.vs-whale :is(.dshwv-menu, .dshwv-bubcard, .dshwv-bubmask, .dshwv-usage-card, .dshwv-rescard) [style*="color:rgb(159,176,217)"] {
+  color: var(--vsw-faint) !important;
+}
+html.vs-whale :is(.dshwv-menu, .dshwv-bubcard, .dshwv-bubmask, .dshwv-usage-card, .dshwv-rescard, .dshwv-audiowin) [style*="background: rgb(255, 255, 255)"],
+html.vs-whale :is(.dshwv-menu, .dshwv-bubcard, .dshwv-bubmask, .dshwv-usage-card, .dshwv-rescard, .dshwv-audiowin) [style*="background:#fff"],
+html.vs-whale :is(.dshwv-menu, .dshwv-bubcard, .dshwv-bubmask, .dshwv-usage-card, .dshwv-rescard, .dshwv-audiowin) [style*="background-color: rgb(255, 255, 255)"] {
+  background: rgba(18, 4, 10, 0.92) !important;
+}
+html.vs-whale :is(.dshwv-menu, .dshwv-bubcard, .dshwv-bubmask, .dshwv-usage-card, .dshwv-rescard) [style*="border-color: rgb(32, 49, 112)"],
+html.vs-whale :is(.dshwv-menu, .dshwv-bubcard, .dshwv-bubmask, .dshwv-usage-card, .dshwv-rescard) [style*="border: 1px solid rgb(32, 49, 112)"] {
+  border-color: rgba(233, 188, 114, 0.2) !important;
+}
+
+/* Masks and panels */
+html.vs-whale :is(
+  .dshwv-bubmask, .dshwv-audiomask, .dshwv-usage-mask, .dshwv-resmask,
+  .dshwv-confirmmask, .dshwv-cropmask, .dshwv-snapmask, .dshwv-framemask, .dshwv-rolelist-mask
+) {
+  background: radial-gradient(100% 100% at 50% 40%, rgba(12, 2, 7, 0.72), rgba(3, 0, 2, 0.88)) !important;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  color-scheme: dark !important;
+}
+html.vs-whale :is(
+  .dshwv-bubcard, .dshwv-audiowin, .dshwv-usage-card, .dshwv-rescard,
+  .dshwv-confirmwin, .dshwv-cropwin, .dshwv-snapwin, .dshwv-framecard, .dshwv-gifwin,
+  .dshwv-minipop, .dshwv-listbox, .dshwv-rolelist, .dshwv-audiolist, .dshwv-slotlist,
+  .dshwv-rgbmenu, .dshwv-custmenu, .dshwv-qcolmenu, .dshwv-framemenu
+) {
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 4px),
+    linear-gradient(158deg, rgba(27, 7, 16, 0.99), rgba(7, 2, 5, 0.99)) !important;
+  border: 1px solid rgba(233, 188, 114, 0.34) !important;
+  border-radius: 3px !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 51, 95, 0.07),
+    0 16px 44px rgba(0, 0, 0, 0.72),
+    0 0 26px rgba(255, 51, 95, 0.08) !important;
+  color: var(--vsw-ink) !important;
+  color-scheme: dark !important;
+  position: relative !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(233, 188, 114, 0.35) transparent;
+}
+html.vs-whale :is(
+  .dshwv-bubcard, .dshwv-audiowin, .dshwv-usage-card, .dshwv-rescard,
+  .dshwv-confirmwin, .dshwv-cropwin, .dshwv-snapwin, .dshwv-framecard
+)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--vsw-crimson), var(--vsw-gold) 52%, transparent 94%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+html.vs-whale :is(
+  .dshwv-bubtitle, .dshwv-audiotitle, .dshwv-restitle, .dshwv-croptitle,
+  .dshwv-giftitle, .dshwv-snaptitle, .dshwv-fetitle, .dshwv-usage-wintitle,
+  .dshwv-usage-subtitle
+) {
+  color: var(--vsw-gold) !important;
+  font-family: var(--vsw-serif) !important;
+  letter-spacing: 0.06em !important;
+  text-shadow: 0 0 8px rgba(233, 188, 114, 0.18);
+}
+html.vs-whale :is(
+  .dshwv-audiowin, .dshwv-confirmwin, .dshwv-cropwin, .dshwv-snapwin,
+  .dshwv-usage-card, .dshwv-rescard, .dshwv-bubcard, .dshwv-framecard
+) :is(button, .dshwv-btn) {
+  border: 1px solid rgba(233, 188, 114, 0.3) !important;
+  border-radius: 2px !important;
+  background: rgba(255, 51, 95, 0.07) !important;
+  color: var(--vsw-gold) !important;
+  font-family: var(--vsw-sans);
+}
+html.vs-whale :is(
+  .dshwv-audiowin, .dshwv-confirmwin, .dshwv-cropwin, .dshwv-snapwin,
+  .dshwv-usage-card, .dshwv-rescard, .dshwv-bubcard, .dshwv-framecard
+) :is(button, .dshwv-btn):hover {
+  background: var(--vsw-crimson) !important;
+  color: #1a0309 !important;
+}
+
+/* Role list and resource cards */
+html.vs-whale .dshwv-rolelist {
+  padding: 4px !important;
+}
+html.vs-whale .dshwv-roleitem {
+  border: 1px solid rgba(233, 188, 114, 0.16) !important;
+  border-radius: 2px !important;
+  background: rgba(255, 255, 255, 0.015) !important;
+  color: var(--vsw-dim) !important;
+}
+html.vs-whale .dshwv-roleitem-cur {
+  border-color: rgba(255, 51, 95, 0.55) !important;
+  background: linear-gradient(90deg, rgba(255, 51, 95, 0.14), rgba(255, 51, 95, 0.03)) !important;
+  box-shadow: inset 2px 0 0 var(--vsw-crimson);
+}
+html.vs-whale .dshwv-rolename {
+  color: var(--vsw-ink) !important;
+  font-family: var(--vsw-sans);
+}
+html.vs-whale .dshwv-rolepin {
+  color: var(--vsw-gold) !important;
+}
+html.vs-whale .dshwv-restag {
+  background: rgba(255, 51, 95, 0.1) !important;
+  color: var(--vsw-crimson) !important;
+  border: 1px solid rgba(255, 51, 95, 0.3) !important;
+}
+html.vs-whale .dshwv-restag-built {
+  background: rgba(233, 188, 114, 0.1) !important;
+  color: var(--vsw-gold) !important;
+  border-color: rgba(233, 188, 114, 0.3) !important;
+}
+
+/* Usage */
+html.vs-whale .dshwv-usage-total,
+html.vs-whale .dshwv-usage-oview-num,
+html.vs-whale .dshwv-usage-today {
+  color: var(--vsw-gold) !important;
+  font-family: var(--vsw-serif) !important;
+}
+html.vs-whale .dshwv-usage-row {
+  color: var(--vsw-dim) !important;
+  border-color: rgba(233, 188, 114, 0.1) !important;
+}
+html.vs-whale .dshwv-usage-ratio-track {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+html.vs-whale .dshwv-usage-ratio-fill {
+  background: linear-gradient(90deg, var(--vsw-crimson), var(--vsw-gold)) !important;
+}
+
+/* Misc text */
+html.vs-whale :is(
+  .dshwv-hint, .dshwv-tplhelp, .dshwv-hintbox, .dshwv-about-flash, .dshwv-gifhint,
+  .dshwv-bubhint, .dshwv-fehint, .dshwv-fenote, .dshwv-usage-hint
+) {
+  color: var(--vsw-faint) !important;
+  border-color: rgba(233, 188, 114, 0.2) !important;
+}
+html.vs-whale .dshwv-about-name { color: var(--vsw-gold) !important; }
+html.vs-whale .dshwv-about-k { color: var(--vsw-faint) !important; }
+html.vs-whale .dshwv-about-v { color: var(--vsw-dim) !important; }
+html.vs-whale .dshwv-about-hr { background: rgba(233, 188, 114, 0.16) !important; }
+html.vs-whale .dshwv-about-badge {
+  background: rgba(255, 51, 95, 0.12) !important;
+  color: var(--vsw-crimson) !important;
+  border: 1px solid rgba(255, 51, 95, 0.3) !important;
+}
+html.vs-whale .dshwv-about-bad { color: var(--vsw-crimson) !important; }
+html.vs-whale .dshwv-askq { color: var(--vsw-gold) !important; }
+html.vs-whale .dshwv-choicechip {
+  border: 1px solid rgba(233, 188, 114, 0.22) !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  color: var(--vsw-dim) !important;
+}
+html.vs-whale .dshwv-choicechip:hover {
+  border-color: var(--vsw-crimson) !important;
+  color: var(--vsw-ink) !important;
+}
+html.vs-whale .dshwv-confirmtext { color: var(--vsw-ink) !important; }
+html.vs-whale .dshwv-confirm-ok {
+  background: var(--vsw-crimson) !important;
+  color: #1a0309 !important;
+  border-color: var(--vsw-gold) !important;
+}
+
+/* The widget writes a few inline light backgrounds on the main menu; make sure
+   the dark surface above wins. */
+html.vs-whale .dshwv-menu[style*="background"] {
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 51, 95, 0.11), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 4px),
+    linear-gradient(162deg, rgba(27, 7, 16, 0.995), rgba(7, 2, 5, 0.995)) !important;
+}

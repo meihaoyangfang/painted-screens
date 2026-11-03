@@ -1,0 +1,20 @@
+{
+  "id": "rose-cream",
+  "name": "玫瑰奶油",
+  "latin": "ROSÉ CREAM",
+  "appearance": "light",
+  "blurb": "柔粉写真 · 奶油高光与玫瑰",
+  "composerBg": "rgba(252, 247, 244, 0.55)",
+  "bootKey": "rose-cream-boot-v1",
+  "boot": "RoseBoot",
+  "overlay": "RoseWallpaper",
+  "slots": {
+    "sidebar.brand.mark": "RoseSidebarMark",
+    "sidebar.brand.name": "RoseBrandName",
+    "conversation.hero.brand.mark": "RoseHero",
+    "conversation.input.left": "RoseChip",
+    "conversation.composer.dock": "RosePolaroid"
+  },
+  "rootClasses": [],
+  "widget": "skinWhaleWidget"
+}

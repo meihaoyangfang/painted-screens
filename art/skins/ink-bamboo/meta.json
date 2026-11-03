@@ -1,0 +1,22 @@
+{
+  "id": "ink-bamboo",
+  "name": "墨竹",
+  "latin": "INK BAMBOO",
+  "appearance": "light",
+  "blurb": "纸窗竹影 · 一片叶子偶尔落下",
+  "composerBg": "rgba(242, 236, 220, 0.55)",
+  "bootKey": "ink-bamboo-boot-v1",
+  "boot": "InkBoot",
+  "overlay": "InkAtmosphere",
+  "slots": {
+    "sidebar.brand.mark": "InkSidebarMark",
+    "sidebar.brand.name": "InkBrandName",
+    "conversation.hero.brand.mark": "InkHeroMark",
+    "conversation.input.left": "InkListeningChip"
+  },
+  "rootClasses": [],
+  "widget": null,
+  "sidecars": [
+    "installLiveBamboo"
+  ]
+}

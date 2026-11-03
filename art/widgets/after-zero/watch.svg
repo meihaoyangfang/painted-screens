@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 260" width="440" height="520">
+  <defs>
+    <linearGradient id="b1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4D89B"/>
+      <stop offset="0.35" stop-color="#D9A441"/>
+      <stop offset="0.62" stop-color="#A87C2C"/>
+      <stop offset="0.82" stop-color="#E4C078"/>
+      <stop offset="1" stop-color="#7E5B1F"/>
+    </linearGradient>
+    <radialGradient id="dial" cx="0.38" cy="0.3" r="0.85">
+      <stop offset="0" stop-color="#FFFBF2"/>
+      <stop offset="0.72" stop-color="#F3E7D6"/>
+      <stop offset="1" stop-color="#DCC9AD"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 提环与表冠 -->
+  <circle cx="110" cy="34" r="13" fill="none" stroke="url(#b1)" stroke-width="6"/>
+  <rect x="98" y="46" width="24" height="16" rx="3" fill="url(#b1)"/>
+  <path d="M104 47 v14 M110 46 v16 M116 47 v14" stroke="#7E5B1F" stroke-width="1.4" opacity="0.55"/>
+
+  <!-- 表壳 -->
+  <circle cx="110" cy="146" r="86" fill="url(#b1)"/>
+  <circle cx="110" cy="146" r="86" fill="none" stroke="#6E4F1B" stroke-width="2" opacity="0.55"/>
+  <circle cx="110" cy="146" r="74" fill="#7E5B1F" opacity="0.9"/>
+  <circle cx="110" cy="146" r="70" fill="url(#dial)"/>
+
+  <!-- 刻度 -->
+  <g stroke="#3A2A12" stroke-width="3" stroke-linecap="round">
+    <path d="M110 86 v12 M110 194 v12 M50 146 h12 M158 146 h12"/>
+  </g>
+  <g stroke="#6B5228" stroke-width="2" stroke-linecap="round">
+    <path d="M110 90.5 v8 M140 97.6 l4 7 M165.5 146 h-8 M140 194.4 l4 -7 M110 201.5 v-8 M80 194.4 l-4 -7 M54.5 146 h8 M80 97.6 l-4 7"/>
+  </g>
+
+  <!-- 指针：十点十分 -->
+  <path d="M110 146 L82 106" stroke="#2C2013" stroke-width="7" stroke-linecap="round"/>
+  <path d="M110 146 L146 96" stroke="#2C2013" stroke-width="5" stroke-linecap="round"/>
+  <path d="M110 146 L134 176" stroke="#A63A2E" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="110" cy="146" r="6" fill="#2C2013"/>
+  <circle cx="110" cy="146" r="2.4" fill="#D9A441"/>
+
+  <!-- 表盘小字 -->
+  <text x="110" y="188" text-anchor="middle" font-family="Menlo, monospace" font-size="11" letter-spacing="2" fill="#7A5F32">No.07</text>
+
+  <!-- 玻璃反光 -->
+  <path d="M110 76 a70 70 0 0 1 60 100 a70 70 0 0 0 -60 -100z" fill="url(#glass)"/>
+  <ellipse cx="86" cy="112" rx="26" ry="12" fill="#FFFFFF" opacity="0.18" transform="rotate(-28 86 112)"/>
+</svg>

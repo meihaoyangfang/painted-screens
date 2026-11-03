@@ -1,0 +1,65 @@
+{
+  "name": "@mhstory/huaping",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "画屏 · PAINTED SCREENS — a multi-skin pack for the DSH Web UI. One plugin row, fifteen switchable skins with their own token palette, overlay, brand marks, composer dock and one-shot boot; a floating switcher changes skins live and remembers the choice.",
+  "license": "(MIT AND LicenseRef-Proprietary-Artwork)",
+  "icon": "./icon.svg",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json",
+    "skins/*/skin.json",
+    "README.md",
+    "NOTICE.md",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-theme",
+    "theme",
+    "skins",
+    "painted-screens"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "author": "mhstory",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhstory/huaping.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mhstory/huaping/issues"
+  },
+  "homepage": "https://github.com/mhstory/huaping#readme",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "build:check": "node tools/build.mjs --check",
+    "verify": "node tools/verify-runtime.mjs",
+    "test": "npm run build:check && npm run verify"
+  }
+}
