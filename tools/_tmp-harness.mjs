@@ -37,7 +37,7 @@ function check(label, ok, detail) {
 function boot(storedSkin) {
   const styles = [];
   const htmlAttrs = new Map();
-  const storage = new Map(storedSkin ? [['huaping-skin', storedSkin]] : []);
+  const storage = new Map(storedSkin ? [['painted-screens:skin', storedSkin]] : []);
 
   const documentStub = {
     documentElement: {

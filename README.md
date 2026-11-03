@@ -32,7 +32,7 @@ dsh plugin --profile desktop add /path/to/painted-screens
 
 装好后在 **设置 → 插件** 里打开「画屏」，**不需要重启**。
 
-切换：屏幕右缘的圆形按钮 → 点开皮肤网格 → 选一套。可以拖到别处，位置会记住。选择存在 `localStorage['huaping-skin']`。
+切换：屏幕右缘的圆形按钮 → 点开皮肤网格 → 选一套。可以拖到别处，位置会记住。选择存在 `localStorage['painted-screens:skin']`。
 
 ---
 
@@ -148,7 +148,7 @@ apply(ctx)
 2. 点任意一张 → **立即生效**，不用刷新、不用重启，面板保持打开，可以直接来回对比；
 3. `Esc`、点遮罩、或右上角 `×` 关闭。
 
-选择存在 `localStorage['huaping-skin']`，刷新和重启后保持。
+选择存在 `localStorage['painted-screens:skin']`，刷新和重启后保持。
 
 > 为什么不是「设置里的一个下拉」：DSH 的设置导航是 `settings.section` 账本，插件确实可以往那里注册页面，但那是二阶入口——用户要先开设置、再找分区。换皮肤是**高频、看效果**的动作，应该在画面上直接可及。设置入口作为补充入口有价值，见下方路线图。
 

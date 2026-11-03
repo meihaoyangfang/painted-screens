@@ -29,7 +29,8 @@ window.__ModuleLoader__.load({
     const { useEffect, useRef, useState } = React;
 
     const SOURCE = '@mhstory/huaping';
-    const STORE_KEY = 'huaping-skin';
+    const STORE_KEY = 'painted-screens:skin';
+    const LEGACY_KEY = 'huaping-skin';
     const ROOT_ATTR = 'data-hp-skin';
 
     // Injected by tools/build.mjs -------------------------------------------
@@ -86,7 +87,7 @@ window.__ModuleLoader__.load({
       let current = null;
 
       try {
-        current = window.localStorage.getItem(STORE_KEY);
+        current = window.localStorage.getItem(STORE_KEY) || localStorage.getItem(LEGACY_KEY);
       } catch (error) {
         current = null;
       }

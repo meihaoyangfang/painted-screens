@@ -37,7 +37,7 @@ function check(label, ok, detail) {
 function boot(storedSkin) {
   const styles = [];
   const htmlAttrs = new Map();
-  const storage = new Map(storedSkin ? [['huaping-skin', storedSkin]] : []);
+  const storage = new Map(storedSkin ? [['painted-screens:skin', storedSkin]] : []);
 
   const documentStub = {
     documentElement: {
@@ -328,7 +328,7 @@ check('style tags do not grow', a.styles.length <= 3, a.styles.length);
 check('old skin css removed', !a.styles.some((s) => (s.textContent || '').includes('.noir-')));
 check('new skin css present', a.styles.some((s) => (s.textContent || '').includes('.inkb-')));
 check('bamboo art inlined', a.styles.some((s) => (s.textContent || '').includes('data:image/svg+xml')));
-check('choice persisted', a.storage.get('huaping-skin') === 'ink-bamboo', a.storage.get('huaping-skin'));
+check('choice persisted', a.storage.get('painted-screens:skin') === 'ink-bamboo', a.storage.get('painted-screens:skin'));
 
 // 点卡片后面板会自动关闭：先确认关闭，再重新打开去切回暗色皮肤
 tree = a.render(switcherSlot.component);
