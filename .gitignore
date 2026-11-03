@@ -6,9 +6,9 @@ client.js
 
 # 本地文件与预览缓存
 _local/
-preview/
-preview/.chrome/
-preview/.chrome-*/
+/preview/
+/preview/.chrome/
+/preview/.chrome-*/
 
 # 本地私有素材（含第三方标志的重绘原件，不随仓库分发）
 art/skins/*/local/
