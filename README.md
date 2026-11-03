@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Skins](https://img.shields.io/badge/skins-15-ff69b4.svg)](#皮肤一览)
-[![For DSH](https://img.shields.io/badge/for-DSH%20Web%20UI-4c6ef5.svg)](https://github.com/deepseek-ai)
+[![For DSH](https://img.shields.io/badge/for-DSH%20Web%20UI-4c6ef5.svg)](#安装)
 
 **给 DSH Web UI 的 15 套可切换皮肤。** 一个插件行装好，左下角一个悬浮按钮，点开就能换——即时生效、刷新不丢。
 
