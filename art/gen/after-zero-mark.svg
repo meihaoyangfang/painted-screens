@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
+  <defs>
+    <linearGradient id="au" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6DCA4"/><stop offset="0.4" stop-color="#D9A441"/>
+      <stop offset="0.7" stop-color="#A87C2C"/><stop offset="1" stop-color="#EBC97F"/>
+    </linearGradient>
+    <radialGradient id="iv" cx="0.38" cy="0.28" r="0.9">
+      <stop offset="0" stop-color="#FFFCF5"/><stop offset="0.78" stop-color="#F4E7D3"/>
+      <stop offset="1" stop-color="#DCC7A6"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="100" cy="100" r="86" fill="url(#au)"/>
+  <circle cx="100" cy="100" r="74" fill="url(#iv)"/>
+  <circle cx="100" cy="100" r="74" fill="none" stroke="rgba(126,91,31,.5)" stroke-width="1.4"/>
+
+  <g stroke="#8A5F1E" stroke-width="2.2" stroke-linecap="round" opacity=".75">
+    <line x1="100" y1="32" x2="100" y2="44"/><line x1="100" y1="156" x2="100" y2="168"/>
+    <line x1="32" y1="100" x2="44" y2="100"/><line x1="156" y1="100" x2="168" y2="100"/>
+    <line x1="52" y1="52" x2="60" y2="60"/><line x1="148" y1="52" x2="140" y2="60"/>
+    <line x1="52" y1="148" x2="60" y2="140"/><line x1="148" y1="148" x2="140" y2="140"/>
+  </g>
+
+  <!-- 时针：慢 -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="120s" repeatCount="indefinite"/>
+    <line x1="100" y1="100" x2="100" y2="62" stroke="#5A3A12" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <!-- 分针 -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="36s" repeatCount="indefinite"/>
+    <line x1="100" y1="100" x2="100" y2="52" stroke="#6B4715" stroke-width="3.6" stroke-linecap="round"/>
+  </g>
+  <!-- 秒针：一跳一跳 -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate"
+      values="0 100 100;30 100 100;30 100 100;60 100 100;60 100 100;90 100 100;90 100 100;120 100 100;120 100 100;150 100 100;150 100 100;180 100 100;180 100 100;210 100 100;210 100 100;240 100 100;240 100 100;270 100 100;270 100 100;300 100 100;300 100 100;330 100 100;330 100 100;360 100 100"
+      dur="12s" repeatCount="indefinite"/>
+    <line x1="100" y1="112" x2="100" y2="46" stroke="#E0295A" stroke-width="1.8" stroke-linecap="round"/>
+    <circle cx="100" cy="100" r="4.2" fill="#E0295A"/>
+  </g>
+
+  <!-- 玻璃反光扫过 -->
+  <g opacity="0.35">
+    <ellipse cx="100" cy="100" rx="70" ry="70" fill="none"/>
+    <rect x="20" y="-30" width="26" height="260" fill="#FFFFFF" opacity="0.35" transform="rotate(24 100 100)">
+      <animateTransform attributeName="transform" type="translate" values="-140 0;160 0" dur="6.5s" repeatCount="indefinite" additive="sum"/>
+    </rect>
+  </g>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(90,58,18,.35)" stroke-width="2"/>
+</svg>
