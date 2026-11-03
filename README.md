@@ -1,12 +1,12 @@
 # 画屏 · PAINTED SCREENS
 
 [![License](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
-[![Skins](https://img.shields.io/badge/skins-15-ff69b4.svg)](#皮肤一览)
+[![Skins](https://img.shields.io/badge/skins-growing-ff69b4.svg)](#皮肤一览)
 [![For DSH](https://img.shields.io/badge/for-DSH%20Web%20UI-4c6ef5.svg)](#安装)
 
-**给 DSH Web UI 的 15 套可切换皮肤。** 一个插件行装好，左下角一个悬浮按钮，点开就能换——即时生效、刷新不丢。
+**给 DSH Web UI 的一套可切换皮肤包。** 一个插件行装好，左下角一个悬浮按钮，点开就能换——即时生效、刷新不丢，还会继续加。
 
-> DSH 的默认界面很克制。这套皮肤包让它能是水墨、是夜城、是驾驶舱、是深海——**而不需要装 15 个插件**。
+> DSH 的默认界面很克制。这套皮肤包让它能是水墨、是夜城、是驾驶舱、是深海——**而不需要为每套皮肤装一个插件**。
 
 ---
 
@@ -14,7 +14,7 @@
 
 | | |
 |---|---|
-| **一个插件，15 套皮肤** | 装一次，之后在界面里切换，不用改 `package.json`、不用重启 |
+| **一个插件，多套皮肤** | 装一次，之后在界面里切换，不用改 `package.json`、不用重启 |
 | **不是换色，是换界面** | 每套皮肤自带 110 个设计令牌、侧栏标志、品牌名、输入区、启动幕，甚至背景动画 |
 | **切换器可拖动** | 挡住内容就拖走，位置会记住 |
 | **跟着 DSH 走** | 走的是官方主题 API（`ctx.theme` / `ctx.slots`），不注入 hack，DSH 升级不用改 |
@@ -39,7 +39,7 @@ dsh plugin --profile desktop add /path/to/painted-screens
 
 ## 皮肤一览
 
-15 套，全部可切换。
+下面这些都已实现，会持续增加。
 
 | 皮肤 | 气质 | 明暗 |
 |---|---|---|
@@ -76,7 +76,7 @@ dsh plugin --profile desktop add /path/to/painted-screens
 | ![](docs/preview/ink-bamboo.jpg) | ![](docs/preview/rose-cream.jpg) |
 
 <details>
-<summary>展开其余 9 套</summary>
+<summary>展开更多</summary>
 
 | 曜界 | 青冥 · 剑冢 | 黑金回廊 |
 |---|---|---|
