@@ -126,7 +126,7 @@ apply(ctx)
 │   ├── <style>                     该皮肤的 CSS，切换即换
 │   └── data-hp-skin="…"            根属性，便于 CSS 作用域
 ├── skinStore.subscribe(activate)  ← 切换的唯一入口
-└── 7 个 slot 注册（常驻，不随切换重建）
+└── 6 个 slot 注册（常驻，不随切换重建）
     ├── shell.overlay ×2           皮肤 overlay + 切换器
     ├── sidebar.brand.mark / .name
     ├── conversation.hero.brand.mark
@@ -219,16 +219,15 @@ node tools/verify-runtime.mjs # 运行时契约验证
 
 - **设置页入口**：`settings.section` 是设置导航的账本，插件可以注册自己的分区页面；`settings.general.item` 可以在「通用」里加一行。做法已摸清（`ctx.slots.register({ name, id, order }, Component)`），等有空验证 `settings.section` 的选项契约后补一个「外观 · 画屏」分区，作为皮肤库的第二个入口。
 - **更多皮肤**：`tools/import-one.mjs` 加一条配置即可接入新主题（色板、CSS、slot 组件、启动幕、挂件皮肤一起导入）。
-- **启动幕**：一次性开场还没进运行时。
 
 ## 一些取舍
 
 | 项 | 现状 | 备选 |
 |---|---|---|
-| 包体积 | 4 套 174 KB（含两张内联画作，另两套纯矢量） | 8 套预计 250–300 KB；超了再按皮肤拆 |
+| 包体积 | 全部皮肤内联进一个 `client.js` | 目前约 9 MB；再大就按皮肤拆包、按需加载 |
 | 切换器位置 | 固定右缘中部（`right/top: 56%`） | 拖到别处后位置会记住；要恢复默认清 `localStorage` 里的坐标 |
 | 挂件皮肤 | 已接入 | 右下角助手挂件跟随当前皮肤换装（配色、头像、气泡） |
-| 启动幕 | 尚未接入 | 下一步：把各主题的一次性开场收进 `skin.boot()` |
+| 启动幕 | 已接入 | 每套一套开场，可 `?boot=0` 关闭 |
 
 ---
 
