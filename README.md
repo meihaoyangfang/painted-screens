@@ -1,45 +1,98 @@
 # 画屏 · PAINTED SCREENS
 
-`@mhstory/huaping`
+[![License](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Skins](https://img.shields.io/badge/skins-15-ff69b4.svg)](#皮肤一览)
+[![For DSH](https://img.shields.io/badge/for-DSH%20Web%20UI-4c6ef5.svg)](https://github.com/deepseek-ai)
 
-> 一个插件，多套皮肤。悬浮切换器即时换肤，选择会被记住。
+**给 DSH Web UI 的 15 套可切换皮肤。** 一个插件行装好，左下角一个悬浮按钮，点开就能换——即时生效、刷新不丢。
 
-DSH Web UI 的多皮肤包。一个插件行、一个版本号、一个仓库——里面是可切换的皮肤。
-
-| 皮肤 | 气质 | 支持 | 状态 |
-|---|---|---|---|
-| **黑金回廊** · NOIR ARCADE | 哥特夜景 · 穹顶彩窗与烛光 | 深色 | ✅ 已实现 |
-| **墨竹** · INK BAMBOO | 纸窗竹影，一片叶子偶尔落下 | 浅色 | ✅ 已实现 |
-| **绯夜尤物** · VELVET SIN | 装饰艺术 · 绯红霓虹与旧金细线 | 深色 | ✅ 已实现 |
-| **玫瑰奶油** · ROSÉ CREAM | 柔粉写真 · 奶油高光与玫瑰 | 浅色 | ✅ 已实现 |
-| **霓虹残响** · NEON AFTERIMAGE | 夜城霓虹 · 黄黑警戒与全息扫描 | 深色 | ✅ 已实现 |
-| **EVA-02** · ASUKA | 驾驶舱 HUD · 橙红警报与同步率 | 深色 | ✅ 已实现 · **非官方同人（禁止商用分发）** |
-| **青冥 · 剑冢** · QINGMING | 雪夜剑气 · 宣纸留白与朱砂印 | 深色 | ✅ 已实现 |
-| **曜界** · AURELIS | 轨道机库 · 象牙白装甲与光晕 | 深色 | ✅ 已实现 |
-| **鲸歌** · WHALE SONG | 深海女仆 · 鲸鳍耳与蕾丝围裙 | 深色 | ✅ 已实现 |
-| **大肥鱼** · BIG FAT FISH | 深海鲸娘 · 孤冷蓝调与鲸尾夜航 | 深色 | ✅ 已实现 · 同人 |
-| **一比特** · 1-BIT SYSTEM | 黑白两色 · 4×4 网点与 640K 自检 | 浅色 | ✅ 已实现 |
-| **废土电台** · RUST RELAY | 废土科幻 · 沙尘、锈迹与信号条 | 浅色 | ✅ 已实现（托管） |
-| **零点以后** · AFTER ZERO | 夜班女仆长 · 黄铜怀表与丝绒 | 深色 | ✅ 已实现 |
-| **午后三时** · TEA AT THREE | 试用期女仆 · 薄荷奶油与草莓塔 | 浅色 | ✅ 已实现 |
-| **猫在窗台** · WINDOW CAT | 橘猫 · 毛线球与午后太阳 | 浅色 | ✅ 已实现 |
+> DSH 的默认界面很克制。这套皮肤包让它能是水墨、是夜城、是驾驶舱、是深海——**而不需要装 15 个插件**。
 
 ---
 
-## 皮肤预览
+## 为什么是这套
+
+| | |
+|---|---|
+| **一个插件，15 套皮肤** | 装一次，之后在界面里切换，不用改 `package.json`、不用重启 |
+| **不是换色，是换界面** | 每套皮肤自带 110 个设计令牌、侧栏标志、品牌名、输入区、启动幕，甚至背景动画 |
+| **切换器可拖动** | 挡住内容就拖走，位置会记住 |
+| **跟着 DSH 走** | 走的是官方主题 API（`ctx.theme` / `ctx.slots`），不注入 hack，DSH 升级不用改 |
+
+---
+
+## 安装
+
+```bash
+# GitHub
+dsh plugin --profile desktop add github:meihaoyangfang/painted-screens
+
+# 或本地目录
+dsh plugin --profile desktop add /path/to/painted-screens
+```
+
+装好后在 **设置 → 插件** 里打开「画屏」，**不需要重启**。
+
+切换：左下角圆形按钮 → 点开皮肤网格 → 选一套。选择存在 `localStorage['huaping-skin']`。
+
+---
+
+## 皮肤一览
+
+15 套，全部可切换。
+
+| 皮肤 | 气质 | 明暗 |
+|---|---|---|
+| **樱花树下** · UNDER THE SAKURA | 春日慢速 · 花瓣徐徐落下 | 深色 |
+| **鲸歌** · WHALE SONG | 深海女仆 · 鲸鳍耳与蕾丝围裙 | 深色 |
+| **霓虹残响** · NEON AFTERIMAGE | 夜城霓虹 · 黄黑警戒与全息扫描 | 深色 |
+| **EVA-02** · ASUKA | 驾驶舱 HUD · 橙红警报与同步率 | 深色 |
+| **玫瑰奶油** · ROSÉ CREAM | 柔粉写真 · 奶油高光与玫瑰 | 浅色 |
+| **墨竹** · INK BAMBOO | 纸窗竹影 · 一片叶子偶尔落下 | 浅色 |
+| **黑金回廊** · NOIR ARCADE | 哥特夜景 · 穹顶彩窗与烛光 | 深色 |
+| **曜界** · AURELIS | 轨道机库 · 象牙白装甲与光晕 | 深色 |
+| **青冥 · 剑冢** · QINGMING | 雪夜剑气 · 宣纸留白与朱砂印 | 深色 |
+| **绯夜尤物** · VELVET SIN | 装饰艺术 · 绯红霓虹与旧金细线 | 深色 |
+| **大肥鱼** · BIG FAT FISH | 深海鲸娘 · 孤冷蓝调与鲸尾夜航 | 深色 |
+| **零点以后** · AFTER ZERO | 暗室与怀表 · 午夜钟声 | 深色 |
+| **午后三时** · TEA AT THREE | 午后红茶 · 蕾丝与暖阳 | 浅色 |
+| **春野** · SPRING MEADOW | 草甸与远山 · 明亮通透 | 浅色 |
+| **一比特** · 1-BIT SYSTEM | 单色点阵 · 复古显示器 | 单色 |
+
+---
+
+## 看看长什么样
 
 | 樱花树下 | 鲸歌 |
 |---|---|
-| ![樱花树下](docs/preview/sakura.jpg) | ![鲸歌](docs/preview/whale-song.jpg) |
+| ![](docs/preview/sakura.jpg) | ![](docs/preview/whale-song.jpg) |
 
 | 霓虹残响 | EVA-02 |
 |---|---|
-| ![霓虹残响](docs/preview/cyberpunk.jpg) | ![EVA-02](docs/preview/eva02-asuka.jpg) |
+| ![](docs/preview/cyberpunk.jpg) | ![](docs/preview/eva02-asuka.jpg) |
 
-| 玫瑰奶油 | 墨竹 |
+| 墨竹 | 玫瑰奶油 |
 |---|---|
-| ![玫瑰奶油](docs/preview/rose-cream.jpg) | ![墨竹](docs/preview/ink-bamboo.jpg) |
+| ![](docs/preview/ink-bamboo.jpg) | ![](docs/preview/rose-cream.jpg) |
 
+<details>
+<summary>展开其余 9 套</summary>
+
+| 曜界 | 青冥 · 剑冢 | 黑金回廊 |
+|---|---|---|
+| ![](docs/preview/aurelis.jpg) | ![](docs/preview/qingming.jpg) | ![](docs/preview/noir-arcade.jpg) |
+
+| 绯夜尤物 | 大肥鱼 | 零点以后 |
+|---|---|---|
+| ![](docs/preview/velvet-sin.jpg) | ![](docs/preview/big-fat-fish.jpg) | ![](docs/preview/after-zero.jpg) |
+
+| 午后三时 | 春野 | 一比特 |
+|---|---|---|
+| ![](docs/preview/tea-time.jpg) | ![](docs/preview/spring-meadow.jpg) | ![](docs/preview/1bit-mac.jpg) |
+
+</details>
+
+> 截图均为**新会话页面**实拍，未做后期处理。
 
 ## 预览
 

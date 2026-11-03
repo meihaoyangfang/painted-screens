@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "description": "画屏 · PAINTED SCREENS — a multi-skin pack for the DSH Web UI. One plugin row, fifteen switchable skins with their own token palette, overlay, brand marks, composer dock and one-shot boot; a floating switcher changes skins live and remembers the choice.",
+  "description": "画屏 · PAINTED SCREENS — 15 switchable skins for the DSH Web UI (DeepSeek Harness). One plugin, fifteen themes with their own 110-token palettes, brand marks, composer docks and boot screens; a draggable floating switcher changes skins live and remembers the choice.",
   "license": "(MIT AND LicenseRef-Proprietary-Artwork)",
   "icon": "./icon.svg",
   "main": "index.js",
@@ -28,8 +28,16 @@
   "keywords": [
     "dsh",
     "dsh-theme",
+    "dsh-plugin",
+    "deepseek-harness",
     "theme",
+    "themes",
     "skins",
+    "skin-pack",
+    "ui-theme",
+    "dark-theme",
+    "light-theme",
+    "anime",
     "painted-screens"
   ],
   "dsh": {
