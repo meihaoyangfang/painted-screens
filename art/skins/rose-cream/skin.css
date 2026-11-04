@@ -31,7 +31,6 @@ html[data-platform='darwin'] body {
     radial-gradient(120% 90% at 6% -12%, rgba(231, 169, 162, 0.2), transparent 58%),
     radial-gradient(90% 80% at 102% 112%, rgba(169, 181, 163, 0.14), transparent 60%),
     var(--rose-visual);
-  background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center, center, center, right bottom, right bottom;
   background-size: auto, auto, auto, auto, auto 100vh;

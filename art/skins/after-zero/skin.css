@@ -42,7 +42,6 @@ html[data-platform='darwin'] body {
   background-size: 100% 100%, 100% 100%, cover;
   background-position: center, center, right center;
   background-repeat: no-repeat;
-  background-attachment: fixed, fixed, fixed;
   color: var(--az-ivory);
   font-family: "PingFang SC", "Hiragino Sans GB", -apple-system, sans-serif;
 }

@@ -1,7 +1,11 @@
 
     const SOURCE = '@local/dsh-theme-eva02-asuka';
 
-        // 自绘徽记：单层六边框 + 规整「2」（小尺寸下不噪）
+        // 本地构建可用 EVA_LOCAL_NERV=1 换回原始徽记（不进仓库）
+    const LOCAL_NERV = /*__EVA_NERV__*/ null;
+    const BRAND = /*__EVA_BRAND__*/ 'UNIT-02';
+
+    // 自绘徽记：单层六边框 + 规整「2」（小尺寸下不噪）
     const CREST_SHAPES = [
       { d: 'M50 6 L92 30 V80 L50 104 L8 80 V30 Z', fill: false, stroke: true, w: 6.5, m: 'miter' },
       // 字母 Z：上下横等长，斜边等宽，中心对齐六边形
@@ -10,44 +14,44 @@
 
     function CrestMark(props) {
       const edge = Number.isFinite(props && props.size) ? props.size : 34;
-      const width = Math.round(edge * (100 / 110) * 100) / 100;
+      const width = Math.round(edge * (LOCAL_NERV ? 2189.9 / 2494.3 : 100 / 110) * 100) / 100;
       const className = ['eva02-crest-mark', props && props.className]
         .filter(Boolean)
         .join(' ');
       return h(
         'svg',
         {
-          viewBox: '0 0 100 110',
+          viewBox: LOCAL_NERV ? '0 0 2189.9 2494.3' : '0 0 100 110',
           width,
           height: edge,
           className,
           role: 'img',
-          'aria-label': 'UNIT-02',
+          'aria-label': LOCAL_NERV ? 'NERV' : 'UNIT-02',
           focusable: 'false',
         },
         h(
           'g',
           { fill: 'currentColor' },
-          ...CREST_SHAPES.map((shape, index) =>
-            h('path', {
-              key: 'crest-' + index,
-              d: shape.d,
-              fill: shape.fill === true ? 'currentColor' : 'none',
-              stroke: shape.stroke === true ? 'currentColor' : 'none',
-              strokeWidth: shape.w || 7,
-              strokeLinejoin: shape.m || 'miter',
-              strokeMiterlimit: 10,
-              style: {
-                fill: shape.fill === true ? 'currentColor' : 'none',
-                stroke: shape.stroke === true ? 'currentColor' : 'none',
-                strokeWidth: shape.w || 7,
-                opacity: shape.o || 1,
-                strokeLinejoin: shape.m || 'miter',
-                strokeMiterlimit: 10,
-                strokeLinecap: shape.cap || 'round',
-              },
-            }),
-          ),
+          ...(LOCAL_NERV
+            ? LOCAL_NERV.map((d, index) => h('path', { key: 'nerv-' + index, d, fill: 'currentColor' }))
+            : CREST_SHAPES.map((shape, index) =>
+                h('path', {
+                  key: 'crest-' + index,
+                  d: shape.d,
+                  fill: shape.fill === true ? 'currentColor' : 'none',
+                  stroke: shape.stroke === true ? 'currentColor' : 'none',
+                  strokeWidth: shape.w || 7,
+                  strokeLinejoin: shape.m || 'miter',
+                  strokeMiterlimit: 10,
+                  strokeLinecap: shape.cap || 'round',
+                  style: {
+                    fill: shape.fill === true ? 'currentColor' : 'none',
+                    stroke: shape.stroke === true ? 'currentColor' : 'none',
+                    strokeWidth: shape.w || 7,
+                    opacity: shape.o || 1,
+                  },
+                }),
+              )),
         ),
       );
     }
@@ -56,7 +60,7 @@
       return h(
         'span',
         { className: 'eva02-brand' },
-        h('span', { className: 'eva02-brand__nerv' }, 'UNIT-02'),
+        h('span', { className: 'eva02-brand__nerv' }, BRAND),
         h('span', { className: 'eva02-brand__slash' }, '//'),
         h('span', { className: 'eva02-brand__asuka' }, 'ASUKA'),
       );

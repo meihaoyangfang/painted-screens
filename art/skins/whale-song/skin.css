@@ -40,7 +40,6 @@ html[data-platform='darwin'] body {
   background-repeat: no-repeat;
   background-size: cover, cover, cover, min(52vh, 720px) auto, auto 104vh;
   background-position: center, center, center, 4vw 84%, right -9vh bottom;
-  background-attachment: fixed, fixed, fixed, fixed, fixed;
 }
 
 @media (max-width: 1180px) {

@@ -30,7 +30,6 @@ html[data-platform='darwin'] body {
   background-size: cover;
   background-position: 26% center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   color: var(--sp-ink);
   font-family: "PingFang SC", "Hiragino Sans GB", -apple-system, sans-serif;
 }

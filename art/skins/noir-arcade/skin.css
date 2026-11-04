@@ -33,7 +33,6 @@ html[data-platform='darwin'] body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top, center center, center center;
-  background-attachment: fixed;
 }
 
 @media (max-width: 1180px) {
