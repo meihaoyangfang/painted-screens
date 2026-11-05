@@ -1044,6 +1044,26 @@ html body [class*="overlayLayer"]{z-index:2147483000 !important}
       apply(ctx) {
         let active = null;
 
+        // 诊断开关：?motion=0 停掉全部动画，?fx=0 去掉模糊与滤镜
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const diag = [];
+          if (params.get('motion') === '0') {
+            diag.push('*,*::before,*::after{animation:none !important;transition:none !important}');
+          }
+          if (params.get('fx') === '0') {
+            diag.push('*,*::before,*::after{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;filter:none !important}');
+          }
+          if (diag.length) {
+            const tag = document.createElement('style');
+            tag.dataset.plugin = SOURCE + '/diag';
+            tag.textContent = diag.join('\n');
+            document.head.appendChild(tag);
+          }
+        } catch (error) {
+          /* ignore */
+        }
+
         function mountStyle(css, skinId) {
           const tag = document.createElement('style');
           tag.dataset.plugin = SOURCE;
