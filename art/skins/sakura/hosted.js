@@ -829,11 +829,21 @@ scene.add(createPetals(1500));
 const pointer = { x: 0, y: 0 };
 let smoothX = 0, smoothY = 0;
 
+let lastScrollAt = 0;
 function onPointerMove(e) {
+  // 滚动期间不做视差：触控板滚动会持续触发 pointermove，镜头跟手会变成整屏晃动
+  if (performance.now() - lastScrollAt < 260) return;
   pointer.x = (e.clientX / window.innerWidth - 0.5) * 2;
   pointer.y = (e.clientY / window.innerHeight - 0.5) * 2;
 }
+function onScrollActivity() {
+  lastScrollAt = performance.now();
+  pointer.x = 0;
+  pointer.y = 0;
+}
 window.addEventListener('pointermove', onPointerMove, { passive: true });
+window.addEventListener('wheel', onScrollActivity, { passive: true });
+window.addEventListener('scroll', onScrollActivity, { passive: true, capture: true });
 
 function onResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -892,6 +902,8 @@ const teardown = function dispose() {
   cancelAnimationFrame(raf);
   window.removeEventListener('resize', onResize);
   window.removeEventListener('pointermove', onPointerMove);
+  window.removeEventListener('wheel', onScrollActivity);
+  window.removeEventListener('scroll', onScrollActivity, { capture: true });
   scene.traverse((obj) => {
     if (obj.geometry) obj.geometry.dispose();
     const mats = Array.isArray(obj.material) ? obj.material : obj.material ? [obj.material] : [];
