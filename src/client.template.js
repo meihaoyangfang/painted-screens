@@ -1231,8 +1231,6 @@ html body [class*="overlayLayer"]{z-index:2147483000 !important}
             const paper = skin.appearance === 'dark' ? '20,15,18' : '252,253,251';
             const bar = document.createElement('div');
             bar.className = 'hp-composer-fade';
-            bar.style.backdropFilter = 'blur(14px) saturate(115%)';
-            bar.style.webkitBackdropFilter = 'blur(14px) saturate(115%)';
             bar.style.display = 'none';
             document.body.appendChild(bar);
 
@@ -1241,9 +1239,10 @@ html body [class*="overlayLayer"]{z-index:2147483000 !important}
             // 固定 56px 会在半途断开，留下一条没盖住的窄边。按实际空隙拉长，
             // 渐变与遮罩的 stop 同比缩放，贴着卡片那端仍然是 0.55 的柔光。
             let lastHeight = 0;
+            let lastLeft = -1, lastWidth = -1, lastTop = -1;
             const paint = (height) => {
               const h = Math.min(240, Math.max(56, Math.round(height)));
-              if (h === lastHeight) return;
+              if (Math.abs(h - lastHeight) < 3) return;
               lastHeight = h;
               const at = (ratio) => Math.round(h * ratio) + 'px';
               bar.style.height = h + 'px';
@@ -1265,9 +1264,12 @@ html body [class*="overlayLayer"]{z-index:2147483000 !important}
                 return;
               }
               bar.style.display = 'block';
-              bar.style.left = Math.round(r.left) + 'px';
-              bar.style.width = Math.round(r.width) + 'px';
-              bar.style.top = Math.round(r.bottom - 1) + 'px';
+              const left = Math.round(r.left);
+              const width = Math.round(r.width);
+              const top = Math.round(r.bottom - 1);
+              if (left !== lastLeft) { bar.style.left = left + 'px'; lastLeft = left; }
+              if (width !== lastWidth) { bar.style.width = width + 'px'; lastWidth = width; }
+              if (top !== lastTop) { bar.style.top = top + 'px'; lastTop = top; }
               paint(window.innerHeight - r.bottom + 6);
               raf = requestAnimationFrame(place);
             };
