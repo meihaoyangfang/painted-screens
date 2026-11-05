@@ -11,10 +11,13 @@
  *   --check  fail if client.js is out of date instead of writing it
  */
 import { readFile, writeFile, readdir } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// 本地开关：存在 .local-nerv 文件即视为本机构建（文件不进仓库）
+const localNerv = process.env.EVA_LOCAL_NERV === '1' || existsSync(path.join(root, '.local-nerv'));
 const read = (rel) => readFile(path.join(root, rel), 'utf8');
 
 const template = await read('src/client.template.js');
@@ -204,7 +207,18 @@ try {
     } catch (error) {
       if (error.code !== 'ENOENT') throw error;
     }
-    const components = await readFile(path.join(dir, 'components.js'), 'utf8');
+    let components = await readFile(path.join(dir, 'components.js'), 'utf8');
+
+    // 本地 NERV 徽记：EVA_LOCAL_NERV=1 或存在 .local-nerv 时用原始路径（都不进仓库）
+    if (localNerv && meta.id === 'eva02-asuka') {
+      try {
+        const raw = JSON.parse(await readFile(path.join(dir, 'local/crest-nerv.json'), 'utf8'));
+        components = components.replace('/*__EVA_NERV__*/ null', JSON.stringify(raw.paths || []));
+        components = components.replace("/*__EVA_BRAND__*/ 'UNIT-02'", JSON.stringify(raw.brandText || 'NERV-02'));
+      } catch (error) {
+        if (error.code !== 'ENOENT') throw error;
+      }
+    }
     const strip = (text) => text.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\n{3,}/g, '\n\n').trim();
     const rawCss = strip(await readFile(path.join(dir, 'skin.css'), 'utf8'));
     // `extra.css` 是皮肤自己的后手：排在 skin.css 后面，用来整段推翻背景或面板，
@@ -266,6 +280,8 @@ const bootRoot = path.join(root, 'art/boots');
 let bootsSource = '{}';
 let postersSource = '{}';
 {
+  // 本地 NERV 封面：EVA_LOCAL_NERV=1 时用 local/ 里的图（不进仓库）
+  const localPoster = path.join(root, 'art/skins/eva02-asuka/local/poster-nerv.jpg');
   const posters = [];
   // 原版启动幕（如果还留有抽取产物）
   try {
@@ -307,6 +323,17 @@ let postersSource = '{}';
     const bytes = await readFile(path.join(posterRoot, file));
     const mime = /\.png$/i.test(file) ? 'image/png' : 'image/jpeg';
     posters.push('  ' + JSON.stringify(id) + ': ' + JSON.stringify('data:' + mime + ';base64,' + bytes.toString('base64')));
+  }
+  // 本地 NERV 封面覆盖（EVA_LOCAL_NERV=1 且文件存在时）
+  if (localNerv) {
+    try {
+      const bytes = await readFile(localPoster);
+      const idx = posters.findIndex((p) => p.trim().startsWith('"eva02-asuka":'));
+      const entry = '  "eva02-asuka": ' + JSON.stringify('data:image/jpeg;base64,' + bytes.toString('base64'));
+      if (idx >= 0) posters[idx] = entry; else posters.push(entry);
+    } catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+    }
   }
   postersSource = '{\n' + posters.join(',\n') + '\n}';
 }
