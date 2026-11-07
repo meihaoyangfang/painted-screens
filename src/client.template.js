@@ -301,9 +301,7 @@ window.__ModuleLoader__.load({
   border-color:color-mix(in srgb,var(--hp-accent,#e8b23d) 45%,transparent) !important;
 }
 
-html[data-hp-skin="1bit-mac"] [class*="composerStack"] [class*="_primary"]{
-  border-radius:0 !important; box-shadow:3px 3px 0 color-mix(in srgb,var(--hp-ink,#111) 30%,transparent) !important;
-}
+html[data-hp-skin="1bit-mac"] [class*="composerStack"] [class*="_primary"]{ border-radius:0 !important; }
 html[data-hp-skin="ink-bamboo"] [class*="composerStack"] [class*="_primary"],
 html[data-hp-skin="qingming"] [class*="composerStack"] [class*="_primary"]{
   border-radius:3px 12px 3px 12px !important;
@@ -314,27 +312,27 @@ html[data-hp-skin="cyberpunk"] [class*="composerStack"] [class*="_primary"]{
   border-radius:0 !important;
   clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));
 }
-html[data-hp-skin="velvet-sin"] [class*="composerStack"] [class*="_primary"]{
-  border-radius:2px !important;
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--hp-accent,#e0457b) 40%,transparent) !important;
-}
+html[data-hp-skin="velvet-sin"] [class*="composerStack"] [class*="_primary"]{ border-radius:2px !important; }
 html[data-hp-skin="noir-arcade"] [class*="composerStack"] [class*="_primary"]{
   border-radius:5px 5px 2px 2px !important;
 }
 
-/* ===== 气泡骨架：按皮肤分四类，改形状不改配色 ===== */
-[class*="markdown"]{ }
-/* 通用：让气泡本身接受形状改造 */
-[class*="_bubble"], [class*="_body"]:has(> [class*="markdown"]){ transition:border-color 160ms ease, box-shadow 160ms ease; }
+/* ===== 气泡骨架：只改形状，不加描边 ===== */
+/* 宿主给气泡画了一圈品牌色描边和 1px 外环，换成主题后会很"AI"：去掉，只留底色和形状 */
+[class*="_bubble"],
+[class*="_body"]:has(> [class*="markdown"]){
+  border-color:transparent !important;
+  box-shadow:none !important;
+}
+[class*="_bubble"]:hover,
+[class*="_body"]:has(> [class*="markdown"]):hover{
+  border-color:transparent !important;
+}
 
-/* ① 像素：直角 + 硬阴影 */
 html[data-hp-skin="1bit-mac"] [class*="_bubble"],
 html[data-hp-skin="1bit-mac"] [class*="_body"]:has(> [class*="markdown"]){
   border-radius:0 !important;
-  border:2px solid color-mix(in srgb,var(--hp-ink,#111) 62%,transparent) !important;
-  box-shadow:4px 4px 0 color-mix(in srgb,var(--hp-ink,#111) 26%,transparent) !important;
 }
-/* ② 切角面板：机甲/赛博 */
 html[data-hp-skin="eva02-asuka"] [class*="_bubble"],
 html[data-hp-skin="eva02-asuka"] [class*="_body"]:has(> [class*="markdown"]),
 html[data-hp-skin="aurelis"] [class*="_bubble"],
@@ -342,19 +340,14 @@ html[data-hp-skin="aurelis"] [class*="_body"]:has(> [class*="markdown"]),
 html[data-hp-skin="cyberpunk"] [class*="_bubble"],
 html[data-hp-skin="cyberpunk"] [class*="_body"]:has(> [class*="markdown"]){
   border-radius:0 !important;
-  border:1px solid color-mix(in srgb,var(--hp-accent,#ff5a3c) 38%,transparent) !important;
-  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
 }
-/* ③ 纸感：水墨/宣纸 */
 html[data-hp-skin="ink-bamboo"] [class*="_bubble"],
 html[data-hp-skin="ink-bamboo"] [class*="_body"]:has(> [class*="markdown"]),
 html[data-hp-skin="qingming"] [class*="_bubble"],
 html[data-hp-skin="qingming"] [class*="_body"]:has(> [class*="markdown"]){
   border-radius:3px 14px 4px 12px !important;
-  border:1px solid color-mix(in srgb,var(--hp-accent,#b03a2e) 26%,transparent) !important;
-  box-shadow:0 2px 0 color-mix(in srgb,var(--hp-accent,#b03a2e) 12%,transparent) !important;
 }
-/* ④ 柔玻璃：写真/深海/春野 */
 html[data-hp-skin="whale-song"] [class*="_bubble"],
 html[data-hp-skin="whale-song"] [class*="_body"]:has(> [class*="markdown"]),
 html[data-hp-skin="rose-cream"] [class*="_bubble"],
@@ -366,24 +359,44 @@ html[data-hp-skin="tea-time"] [class*="_body"]:has(> [class*="markdown"]),
 html[data-hp-skin="sakura"] [class*="_bubble"],
 html[data-hp-skin="sakura"] [class*="_body"]:has(> [class*="markdown"]){
   border-radius:18px !important;
-  border:1px solid color-mix(in srgb,var(--hp-accent,#d9788f) 24%,transparent) !important;
-  box-shadow:0 8px 22px -16px color-mix(in srgb,var(--hp-ink,#333) 55%,transparent) !important;
 }
-/* ⑤ 双线：装饰艺术 */
 html[data-hp-skin="velvet-sin"] [class*="_bubble"],
 html[data-hp-skin="velvet-sin"] [class*="_body"]:has(> [class*="markdown"]){
   border-radius:2px !important;
-  border:1px solid color-mix(in srgb,var(--hp-accent,#e0457b) 34%,transparent) !important;
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--hp-accent,#e0457b) 14%,transparent) !important;
 }
-/* ⑥ 拱窗：哥特 */
 html[data-hp-skin="noir-arcade"] [class*="_bubble"],
 html[data-hp-skin="noir-arcade"] [class*="_body"]:has(> [class*="markdown"]){
-  border-radius:4px 4px 2px 2px !important;
-  border:1px solid color-mix(in srgb,var(--hp-accent,#d4b16d) 30%,transparent) !important;
-  box-shadow:0 0 0 1px color-mix(in srgb,var(--hp-accent,#d4b16d) 10%,transparent) !important;
+  border-radius:5px 5px 2px 2px !important;
 }
 
+/* ===== 输入区与发送按钮：跟随皮肤骨架 ===== */
+[class*="composerStack"] [class*="_add"],
+[class*="composerStack"] [class*="_trigger"]{
+  transition:border-color 160ms ease, background 160ms ease;
+}
+[class*="composerStack"] [class*="_add"]:hover,
+[class*="composerStack"] [class*="_trigger"]:hover{
+  border-color:color-mix(in srgb,var(--hp-accent,#e8b23d) 45%,transparent) !important;
+}
+
+html[data-hp-skin="1bit-mac"] [class*="composerStack"] [class*="_primary"]{ border-radius:0 !important; }
+html[data-hp-skin="ink-bamboo"] [class*="composerStack"] [class*="_primary"],
+html[data-hp-skin="qingming"] [class*="composerStack"] [class*="_primary"]{
+  border-radius:3px 12px 3px 12px !important;
+}
+html[data-hp-skin="eva02-asuka"] [class*="composerStack"] [class*="_primary"],
+html[data-hp-skin="aurelis"] [class*="composerStack"] [class*="_primary"],
+html[data-hp-skin="cyberpunk"] [class*="composerStack"] [class*="_primary"]{
+  border-radius:0 !important;
+  clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));
+}
+html[data-hp-skin="velvet-sin"] [class*="composerStack"] [class*="_primary"]{ border-radius:2px !important; }
+html[data-hp-skin="noir-arcade"] [class*="composerStack"] [class*="_primary"]{
+  border-radius:5px 5px 2px 2px !important;
+}
+
+/* ===== 气泡骨架：按皮肤分四类，改形状不改配色 ===== */
+[class*="markdown"]{ }
 /* 选中与光标 */
 ::selection{background:color-mix(in srgb,var(--hp-accent,#e8b23d) 34%,transparent);color:inherit}
 
