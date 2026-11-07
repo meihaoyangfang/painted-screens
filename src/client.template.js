@@ -27,6 +27,7 @@ window.__ModuleLoader__.load({
     const React = require('react');
     const h = React.createElement;
     const { useEffect, useRef, useState } = React;
+    const useCallback = React.useCallback || ((fn) => fn);
 
     const SOURCE = '@mhstory/painted-screens';
     const STORE_KEY = 'painted-screens:skin';
@@ -346,6 +347,26 @@ html[data-hp-appearance="light"] .hp-tip{
   box-shadow:0 32px 90px rgba(0,0,0,.62);
   color:var(--hp-ink, #e7ecf5);
 }
+/* 省电动效：一键停掉持续动画，保留过渡 */
+html[data-hp-motion="lite"] *,
+html[data-hp-motion="lite"] *::before,
+html[data-hp-motion="lite"] *::after{
+  animation-duration: 1ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 120ms !important;
+}
+.hp-gallery__head-actions{display:flex;align-items:center;gap:10px}
+.hp-motion{
+  font:500 11px/1 "Inter",-apple-system,"PingFang SC",sans-serif;letter-spacing:.04em;
+  padding:7px 11px;border-radius:999px;cursor:pointer;
+  border:1px solid color-mix(in srgb,var(--hp-accent,#e8b23d) 34%,transparent);
+  background:color-mix(in srgb,var(--hp-surface,#0b0b0b) 70%,transparent);
+  color:color-mix(in srgb,var(--hp-ink,#f5efe6) 78%,transparent);
+}
+.hp-motion[data-on="true"]{
+  border-color:color-mix(in srgb,var(--hp-accent,#e8b23d) 60%,transparent);
+  color:var(--hp-accent,#e8b23d);
+}
 .hp-gallery__head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px;flex:none}
 .hp-gallery__scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;margin:0 -8px;padding:0 8px 4px}
 .hp-gallery__title{font:600 13px/1 "Inter",-apple-system,"PingFang SC",sans-serif;letter-spacing:.26em;color:var(--hp-ink, #f2e9da)}
@@ -499,6 +520,9 @@ html body [class*="overlayLayer"]{z-index:2147483000 !important}
       const [open, setOpen] = useState(false);
       const [query, setQuery] = useState('');
       const [tag, setTag] = useState('all');
+      const [lite, setLite] = useState(() => {
+        try { return localStorage.getItem('painted-screens:motion') === 'lite'; } catch (e) { return false; }
+      });
       const [limit, setLimit] = useState(PAGE_SIZE);
       const scrollRef = useRef(null);
       const [anchor, saveAnchor] = useAnchor();
@@ -523,6 +547,19 @@ html body [class*="overlayLayer"]{z-index:2147483000 !important}
         window.addEventListener('keydown', onKey);
         return () => window.removeEventListener('keydown', onKey);
       }, [open]);
+
+      const toggleLite = useCallback(() => {
+        setLite((prev) => {
+          const next = !prev;
+          try { localStorage.setItem('painted-screens:motion', next ? 'lite' : 'full'); } catch (e) {}
+          document.documentElement.setAttribute('data-hp-motion', next ? 'lite' : 'full');
+          return next;
+        });
+      }, []);
+
+      React.useEffect(() => {
+        document.documentElement.setAttribute('data-hp-motion', lite ? 'lite' : 'full');
+      }, [lite]);
 
       const close = () => setOpen(false);
 
@@ -669,7 +706,23 @@ html body [class*="overlayLayer"]{z-index:2147483000 !important}
                     h('div', { className: 'hp-gallery__title' }, '画屏 · 皮肤库'),
                     h('div', { className: 'hp-gallery__sub' }, SKINS.length + ' SKINS · 切换即时生效 · 选择会被记住'),
                   ),
-                  h('button', { type: 'button', className: 'hp-gallery__close', onClick: close, 'aria-label': '关闭' }, '×'),
+                  h(
+                    'div',
+                    { className: 'hp-gallery__head-actions' },
+                    h(
+                      'button',
+                      {
+                        type: 'button',
+                        className: 'hp-motion',
+                        'data-on': lite ? 'true' : 'false',
+                        onClick: toggleLite,
+                        title: '减少背景动效，省电',
+                        'aria-pressed': lite ? 'true' : 'false',
+                      },
+                      lite ? '动效·省电' : '动效·完整',
+                    ),
+                    h('button', { type: 'button', className: 'hp-gallery__close', onClick: close, 'aria-label': '关闭' }, '×'),
+                  ),
                 ),
                 h(
                   'div',
