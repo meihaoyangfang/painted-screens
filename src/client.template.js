@@ -243,6 +243,74 @@ window.__ModuleLoader__.load({
 .hp-tip__x:hover{color:#fff}
 @keyframes hp-tip-in{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
 /* 新会话页（有 hero 输入框）根本不显示 */
+/* ===== 内容层：会话正文里的代码、引用、表格、链接，跟随当前皮肤 ===== */
+[class*="markdown"] :is(code, pre, blockquote, table, a, hr, kbd, mark){--hp-ink-soft:color-mix(in srgb,var(--hp-ink,#f2e9da) 78%,transparent);}
+[class*="markdown"] :not(pre) > code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-size:.92em;padding:1px 5px;border-radius:5px;
+  background:color-mix(in srgb,var(--hp-accent,#e8b23d) 14%,transparent);
+  border:1px solid color-mix(in srgb,var(--hp-accent,#e8b23d) 22%,transparent);
+  color:color-mix(in srgb,var(--hp-ink,#f2e9da) 92%,transparent);
+}
+[class*="markdown"] pre{
+  position:relative;padding:14px 16px;border-radius:12px;overflow:auto;
+  background:color-mix(in srgb,var(--hp-surface,#0b0b0b) 88%,#000 12%);
+  border:1px solid color-mix(in srgb,var(--hp-accent,#e8b23d) 18%,transparent);
+  box-shadow:0 10px 26px -18px rgba(0,0,0,.9);
+}
+[class*="markdown"] pre code{background:none;border:0;padding:0;font-size:12.5px;line-height:1.62;color:inherit}
+[class*="markdown"] blockquote{
+  margin:14px 0;padding:10px 14px;border-left:2px solid var(--hp-accent,#e8b23d);
+  background:color-mix(in srgb,var(--hp-accent,#e8b23d) 8%,transparent);
+  border-radius:0 10px 10px 0;color:var(--hp-ink-soft);
+}
+[class*="markdown"] hr{border:0;height:1px;margin:18px 0;
+  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--hp-accent,#e8b23d) 34%,transparent),transparent)}
+[class*="markdown"] a{color:var(--hp-accent,#e8b23d);text-decoration:underline;text-underline-offset:2px;
+  text-decoration-color:color-mix(in srgb,var(--hp-accent,#e8b23d) 45%,transparent)}
+[class*="markdown"] table{border-collapse:collapse;width:100%;margin:14px 0;font-size:12.5px}
+[class*="markdown"] th{
+  text-align:left;font-weight:600;padding:8px 12px;
+  background:color-mix(in srgb,var(--hp-accent,#e8b23d) 10%,transparent);
+  border-bottom:1px solid color-mix(in srgb,var(--hp-accent,#e8b23d) 30%,transparent);
+}
+[class*="markdown"] td{padding:7px 12px;border-bottom:1px solid color-mix(in srgb,var(--hp-ink,#f2e9da) 10%,transparent)}
+[class*="markdown"] tbody tr:nth-child(even){background:color-mix(in srgb,var(--hp-ink,#f2e9da) 4%,transparent)}
+[class*="markdown"] li::marker{color:color-mix(in srgb,var(--hp-accent,#e8b23d) 70%,transparent)}
+
+[class*="markdown"] a:hover{text-decoration-thickness:2px}
+[class*="markdown"] pre:hover{border-color:color-mix(in srgb,var(--hp-accent,#e8b23d) 34%,transparent)}
+[class*="markdown"] tbody tr:hover{background:color-mix(in srgb,var(--hp-accent,#e8b23d) 7%,transparent)}
+[class*="markdown"] kbd{
+  font-family:ui-monospace,monospace;font-size:11px;padding:1px 5px;border-radius:4px;
+  border:1px solid color-mix(in srgb,var(--hp-ink,#f2e9da) 26%,transparent);
+  border-bottom-width:2px;background:color-mix(in srgb,var(--hp-ink,#f2e9da) 8%,transparent);
+}
+[class*="markdown"] mark{
+  background:color-mix(in srgb,var(--hp-accent,#e8b23d) 30%,transparent);
+  color:inherit;border-radius:3px;padding:0 3px;
+}
+
+/* 选中与光标 */
+::selection{background:color-mix(in srgb,var(--hp-accent,#e8b23d) 34%,transparent);color:inherit}
+
+/* 焦点环：键盘操作时可见 */
+:where(button,a,input,textarea,[role="button"]):focus-visible{
+  outline:2px solid color-mix(in srgb,var(--hp-accent,#e8b23d) 62%,transparent);
+  outline-offset:2px;border-radius:6px;
+}
+
+/* 会话滚动条：细、跟随主题 */
+[class*="scrollBody"]::-webkit-scrollbar,[class*="scroll"]::-webkit-scrollbar{width:10px;height:10px}
+[class*="scrollBody"]::-webkit-scrollbar-thumb,[class*="scroll"]::-webkit-scrollbar-thumb{
+  background:color-mix(in srgb,var(--hp-accent,#e8b23d) 34%,transparent);
+  border:3px solid transparent;background-clip:content-box;border-radius:99px;
+}
+[class*="scrollBody"]::-webkit-scrollbar-thumb:hover,[class*="scroll"]::-webkit-scrollbar-thumb:hover{
+  background:color-mix(in srgb,var(--hp-accent,#e8b23d) 58%,transparent);background-clip:content-box;
+}
+[class*="scrollBody"]::-webkit-scrollbar-track,[class*="scroll"]::-webkit-scrollbar-track{background:transparent}
+
 html:has([class*="composerHero"]) .hp-composer-fade{display:none !important}
 .hp-composer-fade{position:absolute;left:0;right:0;top:100%;height:56px;z-index:1;pointer-events:none;border-radius:0 0 20px 20px}
 .hp-switch__btn{
